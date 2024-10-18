@@ -1,0 +1,47 @@
+{
+  "MapperName": "Vendor Order Invoice Document from IBM",
+  "Steps": [
+    {
+      "StepId": "001",
+      "StepName": "JSONParser",
+      "Config": {}
+    },
+    {
+      "Source": [ "001" ],
+      "StepId": "002",
+      "StepName": "DataTransformer",
+      "Config": {
+        "Templatepath": "configuration/mapper-configs/templates/vo_template_cominvdoc_ibm.json"
+      }
+    },
+    {
+      "Source": [ "002" ],
+      "StepId": "003",
+      "StepName": "HTTPOut",
+      "Config": {
+        "EndPoint": "http://10.0.0.8:55555/vendor-order",
+        "Token": "xyz",
+        "RequestFormat": "multipart/form-data",
+        "CustomHeaders": {
+          "kid": "6b237dfb58312722c5f8b7279b03be81eb4ca70f1ac9fb3e1de03a1b2350e920",
+          "resolve-receiver": false,
+          "did-enable": false,
+          "alg": "EcdsaSecp256r1Signature2019",
+          "bless-issuer": "BETA-DHL-LLP-TRF-UP",
+          "bless-message-type": "VND_ORD_IBM_COMINV_DOC",
+          "bless-subject-primary": "COURIER-FORWARDER",
+          "typ": "JWT",
+          "Created": "[DateTime]"
+        },
+        "IsDebug": true,
+        "CustomDataObjectWrapper": "body",
+        "PayloadKey": "message",
+        "DataRootPath": "$.data",
+        "FixedColumns": {
+          "messagetype": "VND_ORD_IBM_COMINV_DOC",
+          "org": "IBM"
+        }
+      }
+    }
+  ]
+}

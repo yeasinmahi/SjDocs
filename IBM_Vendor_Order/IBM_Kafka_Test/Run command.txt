@@ -1,0 +1,1 @@
+java -Dproperties_path=F:\Career\Surbana\SjDocs\IBM_Vendor_Order\IBM_Kafka_Test -jar demo-all.jar

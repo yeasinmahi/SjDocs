@@ -1,0 +1,170 @@
+{
+	"info": {
+		"_postman_id": "9ea0f3bd-e59a-487a-83c6-f122895e978e",
+		"name": "ExceptionModule",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7923636"
+	},
+	"item": [
+		{
+			"name": "Dubai_custom",
+			"item": [
+				{
+					"name": "submitExceptionV2_Sample",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "message",
+									"value": "{\n    \"id\": \"b96e9b19-76c0-402c-a009-3d55bc136d3b\",\n    \"msg_type\": \"Dubai-Custom-Exception\",\n    \"sender\": \"S3\",\n    \"issueTime\": 1690779580000.0,\n    \"transformedMessage\": \"ewogICAgImlkIjogIjEyMy00NTY3OCIsCiAgICAiZGF0ZVRpbWUiOiAiMTY5MDc3OTUyODAwMC4wIiwKICAgICJlcnJvckNvZGUiOiAiRENFLTEyMzQ1IiwKICAgICJlcnJvckRlc2MiOiAiSW52b2ljZSBudW1iZXIgaXMgbWlzc2luZyIsCiAgICAibXNnSWRlbnRpZmllciI6IHsKICAgICAgICAidHhuSWQiOiAiMTIzLTQ1Njc4IiwKICAgICAgICAiZWNvbUJ1c2luZXNzQ29kZSI6ICJEQy0xMjM0NSIKICAgIH0KfQ==\",\n    \"token\": \"b96e9b19-76c0-402c-a009-3d55bc136d3b\"\n}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://uat-transcomm.api.blesstrace.com/transformer/v1/messages/submitException",
+							"protocol": "https",
+							"host": [
+								"uat-transcomm",
+								"api",
+								"blesstrace",
+								"com"
+							],
+							"path": [
+								"transformer",
+								"v1",
+								"messages",
+								"submitException"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "message",
+											"value": "{\n    \"id\": \"b96e9b19-76c0-402c-a009-3d55bc136d3b\",\n    \"msg_type\": \"Dubai-Custom-Exception\",\n    \"sender\": \"S3\",\n    \"issueTime\": 1690779580000.0,\n    \"transformedMessage\": \"ewogICAgImlkIjogIjEyMy00NTY3OCIsCiAgICAiZGF0ZVRpbWUiOiAiMTY5MDc3OTUyODAwMC4wIiwKICAgICJlcnJvckNvZGUiOiAiRENFLTEyMzQ1IiwKICAgICJlcnJvckRlc2MiOiAiSW52b2ljZSBudW1iZXIgaXMgbWlzc2luZyIsCiAgICAibXNnSWRlbnRpZmllciI6IHsKICAgICAgICAidHhuSWQiOiAiMTIzLTQ1Njc4IiwKICAgICAgICAiZWNvbUJ1c2luZXNzQ29kZSI6ICJEQy0xMjM0NSIKICAgIH0KfQ==\",\n    \"token\": \"b96e9b19-76c0-402c-a009-3d55bc136d3b\"\n}",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{t-host}}/transformer/v1/messages/submitException",
+									"host": [
+										"{{t-host}}"
+									],
+									"path": [
+										"transformer",
+										"v1",
+										"messages",
+										"submitException"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.14.0 (Ubuntu)"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 31 Jul 2023 09:00:28 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "48"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "6000"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "5999"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1690794066"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"30-jzblX4qzvBWMYuoIhhHjkZ7b5C4\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"b96e9b19-76c0-402c-a009-3d55bc136d3b\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

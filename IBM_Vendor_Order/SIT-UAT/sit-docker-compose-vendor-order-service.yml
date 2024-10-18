@@ -1,0 +1,42 @@
+version: "3.9"
+services:
+  vendor-order-service:
+    image: "yeasinmahi/vendor-order-service:1.0"     
+    container_name: "vendor-order-service"      
+    restart: always
+    environment:
+        ## IBM config
+        ibm.api.host: https://s2d-api.test.logistics.ibm.com
+        ibm.auth.host: https://us-south.appid.cloud.ibm.com
+        ibm.auth.url.id: 0e35b23f-70a7-4879-9e5c-4866963c4c1c
+        ibm.client.id: a171ebaf-e7c8-4d27-8c63-84d2ff53b84d
+        ibm.client.secret: NTNjZmFlOGMtNGVkMy00OGE4LWIyMTctOGUwNWFmNzhiNjNh
+
+        # trans request
+        trans.api.host: http://10.0.0.5:8004
+        trans.auth.host: http://10.0.0.5:8002
+        trans.client.id: ebab7d00-4381-11ed-8fb6-f5122bab5d02
+        trans.client.secret: gAAAAABjO4kAAAECAwQFBgcICQoLDA0OD7JUW4ZyJY2XKSawUKU5cEfEcgAj6jz2orL46qXNcP9mpZImtp4h6oiwES0ilVDMDA==
+
+        ## data specific
+        shipment.response.json.location: data
+        shipment.response.pdf.location: data
+
+        ## Log Specific
+        log.save.location: log
+        log.console.level: 10
+        log.file.level: 10
+
+        #MySQL Credentials
+        db.host: "10.0.0.7"
+        db.user: "s3dbuser"
+        db.pwd: "S3@dpdhl@sit"
+        db.name: "dpdhl_db"
+
+        # Thread
+        thread.interval :  5
+        coninv.retry.limit :  3
+        coninv.doc.retry.limit : 3
+    volumes:
+      - ./data/vendor-order-service:/app/data/
+      - /var/datatransformer/log/vendor-order-service:/app/log

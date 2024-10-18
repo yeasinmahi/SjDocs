@@ -1,0 +1,94 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+    xmlns:bat="http://www.customs.pcfc.com/Schema/Declaration/BatchDeclaration" 
+    xmlns:com="http://www.customs.pcfc.com/Schema/Common/2.0" 
+    xmlns:sad="http://www.customs.pcfc.com/Schema/Declaration/SAD"
+    xmlns:ns1="http://www.customs.pcfc.com/Schema/Declaration/CourierBulkProcessingParameters" targetNamespace="http://www.customs.pcfc.com/Schema/Declaration/CourierBulkProcessingParameters" 
+    elementFormDefault="qualified" attributeFormDefault="qualified">
+	
+        <import namespace="http://www.customs.pcfc.com/Schema/Declaration/BatchDeclaration" schemaLocation="BatchDeclarationB2B.xsd"/>
+	<import namespace="http://www.customs.pcfc.com/Schema/Common/2.0" schemaLocation="Common_2_0.xsd"/>
+        <import namespace="http://www.customs.pcfc.com/Schema/Declaration/SAD" schemaLocation="DeclarationB2B.xsd"/>
+       
+        <element name="ConsignmentsSAD">
+		<complexType>
+			<sequence>
+				<element name="UNB" type="com:UNBType" nillable="true" minOccurs="0"/>
+				<element name="UTH" type="com:UTHType" nillable="true" minOccurs="0"/>
+				<element name="UNH" type="com:UNHType" nillable="true" minOccurs="0"/>
+				<element name="Consignments" type="sad:SADType"/>
+				<element name="UNZ" type="com:UNZType" nillable="true" minOccurs="0"/>
+			</sequence>
+		</complexType>
+	</element>
+        
+        <element name="position1" type="integer"/>
+        <element name="position2" type="integer"/>
+        
+        <element name="continuous" type="string"/>
+        
+        <element name="continuousData" type="string"/>
+        
+        <element name="Valid">
+        <complexType>
+			<sequence>
+                   <element name="Validation" type="string" minOccurs="0" maxOccurs="unbounded" />     
+                        </sequence>
+        </complexType>
+        </element>
+        
+        <element name="ValidData">
+        <complexType>
+			<sequence>
+                   <element name="ValidationData" type="string" minOccurs="0" maxOccurs="unbounded" />     
+                        </sequence>
+        </complexType>
+        </element>
+        
+        <element name="ValidDatacheck">
+        <complexType>
+			<sequence>
+                   <element name="ValidationDatacheck" type="string" minOccurs="0" maxOccurs="unbounded" />     
+                        </sequence>
+        </complexType>
+        </element>
+        
+        <element name="ValidGoodsType">
+        <complexType>
+			<sequence>
+                   <element name="ValidationGoodsType" type="string" minOccurs="0" maxOccurs="unbounded" />     
+                        </sequence>
+        </complexType>
+        </element>
+        
+        <element name="ValidGoods" type="string"/>
+        
+	<element name="CourierBulkProcessingProcessRequest">
+		<complexType>
+			<sequence>
+				<element name="UNB" type="com:UNBType" nillable="true" minOccurs="0">
+					<annotation>
+						<documentation>Interchange Header information</documentation>
+					</annotation>
+				</element>
+				<element name="UTH" type="com:UTHType" nillable="true" minOccurs="0"/>
+				<element name="UNH" type="com:UNHType" nillable="true" minOccurs="0"/>
+				<element name="Declaration" type="bat:BatchSADType"/>
+				<element name="UNZ" type="com:UNZType" nillable="true" minOccurs="0">
+					<annotation>
+						<documentation>Interchange Trailer information</documentation>
+					</annotation>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+        <element name="CourierBulkProcessingProcessResponse">
+            <complexType>
+                <sequence>
+                    <element name="UNH" type="com:UNHType" nillable="true" minOccurs="0"/>
+                    <element name="BatchAcknowledgementHeader" type="bat:BatchAcknowledgementHeaderType" 
+                                minOccurs="1" maxOccurs="1"/>
+                    <element name="Exception" type="com:ExceptionType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+                </sequence>
+            </complexType>
+	</element>
+</schema>

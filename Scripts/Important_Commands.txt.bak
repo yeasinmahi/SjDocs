@@ -1,0 +1,67 @@
+FTP - File Transfer Protocol
+SFTP - Secure File Transfer Protocol
+
+commands:
+=========
+	ssh yeasin@budokan.southeastasia.cloudapp.azure.com
+	ssh shugangl@40.127.99.86 -i C:\Users\Yeasin\.ssh\uat_id_rsa
+	
+	sftp -P 7250 sftpuser@samurai.southeastasia.cloudapp.azure.com
+
+	cat fileName  //open a file
+
+ 	pwd  //remote current location
+ 	lpwd //local curent location
+   
+	ll //file status
+ 	ls //file status
+	lls //Local file status
+
+	cd directory //Change directory
+   	lcd directory   //Local Change directory
+   
+   	get filename  // to download the file
+   	put filename  // to upload the file
+
+   	exit
+	
+   	docker exec -it 8408c85b3c57 /bin/sh 		// to see the docker folders of image "8408c85b3c57"
+ 
+	cd /home/s3user/deployment
+	docker compose -f docker-compose-sftp.yaml stop
+	docker compose -f docker-compose-emailclient.yml up -d
+	docker compose up -d kafka-ibm
+	
+	& 'C:\Program Files\PuTTY\pscp.exe' F:\Career\Surbana\SjDocs\Email_Client\email_config.json shugangl@40.127.99.86 -i C:\Users\Yeasin\.ssh\uat_id_rsa  :\home\s3user\deployment\data\email_config.json  //copy from windows to linux
+	c:\pscp user@remoteIP:\home\user\some\file.txt . //Download from linux to windows current directory
+	
+	
+	touch filename.txt //create a new file
+	nano filename.txt  // create and edit file 
+	
+	docker logs -f --since 0m emailclient
+	
+	Docker exec -it <container id> /bin/bash  // Ex. Docker exec -it emailclient /bin/bash 
+
+#Sftp Configaration
+cd /home/s3user/deployment/configuration/sftp/
+
+# To see the Transformed File:
+
+cle
+cd /var/datatransformer/httpoutdata
+CF_SHIP_DOC_DGF_IBM"
+
+ 
+#Mapper config,Template:
+cd /home/s3user/deployment/services/configuration/data-transformer/mapper-configs
+
+express shipment	UAT	/DHL_Global_Forwarding/shipments/EXP_YNAP/
+express manifest 	UAT	/DHL_Global_Forwarding/shipments/EXP_ASN/
+
+ls -t1 | head -10 // get last 10 files
+
+mysql -u s3dbuser -pS3@dpdhl@sit
+mysql -u s3dbuser -pS3@dpdhl
+
+sed -n '26900,27000 {=;p}' vo_service.log.2023-08-28   //print specific range from a file

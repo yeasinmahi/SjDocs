@@ -1,0 +1,720 @@
+[
+	{
+		"body": {
+			"sequence_timestamp": "1686903879647836946",
+			"shipmenttrackingnumber": "3641776095",
+			"invoicenumber": "94023B0319",
+			"org": "IBM",
+			"messagetype": "VND_ORD_IBM_COMINV",
+			"payload": [
+				{
+					"active": "true",
+					"blockchainStatus": "PREPARED",
+					"blockchainStatusChanges": [
+						{
+							"blockchainStatus": "CREATED",
+							"blockchainStatusTimestamp": "2023-07-03T14:57:29.162Z"
+						},
+						{
+							"blockchainStatus": "PREPARED",
+							"blockchainStatusTimestamp": "2023-07-03T18:22:14.744Z"
+						}
+					],
+					"blockchainStatusTimestamp": "2023-07-03T18:22:14.744Z",
+					"brokerName": "DHL Express",
+					"businessUnit": "SSC",
+					"carriers": [
+						{
+							"carrierName": "DHL Express",
+							"changeDateTime": "2023-07-03 16:57:28Z",
+							"houseAirwayBillNumber": "3641776095"
+						}
+					],
+					"cases": [
+						"W01395147",
+						"W01395152",
+						"W01395156",
+						"W01395157",
+						"W01395159",
+						"W01395277",
+						"W01396159"
+					],
+					"controlTower": "DHL LLP",
+					"countryOfExport": "NL",
+					"countryOfLastConsignment": "NL",
+					"countryOfOrigin": "MANY",
+					"currentCarrier": {
+						"carrierName": "DHL Express",
+						"changeDateTime": "2023-07-03 16:57:28Z",
+						"houseAirwayBillNumber": "3641776095"
+					},
+					"customsDocuments": [
+						{
+							"docNames": [
+								"CUS-3641776095-1688408386742.pdf",
+								"CUS-3641776095-1688408631230.pdf",
+								"CUS-3641776095-1688429942205.pdf",
+								"CUS-3641776095-1688430006803.pdf",
+								"CUS-3641776095-1688430105549.pdf",
+								"CUS-3641776095-1688430165369.pdf",
+								"CUS-3641776095-1688430178938.pdf",
+								"CUS-3641776095-1688430279694.pdf",
+								"CUS-3641776095-1688430328076.pdf"
+							],
+							"docType": "CUS"
+						}
+					],
+					"customsIdentifier": "CHE103794578",
+					"docType": "Shipment",
+					"fieldChanges": [
+						{
+							"changeDateTime": "2023-07-03 16:57:28Z",
+							"field": "unknown",
+							"userid": "unknown"
+						},
+						{
+							"changeDateTime": "2023-07-03T15:30:27.427Z",
+							"field": "case.customsDocuments",
+							"toValue": " Following value is changed/added for caseNum W01395147: [{\"docType\":\"AWB\",\"docNames\":[\"AWB-W01395147-1688398218200.pdf\"]}]",
+							"userid": "system"
+						},
+						{
+							"changeDateTime": "2023-07-03T15:31:06.022Z",
+							"field": "case.customsDocuments",
+							"toValue": " Following value is changed/added for caseNum W01395152: [{\"docType\":\"AWB\",\"docNames\":[\"AWB-W01395152-1688398257340.pdf\"]}]",
+							"userid": "system"
+						},
+						{
+							"changeDateTime": "2023-07-03T15:31:40.117Z",
+							"field": "case.customsDocuments",
+							"toValue": " Following value is changed/added for caseNum W01395156: [{\"docType\":\"AWB\",\"docNames\":[\"AWB-W01395156-1688398291559.pdf\"]}]",
+							"userid": "system"
+						},
+						{
+							"changeDateTime": "2023-07-03T15:32:16.424Z",
+							"field": "case.customsDocuments",
+							"toValue": " Following value is changed/added for caseNum W01395157: [{\"docType\":\"AWB\",\"docNames\":[\"AWB-W01395157-1688398327934.pdf\"]}]",
+							"userid": "system"
+						},
+						{
+							"changeDateTime": "2023-07-03T15:32:52.984Z",
+							"field": "case.customsDocuments",
+							"toValue": " Following value is changed/added for caseNum W01395159: [{\"docType\":\"AWB\",\"docNames\":[\"AWB-W01395159-1688398364268.pdf\"]}]",
+							"userid": "system"
+						},
+						{
+							"changeDateTime": "2023-07-03T15:33:32.145Z",
+							"field": "case.customsDocuments",
+							"toValue": " Following value is changed/added for caseNum W01395277: [{\"docType\":\"AWB\",\"docNames\":[\"AWB-W01395277-1688398402902.pdf\"]}]",
+							"userid": "system"
+						},
+						{
+							"changeDateTime": "2023-07-03T15:34:06.818Z",
+							"field": "case.customsDocuments",
+							"toValue": " Following value is changed/added for caseNum W01396159: [{\"docType\":\"AWB\",\"docNames\":[\"AWB-W01396159-1688398438397.pdf\"]}]",
+							"userid": "system"
+						},
+						{
+							"changeDateTime": "2023-07-03T17:41:38.566Z",
+							"field": "Invoices",
+							"toValue": "merged with idde: fa2f505a3e2d4af1948dead348f6530d",
+							"userid": "shipper"
+						},
+						{
+							"changeDateTime": "2023-07-03T17:46:44.955Z",
+							"field": "invoice.customsDocuments",
+							"fromValue": "[]",
+							"toValue": " Following value is changed/added: [{\"docType\":\"INV\",\"docNames\":[\"94023B0319-1688406400370.pdf\"]}]",
+							"userid": "system"
+						},
+						{
+							"changeDateTime": "2023-07-03T18:19:48.935Z",
+							"field": "shipment.customsDocuments",
+							"fromValue": "added/modified below docType & docNames/docProperties in customsDocuments",
+							"toValue": "[{\"docType\":\"CUS\",\"docNames\":[\"CUS-3641776095-1688408386742.pdf\"]}]",
+							"userid": "CDB_DOC_UPLOADER_COMPONENT"
+						},
+						{
+							"changeDateTime": "2023-07-03T18:22:14.743Z",
+							"field": "blockchainStatus",
+							"fromValue": "CREATED",
+							"toValue": "PREPARED",
+							"userid": "system"
+						},
+						{
+							"changeDateTime": "2023-07-03T18:23:51.830Z",
+							"field": "shipment.customsDocuments",
+							"fromValue": "added/modified below docType & docNames/docProperties in customsDocuments",
+							"toValue": "[{\"docType\":\"CUS\",\"docNames\":[\"CUS-3641776095-1688408631230.pdf\"]}]",
+							"userid": "CDB_DOC_UPLOADER_COMPONENT"
+						},
+						{
+							"changeDateTime": "2023-07-04T00:19:02.845Z",
+							"field": "shipment.customsDocuments",
+							"fromValue": "added/modified below docType & docNames/docProperties in customsDocuments",
+							"toValue": "[{\"docType\":\"CUS\",\"docNames\":[\"CUS-3641776095-1688429942205.pdf\"]}]",
+							"userid": "CDB_DOC_UPLOADER_COMPONENT"
+						},
+						{
+							"changeDateTime": "2023-07-04T00:20:07.169Z",
+							"field": "shipment.customsDocuments",
+							"fromValue": "added/modified below docType & docNames/docProperties in customsDocuments",
+							"toValue": "[{\"docType\":\"CUS\",\"docNames\":[\"CUS-3641776095-1688430006803.pdf\"]}]",
+							"userid": "CDB_DOC_UPLOADER_COMPONENT"
+						},
+						{
+							"changeDateTime": "2023-07-04T00:21:46.111Z",
+							"field": "shipment.customsDocuments",
+							"fromValue": "added/modified below docType & docNames/docProperties in customsDocuments",
+							"toValue": "[{\"docType\":\"CUS\",\"docNames\":[\"CUS-3641776095-1688430105549.pdf\"]}]",
+							"userid": "CDB_DOC_UPLOADER_COMPONENT"
+						},
+						{
+							"changeDateTime": "2023-07-04T00:22:46.174Z",
+							"field": "shipment.customsDocuments",
+							"fromValue": "added/modified below docType & docNames/docProperties in customsDocuments",
+							"toValue": "[{\"docType\":\"CUS\",\"docNames\":[\"CUS-3641776095-1688430165369.pdf\"]}]",
+							"userid": "CDB_DOC_UPLOADER_COMPONENT"
+						},
+						{
+							"changeDateTime": "2023-07-04T00:22:59.440Z",
+							"field": "shipment.customsDocuments",
+							"fromValue": "added/modified below docType & docNames/docProperties in customsDocuments",
+							"toValue": "[{\"docType\":\"CUS\",\"docNames\":[\"CUS-3641776095-1688430178938.pdf\"]}]",
+							"userid": "CDB_DOC_UPLOADER_COMPONENT"
+						},
+						{
+							"changeDateTime": "2023-07-04T00:24:40.441Z",
+							"field": "shipment.customsDocuments",
+							"fromValue": "added/modified below docType & docNames/docProperties in customsDocuments",
+							"toValue": "[{\"docType\":\"CUS\",\"docNames\":[\"CUS-3641776095-1688430279694.pdf\"]}]",
+							"userid": "CDB_DOC_UPLOADER_COMPONENT"
+						},
+						{
+							"changeDateTime": "2023-07-04T00:25:28.829Z",
+							"field": "shipment.customsDocuments",
+							"fromValue": "added/modified below docType & docNames/docProperties in customsDocuments",
+							"toValue": "[{\"docType\":\"CUS\",\"docNames\":[\"CUS-3641776095-1688430328076.pdf\"]}]",
+							"userid": "CDB_DOC_UPLOADER_COMPONENT"
+						}
+					],
+					"flowType": "IBM",
+					"foreignDestination": "CH",
+					"insurance": "0.000662948065013846",
+					"insuranceValue": "3.22",
+					"invoiceTotal": "4859.88",
+					"invoiceTotalCurrencyType": "EUR",
+					"invoiceTotalDeclared": "4859.88",
+					"invoiceTotalValueOfGoods": "4859.88",
+					"invoiceTotalWithInsurance": "4863.10",
+					"invoices": [
+						{
+							"bottomComments": [
+								"Certified true and correct",
+								"",
+								"",
+								"",
+								"",
+								"Goods exported outside the EU in accordance with",
+								"VAT Directive Article 146 (1)(a).",
+								"",
+								"",
+								""
+							],
+							"buyerVATReference": "CHE103794578",
+							"cases": [
+								{
+									"caseGW": "1.70",
+									"caseInvoiceNumber": "94023B0319",
+									"caseNW": "1.53",
+									"caseNum": "W01395147",
+									"customsDocuments": [
+										{
+											"docNames": [
+												"AWB-W01395147-1688398218200.pdf"
+											],
+											"docType": "AWB"
+										}
+									],
+									"dims": "52.00x17.00x14.00",
+									"items": [
+										{
+											"coo": "TH",
+											"declaredValue": "774.65",
+											"goodID": "3JK029",
+											"hacs": [
+												{
+													"dGBolStatement": "",
+													"dGClass": "",
+													"dGRegulated": "",
+													"hacCode": "",
+													"unNumber": ""
+												}
+											],
+											"hsClassification": "85044000",
+											"hsClassificationExt": "8504409590000000000000",
+											"ind": "",
+											"itemDescription": "PSU FRU",
+											"itemExtDescription": "POWERSUPPLY, >500W (>.50 KVA)",
+											"itemGW": "1.70",
+											"itemNW": "1.53",
+											"itemNum": "3JK029",
+											"orderNum": "443579",
+											"price": "774.65",
+											"qty": "1",
+											"unitPrice": "774.6500",
+											"uom": "PCE"
+										}
+									]
+								},
+								{
+									"caseGW": "0.90",
+									"caseInvoiceNumber": "94023B0319",
+									"caseNW": "0.81",
+									"caseNum": "W01395152",
+									"customsDocuments": [
+										{
+											"docNames": [
+												"AWB-W01395152-1688398257340.pdf"
+											],
+											"docType": "AWB"
+										}
+									],
+									"dims": "23.00x20.00x5.00",
+									"items": [
+										{
+											"coo": "TH",
+											"declaredValue": "809.22",
+											"goodID": "2PX533",
+											"hacs": [
+												{
+													"dGBolStatement": "",
+													"dGClass": "",
+													"dGRegulated": "",
+													"hacCode": "",
+													"unNumber": ""
+												}
+											],
+											"hsClassification": "84717000",
+											"hsClassificationExt": "8471705000000000000000",
+											"ind": "",
+											"itemDescription": "14TB 7.2K",
+											"itemExtDescription": "DISK DRIVE,INT,HARD,MAGNETIC,<=21 CM,F/INCORPORATION",
+											"itemGW": "0.90",
+											"itemNW": "0.81",
+											"itemNum": "2PX533",
+											"orderNum": "443584",
+											"price": "809.22",
+											"qty": "1",
+											"unitPrice": "809.2200",
+											"uom": "PCE"
+										}
+									]
+								},
+								{
+									"caseGW": "0.90",
+									"caseInvoiceNumber": "94023B0319",
+									"caseNW": "0.81",
+									"caseNum": "W01395156",
+									"customsDocuments": [
+										{
+											"docNames": [
+												"AWB-W01395156-1688398291559.pdf"
+											],
+											"docType": "AWB"
+										}
+									],
+									"dims": "23.00x20.00x5.00",
+									"items": [
+										{
+											"coo": "TH",
+											"declaredValue": "809.22",
+											"goodID": "2PX533",
+											"hacs": [
+												{
+													"dGBolStatement": "",
+													"dGClass": "",
+													"dGRegulated": "",
+													"hacCode": "",
+													"unNumber": ""
+												}
+											],
+											"hsClassification": "84717000",
+											"hsClassificationExt": "8471705000000000000000",
+											"ind": "",
+											"itemDescription": "14TB 7.2K",
+											"itemExtDescription": "DISK DRIVE,INT,HARD,MAGNETIC,<=21 CM,F/INCORPORATION",
+											"itemGW": "0.90",
+											"itemNW": "0.81",
+											"itemNum": "2PX533",
+											"orderNum": "443583",
+											"price": "809.22",
+											"qty": "1",
+											"unitPrice": "809.2200",
+											"uom": "PCE"
+										}
+									]
+								},
+								{
+									"caseGW": "0.90",
+									"caseInvoiceNumber": "94023B0319",
+									"caseNW": "0.81",
+									"caseNum": "W01395157",
+									"customsDocuments": [
+										{
+											"docNames": [
+												"AWB-W01395157-1688398327934.pdf"
+											],
+											"docType": "AWB"
+										}
+									],
+									"dims": "23.00x20.00x5.00",
+									"items": [
+										{
+											"coo": "TH",
+											"declaredValue": "809.22",
+											"goodID": "2PX533",
+											"hacs": [
+												{
+													"dGBolStatement": "",
+													"dGClass": "",
+													"dGRegulated": "",
+													"hacCode": "",
+													"unNumber": ""
+												}
+											],
+											"hsClassification": "84717000",
+											"hsClassificationExt": "8471705000000000000000",
+											"ind": "",
+											"itemDescription": "14TB 7.2K",
+											"itemExtDescription": "DISK DRIVE,INT,HARD,MAGNETIC,<=21 CM,F/INCORPORATION",
+											"itemGW": "0.90",
+											"itemNW": "0.81",
+											"itemNum": "2PX533",
+											"orderNum": "443582",
+											"price": "809.22",
+											"qty": "1",
+											"unitPrice": "809.2200",
+											"uom": "PCE"
+										}
+									]
+								},
+								{
+									"caseGW": "0.90",
+									"caseInvoiceNumber": "94023B0319",
+									"caseNW": "0.81",
+									"caseNum": "W01395159",
+									"customsDocuments": [
+										{
+											"docNames": [
+												"AWB-W01395159-1688398364268.pdf"
+											],
+											"docType": "AWB"
+										}
+									],
+									"dims": "23.00x20.00x5.00",
+									"items": [
+										{
+											"coo": "TH",
+											"declaredValue": "809.22",
+											"goodID": "2PX533",
+											"hacs": [
+												{
+													"dGBolStatement": "",
+													"dGClass": "",
+													"dGRegulated": "",
+													"hacCode": "",
+													"unNumber": ""
+												}
+											],
+											"hsClassification": "84717000",
+											"hsClassificationExt": "8471705000000000000000",
+											"ind": "",
+											"itemDescription": "14TB 7.2K",
+											"itemExtDescription": "DISK DRIVE,INT,HARD,MAGNETIC,<=21 CM,F/INCORPORATION",
+											"itemGW": "0.90",
+											"itemNW": "0.81",
+											"itemNum": "2PX533",
+											"orderNum": "443581",
+											"price": "809.22",
+											"qty": "1",
+											"unitPrice": "809.2200",
+											"uom": "PCE"
+										}
+									]
+								},
+								{
+									"caseGW": "1.10",
+									"caseInvoiceNumber": "94023B0319",
+									"caseNW": "0.99",
+									"caseNum": "W01395277",
+									"customsDocuments": [
+										{
+											"docNames": [
+												"AWB-W01395277-1688398402902.pdf"
+											],
+											"docType": "AWB"
+										}
+									],
+									"dims": "30.00x12.00x11.00",
+									"items": [
+										{
+											"coo": "TH",
+											"declaredValue": "563.74",
+											"goodID": "3FP848",
+											"hacs": [
+												{
+													"dGBolStatement": "",
+													"dGClass": "",
+													"dGRegulated": "",
+													"hacCode": "",
+													"unNumber": ""
+												}
+											],
+											"hsClassification": "85044000",
+											"hsClassificationExt": "8504409590000000000000",
+											"ind": "",
+											"itemDescription": "1600W PSU",
+											"itemExtDescription": "POWERSUPPLY, >500W (>.50 KVA)",
+											"itemGW": "1.10",
+											"itemNW": "0.99",
+											"itemNum": "3FP848",
+											"orderNum": "443586",
+											"price": "563.74",
+											"qty": "1",
+											"unitPrice": "563.7400",
+											"uom": "PCE"
+										}
+									]
+								},
+								{
+									"caseGW": "0.30",
+									"caseInvoiceNumber": "94023B0319",
+									"caseNW": "0.27",
+									"caseNum": "W01396159",
+									"customsDocuments": [
+										{
+											"docNames": [
+												"AWB-W01396159-1688398438397.pdf"
+											],
+											"docType": "AWB"
+										}
+									],
+									"dims": "31.00x22.00x22.00",
+									"items": [
+										{
+											"coo": "CN",
+											"declaredValue": "284.61",
+											"goodID": "95P4759",
+											"hacs": [
+												{
+													"dGBolStatement": "",
+													"dGClass": "",
+													"dGRegulated": "",
+													"hacCode": "",
+													"unNumber": ""
+												}
+											],
+											"hsClassification": "85444210",
+											"hsClassificationExt": "8544421000000000000000",
+											"ind": "",
+											"itemDescription": "CABLE 3.2M",
+											"itemExtDescription": "CABLE DATA, INS.,<= 80V,W/CONN,FOR TELECOM",
+											"itemGW": "0.30",
+											"itemNW": "0.27",
+											"itemNum": "95P4759",
+											"orderNum": "443587",
+											"price": "284.61",
+											"qty": "1",
+											"unitPrice": "284.6100",
+											"uom": "PCE"
+										}
+									]
+								}
+							],
+							"currency": "EUR",
+							"currencyConversionRate": "",
+							"customsDocuments": [
+								{
+									"docNames": [
+										"94023B0319-1688406400370.pdf"
+									],
+									"docType": "INV"
+								}
+							],
+							"date": "Jul 3, 2023, 12:00:00 AM",
+							"deliveryTerms": "CPT",
+							"emergencyCode": "A",
+							"invoiceCharges": [],
+							"invoiceFromAddress": {
+								"address1": "IMPL B.V.",
+								"address2": "C/O IBM NEDERLAND B.V.",
+								"address3": "JOHAN HUIZINGALAAN 765",
+								"address4": "1066 VH AMSTERDAM",
+								"address5": "THE NETHERLANDS",
+								"address6": "VAT NBR: NL802265753B01",
+								"invoiceFromCity": "MADRID",
+								"invoiceFromCountryCode": "697",
+								"invoiceFromCountryName": "NL",
+								"invoiceFromLocationCode": "09F",
+								"invoiceFromState": "SPAIN",
+								"invoiceFromStreet": "SA STA HORTENSIA 26-28",
+								"invoiceFromZipCode": "28002"
+							},
+							"invoiceGW": "6.70",
+							"invoiceNW": "6.03",
+							"invoiceNumber": "94023B0319",
+							"invoiceToAddress": {
+								"address1": "INTERNATIONAL MAINTENANCE PARTS",
+								"address2": "LOGISTICS B.V., AMSTERDAM/NL",
+								"address3": "ERSATZTEILE, P.ADR.",
+								"address4": "CHE-103.794.578VAT",
+								"address5": "8010 ZUERICH",
+								"address6": "SWITZERLAND",
+								"invoiceToCity": "MADRID",
+								"invoiceToCountryCode": "697",
+								"invoiceToCountryName": "NL",
+								"invoiceToLocationCode": "09F",
+								"invoiceToState": "SPAIN",
+								"invoiceToStreet": "SA STA HORTENSIA 26-28",
+								"invoiceToZipCode": "28002"
+							},
+							"invoiceTotalAlternateCurrency": "",
+							"invoiceTotalAlternateCurrencyType": "",
+							"invoiceType": "NO CHARGE",
+							"methodOfTransport": "4",
+							"methodOfTransportDescription": "AIR FREIGHT (REG)",
+							"otherCharges": "0",
+							"paymentTerms": "PAYMENT WITHIN 30 DAYS FROM GOODS RCPT",
+							"references": [
+								"ACCOUNTING RATE  03/07/23",
+								"ACCOUNTING RATE  E3697  03/07/23  EUR  1.0000000",
+								"ACCOUNTING RATE  E3848  03/07/23  EUR  0.9764156",
+								"EC93 BUYER VAT REFERENCE  103794578",
+								"DATE OF SUPPLY  03/07/23",
+								"INVOICE EXCHANGE RATE SHIPPING  E3788  03/07/23  EUR  1.0000000",
+								"EC93 SELLER VAT REFERENCE  NL802265753B01"
+							],
+							"remarks": [
+								"TH: THAILAND",
+								"CN: CHINA"
+							],
+							"sellerVATReference": "NL802265753B01",
+							"totalCases": "7",
+							"totalFreightCost": "",
+							"totalPrice": "4859.88",
+							"valueOfGoods": "4859.88",
+							"vendorNum": ""
+						}
+					],
+					"masterAirwayBillNumber": "3641776095",
+					"netWeight": "6.03",
+					"productType": "COMPUTER SPARE PARTS",
+					"serviceLevels": "TDY Express 12.00 (non-doc)",
+					"shipDateTime": "2023-07-03",
+					"shipFromAddress": {
+						"address1": "IMPL BV",
+						"address2": "C/O UPS-SCS COP INTOPS/CE EMERGENC",
+						"address3": "N/A",
+						"address4": "STANLEYWEG 8-10",
+						"address5": "N/A",
+						"address6": "N/A",
+						"shipFromCity": "VENLO",
+						"shipFromCountryCode": "788",
+						"shipFromCountryName": "NL",
+						"shipFromLocationCode": "370",
+						"shipFromState": "NETHERLAN",
+						"shipFromStreet": "STANLEYWEG 8-10",
+						"shipFromZipCode": "5928 LR"
+					},
+					"shipToAddress": {
+						"address1": "IMPL B.V. BRANCH SWITZERLAND",
+						"address2": "DCS CE DELIVERIES ND1",
+						"address3": "STEINACKERSTRASSE 56",
+						"address4": "Kloten",
+						"address5": "8302",
+						"address6": "Switzerland",
+						"shipToCity": "Zuerich",
+						"shipToCountryCode": "848",
+						"shipToCountryName": "CH",
+						"shipToLocationCode": "ND1",
+						"shipToState": "SWITZERLA",
+						"shipToStreet": "STEINACKERSTRASSE 56",
+						"shipToZipCode": "8302"
+					},
+					"shipmentDeliveryTerms": "CPT",
+					"shipmentID": "20233641776095",
+					"shipmentStatus": "RELEASED",
+					"statusChange": [
+						{
+							"changeDateTime": "2023-07-03T14:57:29.162Z",
+							"statusComments": "Shipment Created",
+							"statusLocalTime": "",
+							"toStatus": "CREATED",
+							"userid": "system"
+						},
+						{
+							"changeDateTime": "2023-07-03T20:34:49.967Z",
+							"statusComments": "string",
+							"statusLocalTime": "2023-07-03T22:14:00.000Z",
+							"toStatus": "RECEIVED_AT_HUB",
+							"userid": "UpdateShipmentStatus"
+						},
+						{
+							"changeDateTime": "2023-07-04T04:55:56.118Z",
+							"statusComments": "string",
+							"statusLocalTime": "2023-07-04T06:31:28.000Z",
+							"toStatus": "LANDED",
+							"userid": "UpdateShipmentStatus"
+						},
+						{
+							"changeDateTime": "2023-07-04T05:26:15.758Z",
+							"statusComments": "string",
+							"statusLocalTime": "2023-07-04T06:48:54.000Z",
+							"toStatus": "RELEASED",
+							"userid": "UpdateShipmentStatus"
+						},
+						{
+							"changeDateTime": "2023-07-04T05:26:18.396Z",
+							"statusComments": "string",
+							"statusLocalTime": "2023-07-04T06:53:01.000Z",
+							"toStatus": "RELEASED",
+							"userid": "UpdateShipmentStatus"
+						},
+						{
+							"changeDateTime": "2023-07-04T05:26:20.961Z",
+							"statusComments": "string",
+							"statusLocalTime": "2023-07-04T06:55:02.000Z",
+							"toStatus": "RELEASED",
+							"userid": "UpdateShipmentStatus"
+						},
+						{
+							"changeDateTime": "2023-07-04T05:26:26.083Z",
+							"statusComments": "string",
+							"statusLocalTime": "2023-07-04T07:01:18.000Z",
+							"toStatus": "RELEASED",
+							"userid": "UpdateShipmentStatus"
+						},
+						{
+							"changeDateTime": "2023-07-04T05:26:28.411Z",
+							"statusComments": "string",
+							"statusLocalTime": "2023-07-04T07:02:27.000Z",
+							"toStatus": "RELEASED",
+							"userid": "UpdateShipmentStatus"
+						},
+						{
+							"changeDateTime": "2023-07-04T05:56:55.063Z",
+							"statusComments": "string",
+							"statusLocalTime": "2023-07-04T07:21:27.000Z",
+							"toStatus": "RELEASED",
+							"userid": "UpdateShipmentStatus"
+						}
+					],
+					"totalCases": "7",
+					"totalItems": "7",
+					"tradingCountry": "NL"
+				}
+			]
+		}
+	}
+]

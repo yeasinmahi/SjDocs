@@ -1,0 +1,136 @@
+{
+    "info": {
+        "_postman_id": "bbd9bb2d-7a65-419f-815d-ff1678f0c7fa",
+        "name": "s2d-api-test",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "getBearerToken",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "https://us-south.appid.cloud.ibm.com/oauth/v4/0e35b23f-70a7-4879-9e5c-4866963c4c1c/token",
+                    "path": [
+                        "oauth",
+                        "v4",
+                        "0e35b23f-70a7-4879-9e5c-4866963c4c1c",
+                        "token"
+                    ],
+                    "protocol": "https",
+                    "host": [
+                        "us-south",
+                        "appid",
+                        "cloud",
+                        "ibm",
+                        "com"
+                    ]
+                },
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                    },
+                    {
+                        "key": "User-Agent",
+                        "value": "Thunder Client (https://www.thunderclient.com)",
+                        "disabled": true
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "grant_type",
+                            "value": "client_credentials"
+                        }
+                    ]
+                },
+                "auth": {
+                    "type": "basic",
+                    "basic": [
+                        {
+                            "key": "username",
+                            "value": "mariam_provided",
+                            "type": "string"
+                        },
+                        {
+                            "key": "password",
+                            "value": "",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "selectShipments",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "https://s2d-api.test.logistics.ibm.com/queries/selectShipments?shipmentID=20233641802415&process=SPO",
+                    "query": [
+                        {
+                            "key": "shipmentID",
+                            "value": "20233641802415"
+                        },
+                        {
+                            "key": "process",
+                            "value": "SPO"
+                        }
+                    ],
+                    "variable": [],
+                    "path": [
+                        "queries",
+                        "selectShipments"
+                    ],
+                    "protocol": "https",
+                    "host": [
+                        "s2d-api",
+                        "test",
+                        "logistics",
+                        "ibm",
+                        "com"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "retrieve-document",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "https://s2d-api.test.logistics.ibm.com/retrieve-document/filename?docType=INV&fileName=94023B1610-1690480682590.pdf",
+                    "query": [
+                        {
+                            "key": "docType",
+                            "value": "INV"
+                        },
+                        {
+                            "key": "fileName",
+                            "value": "94023B1610-1690480682590.pdf"
+                        }
+                    ],
+                    "variable": [],
+                    "path": [
+                        "retrieve-document",
+                        "filename"
+                    ],
+                    "protocol": "https",
+                    "host": [
+                        "s2d-api",
+                        "test",
+                        "logistics",
+                        "ibm",
+                        "com"
+                    ]
+                }
+            }
+        }
+    ]
+}

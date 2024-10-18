@@ -1,0 +1,69 @@
+1. Login to Budokan - 
+	
+	ssh tinux@budokan.southeastasia.cloudapp.azure.com -i file.key
+
+2. check sftp client if the client has already existed 
+    Also follow the pattern of other existing clients 
+
+2. Add 2 directory - 
+
+    > cd DHL_Global_Forwarding/shipments/
+    > mkdir < New Client Name >
+    > cd DHL_Global_Forwarding/shipments/ARAMCO/
+    > mkdir processed
+
+3.Add kafka config.
+
+    > cd services/configuration/kafka-client
+    > cat subscription.json
+    > vim subscription.json
+        > "i" for interction mode 
+            ** Followed the pattern of "DGFCP_GSK" for new client "Aramco"
+        > "ESC" to exit interction mode
+        > ":" to input option
+        > "wq" to save & quit
+
+4.Add Sftp config.
+
+    > cd services/configuration/sftp-client
+    > cat sftp_config.json
+    > vim sftp_config.json
+        > "i" for interction mode 
+            ** Followed the pattern of "DGF - GSK" for new client "Aramco"
+        > "ESC" to exit interction mode
+        > ":" to input option
+        > "wq" to save & quit
+
+5.Add mapper
+
+    > cd services/configuration/data-transformer/mapper-configs
+    > touch dgfcp_< New Client Name >.json
+        - dgfcp_aramco.json
+    > vim dgfcp_< New Client Name >.json
+        > "i" for interction mode 
+            ** Followed the pattern of "dgfcp_gsk.json" for new client "Aramco"
+        > "ESC" to exit interction mode
+        > ":" to input option
+        > "wq" to save & quit
+
+6.Add Template
+
+    > cd services/configuration/data-transformer/mapper-configs/templates
+    > touch dgfcp_template_< New Client Name >.json
+        - dgfcp_template_gsk.json
+    > vim dgfcp_template_< New Client Name >.json
+        > "i" for interction mode 
+            ** Followed the pattern of "dgfcp_template_gsk.json" for new client "Aramco"
+        > "ESC" to exit interction mode
+        > ":" to input option
+        > "wq" to save & quit
+
+        Or
+
+        - Copy "dgfcp_template_gsk.json" for new client "Aramco"
+        > cp dgfcp_template_gsk.json dgfcp_template_aramco.json
+
+
+
+        docker compose -f docker-compose.yml stop
+        docker compose -f docker-compose.yml up -d

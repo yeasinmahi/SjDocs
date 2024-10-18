@@ -1,0 +1,10 @@
+{
+    "id": "123-45678",
+    "dateTime": "1690779528000.0",
+    "errorCode": "DCE-12345",
+    "errorDesc": "Invoice number is missing",
+    "msgIdentifier": {
+        "txnId": "123-45678",
+        "ecomBusinessCode": "DC-12345"
+    }
+}

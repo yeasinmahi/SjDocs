@@ -1,0 +1,984 @@
+Date: Mon, 21 Aug 2023 11:26:52 +0200 (CEST)
+Message-ID: <1661357154.37268.1692610012513@czcholspc001079.prg-dc.dhl.com>
+Subject: Exported From Confluence
+MIME-Version: 1.0
+Content-Type: multipart/related; 
+	boundary="----=_Part_37267_85377522.1692610012512"
+
+------=_Part_37267_85377522.1692610012512
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///C:/exported.html
+
+<html xmlns:o=3D'urn:schemas-microsoft-com:office:office'
+      xmlns:w=3D'urn:schemas-microsoft-com:office:word'
+      xmlns:v=3D'urn:schemas-microsoft-com:vml'
+      xmlns=3D'urn:w3-org-ns:HTML'>
+<head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8=
+">
+    <title>Customer Accounts Configurations Document</title>
+    <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:TargetScreenSize>1024x640</o:TargetScreenSize>
+            <o:PixelsPerInch>72</o:PixelsPerInch>
+            <o:AllowPNG/>
+        </o:OfficeDocumentSettings>
+        <w:WordDocument>
+            <w:View>Print</w:View>
+            <w:Zoom>90</w:Zoom>
+            <w:DoNotOptimizeForBrowser/>
+        </w:WordDocument>
+    </xml>
+    <![endif]-->
+    <style>
+                <!--
+        @page Section1 {
+            size: 8.5in 11.0in;
+            margin: 1.0in;
+            mso-header-margin: .5in;
+            mso-footer-margin: .5in;
+            mso-paper-source: 0;
+        }
+
+        table {
+            border: solid 1px;
+            border-collapse: collapse;
+        }
+
+        table td, table th {
+            border: solid 1px;
+            padding: 5px;
+        }
+
+        td {
+            page-break-inside: avoid;
+        }
+
+        tr {
+            page-break-after: avoid;
+        }
+
+        div.Section1 {
+            page: Section1;
+        }
+
+        /* Confluence print stylesheet. Common to all themes for print medi=
+a */
+/* Full of !important until we improve batching for print CSS */
+
+@media print {
+    #main {
+        padding-bottom: 1em !important; /* The default padding of 6em is to=
+o much for printouts */
+    }
+
+    body {
+        font-family: Arial, Helvetica, FreeSans, sans-serif;
+        font-size: 10pt;
+        line-height: 1.2;
+    }
+
+    body, #full-height-container, #main, #page, #content, .has-personal-sid=
+ebar #content {
+        background: #fff !important;
+        color: #000 !important;
+        border: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: block !important;
+    }
+
+    a, a:link, a:visited, a:focus, a:hover, a:active {
+        color: #000;
+    }
+
+    #content h1,
+    #content h2,
+    #content h3,
+    #content h4,
+    #content h5,
+    #content h6 {
+        font-family: Arial, Helvetica, FreeSans, sans-serif;
+        page-break-after: avoid;
+    }
+
+    pre {
+        font-family: Monaco, "Courier New", monospace;
+    }
+
+    #header,
+    .aui-header-inner,
+    #navigation,
+    #sidebar,
+    .sidebar,
+    #personal-info-sidebar,
+    .ia-fixed-sidebar,
+    .page-actions,
+    .navmenu,
+    .ajs-menu-bar,
+    .noprint,
+    .inline-control-link,
+    .inline-control-link a,
+    a.show-labels-editor,
+    .global-comment-actions,
+    .comment-actions,
+    .quick-comment-container,
+    #addcomment {
+        display: none !important;
+    }
+
+    /* CONF-28544 cannot print multiple pages in IE */
+    #splitter-content {
+        position: relative !important;
+    }
+
+    .comment .date::before {
+        content: none !important; /* remove middot for print view */
+    }
+
+    h1.pagetitle img {
+        height: auto;
+        width: auto;
+    }
+
+    .print-only {
+        display: block;
+    }
+
+    #footer {
+        position: relative !important; /* CONF-17506 Place the footer at en=
+d of the content */
+        margin: 0;
+        padding: 0;
+        background: none;
+        clear: both;
+    }
+
+    #poweredby {
+        border-top: none;
+        background: none;
+    }
+
+    #poweredby li.print-only {
+        display: list-item;
+        font-style: italic;
+    }
+
+    #poweredby li.noprint {
+        display: none;
+    }
+
+    /* no width controls in print */
+    .wiki-content .table-wrap,
+    .wiki-content p,
+    .panel .codeContent,
+    .panel .codeContent pre,
+    .image-wrap {
+        overflow: visible !important;
+    }
+
+    /* TODO - should this work? */
+    #children-section,
+    #comments-section .comment,
+    #comments-section .comment .comment-body,
+    #comments-section .comment .comment-content,
+    #comments-section .comment p {
+        page-break-inside: avoid;
+    }
+
+    #page-children a {
+        text-decoration: none;
+    }
+
+    /**
+     hide twixies
+
+     the specificity here is a hack because print styles
+     are getting loaded before the base styles. */
+    #comments-section.pageSection .section-header,
+    #comments-section.pageSection .section-title,
+    #children-section.pageSection .section-header,
+    #children-section.pageSection .section-title,
+    .children-show-hide {
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    .children-show-hide.icon {
+        display: none;
+    }
+
+    /* personal sidebar */
+    .has-personal-sidebar #content {
+        margin-right: 0px;
+    }
+
+    .has-personal-sidebar #content .pageSection {
+        margin-right: 0px;
+    }
+
+    .no-print, .no-print * {
+        display: none !important;
+    }
+}
+-->
+    </style>
+</head>
+<body>
+    <h1>Customer Accounts Configurations Document</h1>
+    <div class=3D"Section1">
+        <p><strong>Group Centre of Excellence Blockchain</strong>&nbsp; <br=
+ class=3D"atl-forced-newline"><span class=3D"confluence-embedded-file-wrapp=
+er confluence-embedded-manual-size"><img class=3D"confluence-embedded-image=
+" draggable=3D"false" height=3D"72" width=3D"58" src=3D"4705756664342a71a22=
+e4c4cf9411b55" data-image-src=3D"/download/attachments/363775369/worddavce9=
+1fadc4f036d15a3972c95058d2255.png?version=3D1&amp;modificationDate=3D169226=
+3669570&amp;api=3Dv2" data-unresolved-comment-count=3D"0" data-linked-resou=
+rce-id=3D"372546775" data-linked-resource-version=3D"1" data-linked-resourc=
+e-type=3D"attachment" data-linked-resource-default-alias=3D"worddavce91fadc=
+4f036d15a3972c95058d2255.png" data-base-url=3D"https://confluence.dhl.com" =
+data-linked-resource-content-type=3D"image/png" data-linked-resource-contai=
+ner-id=3D"363775369" data-linked-resource-container-version=3D"3" alt=3D"">=
+</span> <span style=3D"color: rgb(31,73,125);">&nbsp;</span><br><strong>Cus=
+tomer Onboarding &amp; Configurations</strong><br><strong>Transformer Shipm=
+ent Module 1.0</strong>&nbsp; <br class=3D"atl-forced-newline">
+&nbsp;<br>
+Reference<span class=3D"confluence-anchor-link" id=3D"CustomerAccountsConfi=
+gurationsDocument-_Int_LHPBGfyb"></span> : <strong>Shipment Module 1.0</str=
+ong><br>
+Date Issued<span class=3D"confluence-anchor-link" id=3D"CustomerAccountsCon=
+figurationsDocument-_Int_kiAJwk0k"></span> : <strong>Q3 2023</strong><br>
+Distribution<span class=3D"confluence-anchor-link" id=3D"CustomerAccountsCo=
+nfigurationsDocument-_Int_jkS7ng6q"></span> : <strong>DHL ITS</strong><br>
+Document version<span class=3D"confluence-anchor-link" id=3D"CustomerAccoun=
+tsConfigurationsDocument-_Int_f9W6GM47"></span> : <strong>1.0</strong><br>
+Author <span class=3D"confluence-anchor-link" id=3D"CustomerAccountsConfigu=
+rationsDocument-_Int_161Y38Ou"></span> : <strong>ITS Blockchain</strong><br=
+>
+Status <span class=3D"confluence-anchor-link" id=3D"CustomerAccountsConfigu=
+rationsDocument-_Int_dN2owEjL"></span> : <strong>Draft</strong> <br class=
+=3D"atl-forced-newline"><span style=3D"color: rgb(255,255,255);">Customer O=
+nboarding Document</span><br><span class=3D"confluence-anchor-link" id=3D"C=
+ustomerAccountsConfigurationsDocument-_Hlk487785372"></span></p>
+<h1 id=3D"CustomerAccountsConfigurationsDocument-ListofHigh-LevelStepsforAN=
+ewCustomerOnboarding">List of High-Level Steps for A New Customer Onboardin=
+g</h1>
+<p><br class=3D"atl-forced-newline"><span class=3D"confluence-anchor-link" =
+id=3D"CustomerAccountsConfigurationsDocument-_Hlk143115871"></span><span cl=
+ass=3D"confluence-anchor-link" id=3D"CustomerAccountsConfigurationsDocument=
+-_Hlk143115927"></span># <a href=3D"#CustomerAccountsConfigurationsDocument=
+-_Activating_the_Data"><span style=3D"color: rgb(89,89,89);">Activating the=
+ Data Feed for the</span> <span style=3D"color: rgb(89,89,89);">Customer fr=
+om Source</span></a><br><span class=3D"confluence-anchor-link" id=3D"Custom=
+erAccountsConfigurationsDocument-_Hlk143116545"></span># <a href=3D"#Custom=
+erAccountsConfigurationsDocument-_Setting_up_the"><span style=3D"color: rgb=
+(89,89,89);">Setting up the directories in SFTP</span></a></p>
+<ol>
+<li><a href=3D"#CustomerAccountsConfigurationsDocument-_Configuring_the_SFT=
+P"><span style=3D"color: rgb(89,89,89);">Configuring the SFTP Relocator</sp=
+an></a></li>
+<li><a href=3D"#CustomerAccountsConfigurationsDocument-_Configuring_the_SFT=
+P_1"><span style=3D"color: rgb(89,89,89);">Configuring the SFTP File Mover =
+(if required)</span></a></li>
+<li><a href=3D"#CustomerAccountsConfigurationsDocument-_Configuring_the_SFT=
+P_2"><span style=3D"color: rgb(89,89,89);">Configuring the SFTP Client</spa=
+n></a></li>
+<li><a href=3D"#CustomerAccountsConfigurationsDocument-_Configuring_the_Kaf=
+ka"><span style=3D"color: rgb(89,89,89);">Configuring the Kafka Client</spa=
+n></a></li>
+<li><a href=3D"#CustomerAccountsConfigurationsDocument-_Configuring_the_Kaf=
+ka_1"><span style=3D"color: rgb(89,89,89);">Configuring the Kafka Client Do=
+cument</span> </a><span class=3D"confluence-anchor-link" id=3D"CustomerAcco=
+untsConfigurationsDocument-_Int_FvgbBthV"></span><span style=3D"color: rgb(=
+5,99,193);">API</span> <span style=3D"color: rgb(5,99,193);">(if required)<=
+/span><br><span class=3D"confluence-anchor-link" id=3D"CustomerAccountsConf=
+igurationsDocument-_Hlk143125899"></span># <a href=3D"#CustomerAccountsConf=
+igurationsDocument-_Configuring_the_Data"><span style=3D"color: rgb(89,89,8=
+9);">Configuring the Data</span> <span style=3D"color: rgb(89,89,89);">Tran=
+sformer</span></a>
+<ol>
+<li><a href=3D"#CustomerAccountsConfigurationsDocument-_Configuring_the_Dat=
+a"><span style=3D"color: rgb(89,89,89);">Preparing the mapper-config file</=
+span></a></li>
+<li><a href=3D"#CustomerAccountsConfigurationsDocument-_Configuring_the_Dat=
+a"><span style=3D"color: rgb(89,89,89);">Preparing the template file</span>=
+</a></li>
+</ol></li>
+</ol>
+<h1 id=3D"CustomerAccountsConfigurationsDocument-_Activating_the_DataActiva=
+tingtheDataFeedfortheCustomerfromSource"><span class=3D"confluence-anchor-l=
+ink" id=3D"CustomerAccountsConfigurationsDocument-_Activating_the_Data"></s=
+pan>Activating the Data Feed for the Customer from Source</h1>
+<p><span class=3D"confluence-anchor-link" id=3D"CustomerAccountsConfigurati=
+onsDocument-_Toc522551269"></span><span class=3D"confluence-anchor-link" id=
+=3D"CustomerAccountsConfigurationsDocument-_Toc522551307"></span><span clas=
+s=3D"confluence-anchor-link" id=3D"CustomerAccountsConfigurationsDocument-_=
+Toc522551956"></span><span class=3D"confluence-anchor-link" id=3D"CustomerA=
+ccountsConfigurationsDocument-_Int_q0qLbrPi"></span>In order to receive the=
+ event files (checkpoints) from the source system, data feed for a customer=
+ needs to be activated from the source systems(upstream). To achieve this t=
+he following steps, need to be followed:</p>
+<ol>
+<li>Contact Express Team (TSS Genesis System) and share the list of Shipper=
+ Account Numbers belonging to the new customer. The account numbers can be =
+obtained from the Product Owner and can be shared with the Team, following =
+which the files start getting received on the SFTP Server hosted for Expres=
+s Checkpoint Files.</li>
+<li>Contact the DGF (DHL Global Forwarding) Cargowise Team (CW1 System) for=
+ activating the data feed to the new customer so that the files start getti=
+ng received on the SFTP Server hosted for DGF Checkpoint Files.</li>
+</ol>
+<h1 id=3D"CustomerAccountsConfigurationsDocument-_Setting_up_theSettingupth=
+edirectoriesinSFTP"><span class=3D"confluence-anchor-link" id=3D"CustomerAc=
+countsConfigurationsDocument-_Setting_up_the"></span>Setting up the directo=
+ries in SFTP</h1>
+<p>Once the request for the Activation of Data Feeds is in place, the next =
+step would be to configure the SFTP Directories where the files would final=
+ly land. The data feeds, when activated from the source system, are pushed =
+into the respective SFTP Locations belonging to each of the Business Units =
+(EXP &amp; DGF in this case). Following are remote hosts of the SFTP Locati=
+ons:</p>
+<ol>
+<li>DHL Express: sftp3.dhl.com</li>
+<li>DHL DGF: 40.85.93.168</li>
+</ol>
+<p><em>Note: The Feed from the source system will only be received on the P=
+roduction SFTP remotes. Other than these two the files will not be configur=
+ed to be forwarded to any other location due to various data security polic=
+ies.</em> <br>
+The following working directories need to be created in the respective SFTP=
+ Remotes to receive the files successfully:</p>
+<ol>
+<li>For Express:
+<ol>
+<li>/in/work/{customerName} (the input files are received here)</li>
+<li>/in/work/{customerName}/sanity (to be used for sanity testing)</li>
+<li>/in/work/{customerName}/process (all processed files move here)</li>
+<li>/in/work/{customerName}/exceptions (all exception files move here)</li>
+<li>/in/work/{customerName}/offloading (used for controlled file processing=
+)</li>
+</ol></li>
+</ol>
+<p><br></p>
+<ol>
+<li>For DGF:
+<ol>
+<li>/DHL_Global_Forwarding/shipments/{customerName}</li>
+<li>/DHL_Global_Forwarding/shipments/{customerName}/sanity</li>
+<li>/DHL_Global_Forwarding/shipments/{customerName}/process</li>
+<li>/DHL_Global_Forwarding/shipments/{customerName}/exceptions</li>
+<li>/DHL_Global_Forwarding/shipments/{customerName}/offloading</li>
+</ol></li>
+</ol>
+<p><em>Note: The "customerName" is a case sensitive field and the same must=
+ be used for Activating the source feed.</em><br><span class=3D"confluence-=
+anchor-link" id=3D"CustomerAccountsConfigurationsDocument-_Configuring_the_=
+SFTP"></span></p>
+<h1 id=3D"CustomerAccountsConfigurationsDocument-ConfiguringtheSFTPFileRelo=
+cator">Configuring the SFTP File Relocator</h1>
+<p>Followed by the creation of the directory structure, steps in the config=
+uration of the SFTP Relocator which is done only for the DGF Data Feed. Unl=
+ike the Express files that are received directly into the respective Custom=
+er Directory (i.e. /in/work/{customerName}), all the DGF Files are received=
+ at "/DHL_Global_Forwarding/shipments/" location, hence requiring to be rel=
+ocated into their respective customer directory (i.e. /DHL_Global_Forwardin=
+g/shipments/{customerName}) so that the rest of the Data Transformation flo=
+w aligned and generic. Therefore, to achieve this the following steps need =
+to be followed:</p>
+<ol>
+<li>Obtain the list of all the Shipper Account Numbers (DGF) of the Custome=
+r</li>
+<li>Add the following configuration to the sftp-relocator config file that =
+can be found at "deployment/services/configuration/sftp-file-relocator/sftp=
+_config.json"</li>
+<li><span class=3D"confluence-embedded-file-wrapper confluence-embedded-man=
+ual-size"><img class=3D"confluence-embedded-image" draggable=3D"false" heig=
+ht=3D"46" width=3D"71" src=3D"eaccad4feb4803f97970db908f46b199" data-image-=
+src=3D"/download/attachments/363775369/worddav951253877f414d4919577ed850dd8=
+94b.png?version=3D1&amp;modificationDate=3D1692263669623&amp;api=3Dv2" data=
+-unresolved-comment-count=3D"0" data-linked-resource-id=3D"372546776" data-=
+linked-resource-version=3D"1" data-linked-resource-type=3D"attachment" data=
+-linked-resource-default-alias=3D"worddav951253877f414d4919577ed850dd894b.p=
+ng" data-base-url=3D"https://confluence.dhl.com" data-linked-resource-conte=
+nt-type=3D"image/png" data-linked-resource-container-id=3D"363775369" data-=
+linked-resource-container-version=3D"3" alt=3D""></span></li>
+<li>The above configuration should be appended to the "dest_folders" array =
+in the configuration.</li>
+</ol>
+<p><em>Note: Once the configuration is updated, the container "sftp-file-re=
+locator" needs to be restarted</em> <em>for the changes to take effect.</em=
+></p>
+<h1 id=3D"CustomerAccountsConfigurationsDocument-_Configuring_the_SFTP_1Con=
+figuringtheSFTPFileMover"><span class=3D"confluence-anchor-link" id=3D"Cust=
+omerAccountsConfigurationsDocument-_Configuring_the_SFTP_1"></span>Configur=
+ing the SFTP File Mover</h1>
+<p>In certain scenarios, it is noticed that if the source feed is activated=
+ and the feed is not yet configured to be consumed by the Data Transformer =
+for further processing, the files keep piling up in the root directory of t=
+he customer. This leads to the risk of running into a heavy volume of data =
+being published to the Bless Trusted Endpoint which can lead to various per=
+formance related issues. To mitigate this situation, the SFTP File Mover is=
+ used which moves a certain batch of files from the customer root directory=
+ to the offloading directory from which the files are picked to be processe=
+d on a temporary basis, until the file volume from the past pile up is redu=
+ced. Later the SFTP Client is reconfigured to point at the customer root di=
+rectory from which the usual process continues. Therefore, to achieve this =
+the following steps need to be followed:</p>
+<ol>
+<li>Point the SFTP Client for the respective customer to the offloading dir=
+ectory.</li>
+<li>Add the following configuration to the sftp-file-mover config file that=
+ can be found at "deployment/services/configuration/sftp-file-mover/sftp_co=
+nfig.json"</li>
+<li><span class=3D"confluence-embedded-file-wrapper confluence-embedded-man=
+ual-size"><img class=3D"confluence-embedded-image" draggable=3D"false" heig=
+ht=3D"46" width=3D"71" src=3D"aef8a73137c209c00e6121ea7c1238b4" data-image-=
+src=3D"/download/attachments/363775369/worddav75355df0775cb99899389b69fe3af=
+3c4.png?version=3D1&amp;modificationDate=3D1692263669663&amp;api=3Dv2" data=
+-unresolved-comment-count=3D"0" data-linked-resource-id=3D"372546777" data-=
+linked-resource-version=3D"1" data-linked-resource-type=3D"attachment" data=
+-linked-resource-default-alias=3D"worddav75355df0775cb99899389b69fe3af3c4.p=
+ng" data-base-url=3D"https://confluence.dhl.com" data-linked-resource-conte=
+nt-type=3D"image/png" data-linked-resource-container-id=3D"363775369" data-=
+linked-resource-container-version=3D"3" alt=3D""></span></li>
+<li>The above configuration should be appended to the "sftp-client" array i=
+n the configuration.</li>
+</ol>
+<p><em>Note: Once the configuration is updated, the container "sftp-file-mo=
+ver" needs to be restarted for the changes to take effect.</em></p>
+<h1 id=3D"CustomerAccountsConfigurationsDocument-_Configuring_the_SFTP_2Con=
+figuringtheSFTPClient"><span class=3D"confluence-anchor-link" id=3D"Custome=
+rAccountsConfigurationsDocument-_Configuring_the_SFTP_2"></span>Configuring=
+ the SFTP Client</h1>
+<p>Once the SFTP File Mover and the Relocator are configured the next impor=
+tant thing is to configure the SFTP-CLIENT. This component is responsible f=
+or picking up the files from the mentioned SFTP location, download the file=
+s to the local server, send the Filename and Timestamp to the respective co=
+nfigured Kafka Queue (Topic connected to the Data Transformer) for further =
+processing, and finally move the files to the processed directory in the SF=
+TP. To achieve this the following steps, need to be followed:</p>
+<ol>
+<li>Add the following configuration to the sftp-client config file that can=
+ be found at "deployment/services/configuration/sftp-client/sftp_config.jso=
+n"</li>
+<li><span class=3D"confluence-embedded-file-wrapper confluence-embedded-man=
+ual-size"><img class=3D"confluence-embedded-image" draggable=3D"false" heig=
+ht=3D"46" width=3D"71" src=3D"fc5d2b2bb3d56aa87b6335ce7f7eafe1" data-image-=
+src=3D"/download/attachments/363775369/worddavad355fed42542c4b171cb4f5f6e28=
+491.png?version=3D1&amp;modificationDate=3D1692263669697&amp;api=3Dv2" data=
+-unresolved-comment-count=3D"0" data-linked-resource-id=3D"372546778" data-=
+linked-resource-version=3D"1" data-linked-resource-type=3D"attachment" data=
+-linked-resource-default-alias=3D"worddavad355fed42542c4b171cb4f5f6e28491.p=
+ng" data-base-url=3D"https://confluence.dhl.com" data-linked-resource-conte=
+nt-type=3D"image/png" data-linked-resource-container-id=3D"363775369" data-=
+linked-resource-container-version=3D"3" alt=3D""></span></li>
+<li>The above configuration should be appended to the "sftp-client" array i=
+n the configuration.</li>
+</ol>
+<p><em>Note: Once the configuration is updated, the container "sftp-client"=
+ needs to be restarted for the changes to take effect.</em></p>
+<h1 id=3D"CustomerAccountsConfigurationsDocument-_Configuring_the_KafkaConf=
+iguringtheKafkaClient"><span class=3D"confluence-anchor-link" id=3D"Custome=
+rAccountsConfigurationsDocument-_Configuring_the_Kafka"></span>Configuring =
+the Kafka Client</h1>
+<p>The Kafka Client Component serves as the data flow layer between the SFT=
+P-Client Component and the Data-Transformer component. Once the file is pic=
+ked by the SFTP Client from the SFTP Location and is downloaded to the loca=
+l server, the file details with the timestamp is sent over the Kafka Topic =
+created for the new customer to the Data Transformer which then does the fu=
+rther processing. To achieve this the following steps, need to be followed:=
+</p>
+<ol>
+<li>Add the following configuration to the Kafka-client config file that ca=
+n be found at "deployment/services/configuration/Kafka-client/subscription.=
+json"</li>
+<li><span class=3D"confluence-embedded-file-wrapper confluence-embedded-man=
+ual-size"><img class=3D"confluence-embedded-image" draggable=3D"false" heig=
+ht=3D"46" width=3D"71" src=3D"086c9f3feba6a7284e6306eb22f8a2ed" data-image-=
+src=3D"/download/attachments/363775369/worddavf01b40ffe9df2d1fd046e57fcc08b=
+5df.png?version=3D1&amp;modificationDate=3D1692263669730&amp;api=3Dv2" data=
+-unresolved-comment-count=3D"0" data-linked-resource-id=3D"372546779" data-=
+linked-resource-version=3D"1" data-linked-resource-type=3D"attachment" data=
+-linked-resource-default-alias=3D"worddavf01b40ffe9df2d1fd046e57fcc08b5df.p=
+ng" data-base-url=3D"https://confluence.dhl.com" data-linked-resource-conte=
+nt-type=3D"image/png" data-linked-resource-container-id=3D"363775369" data-=
+linked-resource-container-version=3D"3" alt=3D""></span></li>
+<li>The above configuration should be appended to the "Topics" array in the=
+ configuration.</li>
+</ol>
+<p><em>Note: Once the configuration is updated, the container "Kafka-client=
+" needs to be restarted for the changes to take effect.</em></p>
+<h1 id=3D"CustomerAccountsConfigurationsDocument-_Configuring_the_Kafka_1Co=
+nfiguringtheKafkaClientDocumentAPI"><span class=3D"confluence-anchor-link" =
+id=3D"CustomerAccountsConfigurationsDocument-_Configuring_the_Kafka_1"></sp=
+an>Configuring the Kafka Client Document API</h1>
+<p>The Kafka Client Document API Component serves as the data flow layer be=
+tween the Shipment Documents and the Data-Transformer component. Once the d=
+ocument file is downloaded the file details along with the other details fo=
+rm the Document API Bless Message and publish it to the Bless Trusted Endpo=
+int with the Shipment Documents as attachments in the API Request. To achie=
+ve this the following steps, need to be followed:</p>
+<ol>
+<li>Add the following configuration to the Kafka-client-documentapi config =
+file that can be found at "deployment/services/configuration/Kafka-client-d=
+ocumentapi/subscription.json"</li>
+<li><span class=3D"confluence-embedded-file-wrapper confluence-embedded-man=
+ual-size"><img class=3D"confluence-embedded-image" draggable=3D"false" heig=
+ht=3D"46" width=3D"71" src=3D"086c9f3feba6a7284e6306eb22f8a2ed" data-image-=
+src=3D"/download/attachments/363775369/worddavf01b40ffe9df2d1fd046e57fcc08b=
+5df.png?version=3D1&amp;modificationDate=3D1692263669730&amp;api=3Dv2" data=
+-unresolved-comment-count=3D"0" data-linked-resource-id=3D"372546779" data-=
+linked-resource-version=3D"1" data-linked-resource-type=3D"attachment" data=
+-linked-resource-default-alias=3D"worddavf01b40ffe9df2d1fd046e57fcc08b5df.p=
+ng" data-base-url=3D"https://confluence.dhl.com" data-linked-resource-conte=
+nt-type=3D"image/png" data-linked-resource-container-id=3D"363775369" data-=
+linked-resource-container-version=3D"3" alt=3D""></span></li>
+<li>The above configuration should be appended to the "Topics" array in the=
+ configuration.</li>
+</ol>
+<p><em>Note: Once the configuration is updated, the container "Kafka-client=
+-documentapi" needs to be restarted for the changes to take effect.</em></p=
+>
+<h1 id=3D"CustomerAccountsConfigurationsDocument-_Configuring_the_DataConfi=
+guringtheDataTransformer"><span class=3D"confluence-anchor-link" id=3D"Cust=
+omerAccountsConfigurationsDocument-_Configuring_the_Data"></span>Configurin=
+g the Data Transformer</h1>
+<p><span class=3D"confluence-anchor-link" id=3D"CustomerAccountsConfigurati=
+onsDocument-_Int_1MPrZJer"></span>Finally, the Data Transformer components =
+need to the configured in order to enable the Transformation of the Files i=
+nto the Bless Format and Publish the Message to the Bless Trusted Endpoint =
+for the rest of the Business Message Flow. This component comprises of two =
+different configurations that are meant for the following purposes:</p>
+<ol>
+<li>Mapper-Config: Contains the chronological execution steps which include=
+s File Parsing, File Transformation, Staging the Bless Endpoint Configs, Pu=
+blish to Bless.</li>
+<li>Template: Contains the actual data Transformation Mapping Logic from So=
+urce to Bless JSON.</li>
+</ol>
+<p>To do these configurations the following steps need to be followed:</p>
+<ol>
+<li>Create a JSON file in the directory "deployment/services/configuration/=
+data-transformer/mapper-configs/" with the same filename prefix as mentione=
+d earlier in the Kafka-Client subscription.json config file.</li>
+<li>Add the following configurations to the newly created file under the di=
+rectory.</li>
+<li><span class=3D"confluence-embedded-file-wrapper confluence-embedded-man=
+ual-size"><img class=3D"confluence-embedded-image" draggable=3D"false" heig=
+ht=3D"46" width=3D"71" src=3D"b25eebc0a77553029b0d3a397f67ca2c" data-image-=
+src=3D"/download/attachments/363775369/worddav013c2f4b70c34631098879f66053f=
+049.png?version=3D1&amp;modificationDate=3D1692263669773&amp;api=3Dv2" data=
+-unresolved-comment-count=3D"0" data-linked-resource-id=3D"372546780" data-=
+linked-resource-version=3D"1" data-linked-resource-type=3D"attachment" data=
+-linked-resource-default-alias=3D"worddav013c2f4b70c34631098879f66053f049.p=
+ng" data-base-url=3D"https://confluence.dhl.com" data-linked-resource-conte=
+nt-type=3D"image/png" data-linked-resource-container-id=3D"363775369" data-=
+linked-resource-container-version=3D"3" alt=3D""></span></li>
+<li>The fields mentioned as XXXX in the attached config file will be provid=
+ed by the Bless Partner Onboarding Team.</li>
+<li>Add the File Transformation Template to the path mentioned in the above=
+ config (i.e., "configuration/mapper-configs/templates/templateName"). Refe=
+r to the Transformer Mapping Document for more information on the various m=
+appers and templates.</li>
+</ol>
+<p><em>Note:</em> <em>Once the configuration is updated, the container "dat=
+a-transformer" needs to be restarted for the changes to take effect.</em> <=
+br class=3D"atl-forced-newline"><br class=3D"atl-forced-newline">
+On successful completion of the above configurations and container restarts=
+ a sample file can be placed under the sanity directory on the SFTP Remote =
+(ensure that the sftp-client is pointing to the sanity directory) and the d=
+ocker logs of the sftp-client, Kafka-client and the data-transformer can be=
+ monitored to view the file processing and the message publish to Bless. On=
+ successful submission to Bless a token is generated pertaining to the resp=
+ective file and the same can be obtained from the Kafka-Client container lo=
+gs.</p>
+    </div>
+</body>
+</html>
+------=_Part_37267_85377522.1692610012512
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: base64
+Content-Location: file:///C:/b25eebc0a77553029b0d3a397f67ca2c
+
+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
+fhQ7nlCU9T8bWfjsG9lI8QAAAABJRU5ErkJggg==
+------=_Part_37267_85377522.1692610012512
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: base64
+Content-Location: file:///C:/aef8a73137c209c00e6121ea7c1238b4
+
+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
+QdGFAZQ0DqGseQTlLaOobTegsWcCzb2TaOqehNXmYsC9An46au7vWjb+9I2SOeqpNK6TfVH28tco
+7NPdPrvTDYfLw+1kw4GTLV0sV3BHTOv0PQE/TRUL38Eu5dra+5bMlCeIsJ+m0v5Rk8I+79WsB7tV
+u2PsitjNf/TpUrfZujNil5M/JSRLXo/o+emq2J7PQz+38ixeUk339KlxKKaxX2uJL72aba86fIhs
+Pw2lwLfbbOoPL7TAVei0lMLrfBkDXwWt5gveKIuen4YiGPSb+tzcXBw4cOCq+bPsbNTW1gr46ST6
+o8bExASfUOFq+vz583w/FGmudWUMfKErl4CvYy0aPoXBxx9/HDfffPOSVChReTfccMOS7EMorEXD
+f/nll1FcXLxkFYotTws8E+Gn8pgWDf+OO+6ISn4WezCx5WmVifBTqUXDv/HGG6O2FwsotrylLFso
+WguGf+bMGTz//PO45ZZb8MwzzyA/P59/WfFNN9102TbB2r17Nx555BHcc889+OijjxJeIsV+nxQv
+7NOlXTa75n7ooYdw9913Y+3atXGvvel7e/bs4fWmXOK5557jf7bct28fHn30UX5Mr7zyCkZGRvg/
+edavX4/77rsPDzzwALKysvgsHDQdGx0DTdOilcViwf33389vD89XH9o33Xt44okncOutt85bt0Tn
+mBSvTtoyDh8+jKeeeorvg4ZOmkgqmRYMn3Z6/PhxXpGuri689957l1U+dpsKf+ONN/h18djYGF59
+9VXs2LEjYYUSladd3759O15//XWMjo7ySZNWr16NLVu2xD3It99+G0ND4Vk1t27dittvv51/h75P
+v9//5JNP8M4772DTpk1qnek9OpG0LxIBzcnJiSqbgG/evDlufWjfq1at4nP7JTveeOc4UZ2U43v3
+3XfVY1E+n0wLhk8teu/evXxyoniVj92mwrUtkOa1o16XSAuFTz1pcHBQ3aYDf/rpp+ctk+pBU6wo
+ol583XXX8d6qiE7sgw8+yCOBts40BZtS5+7ubjz88MPqbFz0H0Dapr+JxasP7Xt8fHxBxxvvHCeq
+k3J8Vqs16vjuvffeuPvUfk9dT/RBArdixQrcddddePLJJ3mIiq187DYVrg3zNIsVhU7t+9oQn6w8
+7TqFRu0wQabevJAyqWfFhmCqG4VrGhYS1Zl6txKO8/LysGbNmoT1SZanaN+Pd46T1Wkhxzefrjjh
+o5moCwsL+Tg+3461CRsVTjNXKWppaVnSnh/bQxZaZiL4yXpZSUkJD7ukF198kc/Ylag+VwJfUew5
+Tlanqw5/5cqVfCIiKrigoIBXaL4dU7hRgFPhy5cv5+OdwWDAa6+9FjVWzaeFwt+5cyfvhTRNGv3K
+pr6+no97CykzEfyNGzdG5SkEetu2bernCAz1yl27duGtt95KWp/54FIvVl7Xvh/vHCer01WHTy3x
+2Wef5eHthRde4E+25tsxJXR33nmnmu3TSaJxkU7shx9+mHT+uoXCp0kQ6YQrWfRLL72E0tLSBZWZ
+CD5l6OvWreOZNWXxGzZsuKzOdJVw/fXXo6amJml9rgR+vHOcrE7/t7B/JRLX5YlFieNS3Rb/LRLw
+Uygaux977LGU7V/AT6Fuu+027N+/P2X7F490dSwBX8cS8HUsAV/HEvB1LAFfxxLwdSwBX8cS8HUs
+AV/HEvB1LAFfxxLwdSwBX8cS8HUsAV/HEvB1LAFfxxLwdSwBX8cS8HUsAV/HEvB1LAFfxxLwdSwB
+X4hrWezkAsKZbxV+ChueUIr1PzgKCfNsB2NmAAAAAElFTkSuQmCC
+------=_Part_37267_85377522.1692610012512
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: base64
+Content-Location: file:///C:/fc5d2b2bb3d56aa87b6335ce7f7eafe1
+
+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
+ROsoatrHUdsxAUO3Ca0DU2gfnEZb/zQcLh8DHhTw81Fzf9dy8W/fKJmjnkrjOjmU4iB/jMI+3e1z
+e/3w+ALcXjYceNnWx3IFf8K0T+8T8PNUWvgeNpXr6h66bqY8QYT9PJX6j5oU9nmvZj3Yr9ivsS9h
+P//Rp085ZvvehH1e/i0hWQoGRM/PV2l7Pg/93Mnv4iXFdE+fGkfSNParLfFtUHUcVIYPke3noZLw
+3S6X8sMLNXAFOm2l+D7fauAroJV8IZhi0fPzUASDflNfUlKCvXv3Zs3vFxfDYDAI+Pkk+qPG1NQU
+X1Ahmz5//jy/DkWa+a6CgS/0yyXg61g5g0/h89FHH8XNN9+c1evccMMNWT3/fFbO4L/wwguoqqrK
++nXU8LPZEOZjI8sZ/Ntvvz0lacrWh3e9zzsfIWdSzuDfeOONKccC/m+vrMM/ffo0nn32Wdxyyy14
+6qmnUFZWxi+a9E033XTVMYk+5F27duGhhx7C3XffjbVr1/7k9IpWy9i0aRPuv/9+3HfffXxenins
+09SwmM3ZH3jgAdx11114++23lbk7ve7gwYN44okncOutt/IhihZmSlfOdOdOV2cS/UtozZo1WLRo
+ES9fUVFRygofma6bLWUdPlXy6NGjvOJ9fX144403+OPaHqQ9poK9+uqrfE49OTmJpUuXYvv27de8
+1ocffoiXXnqJr6JF71u9enVG+Nu2bcMrr7yCiYkJvujSypUrsXnzZuXar7/+On+Oftu/ceNGXpZ0
+5Ux37kx1Tp6HykbnJrhUDnWdM103G8o6fOpZu3fv5osaqfVz4KtbPa2J98wzz1zzWjR7oHV0Mp1X
+vf/YY49hZGREOaYP/Mknn1Su7XA4lOdoEcZ77rknbTnTnTtTnR9++OGUOtHybuo6Xeu62VDW4RO0
+5cuX484778Tjjz/OQyLp58BXh3laAYvCv/p5bfilMKsdGjLBp9eqwzj5tttuS1sW6sEUhtM9l+7c
+mepM09pr1ela182GfrOEj1awrqio4GM4SVtRbQJIBaNVr5Lq6Oi47j1f2zPTvY6khqAtZ6b3kLR1
+/qmeX3DwV6xYwRcwooqUl5fzD4CkrSiFNzVsKtiyZcv4OrgmkwkvvvhiyviYTh988AFefvllPubT
++1atWpUR/o4dO/iYT8us0a90mpub+XibrmxqCNpyUk+m16vfk6nOGzZsSMljaMzfsmVL2vJpr5sN
+ZR0+tfynn36ah9nnnnuOfyNG0laUkrk77rgjJdvfuXMnHnzwQZ6Nv/vuuz+59h09v379eixevBhL
+lizBvn37MsKnRRSpAVAEoA/4+eefR3V1ddqyqSFoy5kOfqY602yCGiRl+/feey/WrVt3Vbaf6brZ
+UN7e259P82maNmb7NnU2JOBfB9HY/cgjj+S6GL9YAv510MKFC7Fnz55cF+MXK2/hC2VfAr6OJeDr
+WAK+jiXg61gCvo4l4OtYAr6OJeDrWAK+jiXg61gCvo4l4OtYAr6OJeDrWAK+jiXg61gCvo4l4OtY
+Ar6OJeDrWAK+jiXg61gCvo4l4OtYAr4Q1wLtYgXChW8Ffg4bnlCO9T9Gfcj0rz0ozgAAAABJRU5E
+rkJggg==
+------=_Part_37267_85377522.1692610012512
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: base64
+Content-Location: file:///C:/eaccad4feb4803f97970db908f46b199
+
+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
+
+------=_Part_37267_85377522.1692610012512
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: base64
+Content-Location: file:///C:/086c9f3feba6a7284e6306eb22f8a2ed
+
+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
+FWQSpAAAAABJRU5ErkJggg==
+------=_Part_37267_85377522.1692610012512
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: base64
+Content-Location: file:///C:/4705756664342a71a22e4c4cf9411b55
+
+iVBORw0KGgoAAAANSUhEUgAAAMUAAAD3CAMAAACaVGBkAAADAFBMVEUAAADq6urr6+vq6urr6+vp
+6enr6+vr6+vq6urq6urr6+vl5eXr6+vr6+vr6+vr6+vs7Oz////t7e3r6+vs7Ozp6enq6urr6+vo
+6Ojr6+vX19fs7Ozf39/////r6+vs7OzYMzzGxsbffYSgoKDHx8eHhITgfoTdXmbdZ27kqKzr6enU
+BxOjo6PbUVnKysrp09Pfcnnfe4Hp3NzcW2PLy8vZO0TgfIKNinuNin3aTlXXJS+Oi3vr5+fUBRHe
+b3XUDhreb3bo0NHbT1fYOEHVGCLcWWHcYmjZOULjmp7ZQkrWGSTZQkzQ0NDWIizq5OTnu77q5OXn
+xMbaQ0zkrbHXLDbUDBfebXTednvbTVXlrrGGhoOGhoaQi3mQi3qHh4fZQEn9ygLq4uKSjXf+ywCI
+iIjXKjThi5D/zADea3GJiYnbS1PUEx/X19eGhITmtrjcXmaLi4vZPkfq4OGMjIzaP0nXKDKJh4Lr
+6uqNjY3UCBPUCBToysvoysyKiH+KiICKiIHbUlqUjXXls7aOjo6LiX6LiX+1tbWPj4/cXGPmvb+M
+in2Hg4O2trbWHCfq3t/q5+fnvsHTBRG3t7fe3t7XJjHr6OnUBhK4uLjbUFnYMDnbWWG5ubnp0tOT
+k5PfeoDcWmLmu726urrZOkPjm6Dge4Hh4eGVlZXr5uaOinzhjpLUDRjebnTj4+OPi3rYLjiQjHjk
+5OTVFyLl5eXZQUrWISvnw8Tda3LaQkvko6fr5OXXKzbn5+flrbDBwcGbm5vo6OiGhYXfdnzff4Tm
+t7rp6enWHyrggIXggIbq4eHq4eLdYGfq6uqIh4OSjHfExMSJiH/r6+vFxcXlq67o1NXbU1sAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAjdkCLAAAAH3RSTlMA4eH8gned3mTu7goNquDo6AOBdmMM/all3w3MCApqlwVi
+RQAADIFJREFUeF7tnXusHUUdx6e3pbe1l9aWQgu1p5GisdCIiSLaNHJDojHRWjGXFtT4AERaLIit
+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
+------=_Part_37267_85377522.1692610012512--

@@ -1,0 +1,32 @@
+Yunus: 
+  P&P shipment (PP_HM)
+  DFF invoice
+    - IBM
+    - Apple
+  DGF DocumentApi
+
+Salahin:
+  DGF Shipment
+  Express Shipment
+
+Amin:
+  TransAir - FSU (CAI, CCN, IBS)
+  TransModal (Jantas Maxion)
+  TransOcean (CMA-CGM)
+
+Yeasin:  
+  TransComm 
+    - ECOM => submit order, return order, cancel order, confirm return delivery order
+    - DXB => cusdec, cusres, exception module
+
+Rofiqul Islam:
+  Duty Drawback
+  IBM project
+  IBM return module
+
+Email client:
+Nishl1
+Nisp1
+Nisetd
+Nispl1
+Tranrq

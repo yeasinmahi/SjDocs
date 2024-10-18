@@ -1,0 +1,538 @@
+[
+    {
+        "active": "true",
+        "blockchainStatus": "PREPARED",
+        "blockchainStatusChanges": [
+            {
+                "blockchainStatus": "CREATED",
+                "blockchainStatusTimestamp": "2023-07-27T14:50:56.728Z"
+            },
+            {
+                "blockchainStatus": "PREPARED",
+                "blockchainStatusTimestamp": "2023-07-27T18:18:23.283Z"
+            }
+        ],
+        "blockchainStatusTimestamp": "2023-07-27T18:18:23.283Z",
+        "brokerName": "DHL Express",
+        "businessUnit": "SSC",
+        "carriers": [
+            {
+                "carrierName": "DHL Express",
+                "changeDateTime": "2023-07-27 16:50:56Z",
+                "houseAirwayBillNumber": "3641803126"
+            }
+        ],
+        "cases": [
+            "W01448711"
+        ],
+        "controlTower": "DHL LLP",
+        "countryOfExport": "NL",
+        "countryOfLastConsignment": "NL",
+        "countryOfOrigin": "PH",
+        "currentCarrier": {
+            "carrierName": "DHL Express",
+            "changeDateTime": "2023-07-27 16:50:56Z",
+            "houseAirwayBillNumber": "3641803126"
+        },
+        "customsDocuments": [],
+        "docType": "Shipment",
+        "fieldChanges": [
+            {
+                "changeDateTime": "2023-07-27 16:50:56Z",
+                "field": "unknown",
+                "userid": "unknown"
+            },
+            {
+                "changeDateTime": "2023-07-27T15:04:40.013Z",
+                "field": "case.customsDocuments",
+                "toValue": " Following value is changed/added for caseNum W01448711: [{\"docType\":\"AWB\",\"docNames\":[\"AWB-W01448711-1690470271444.pdf\"]}]",
+                "userid": "system"
+            },
+            {
+                "changeDateTime": "2023-07-27T17:43:29.201Z",
+                "field": "shipFromAddress.shipFromCountryCode",
+                "fromValue": "",
+                "toValue": "788",
+                "userid": "shipper"
+            },
+            {
+                "changeDateTime": "2023-07-27T17:43:29.201Z",
+                "field": "shipFromAddress.shipFromLocationCode",
+                "fromValue": "",
+                "toValue": "370",
+                "userid": "shipper"
+            },
+            {
+                "changeDateTime": "2023-07-27T17:43:29.201Z",
+                "field": "shipFromAddress.shipFromState",
+                "fromValue": "",
+                "toValue": "NETHERLAN",
+                "userid": "shipper"
+            },
+            {
+                "changeDateTime": "2023-07-27T17:43:29.201Z",
+                "field": "shipFromAddress.address1",
+                "fromValue": "",
+                "toValue": "IMPL BV",
+                "userid": "shipper"
+            },
+            {
+                "changeDateTime": "2023-07-27T17:43:29.201Z",
+                "field": "shipFromAddress.address2",
+                "fromValue": "",
+                "toValue": "C/O UPS-SCS COP INTOPS/CE EMERGENC",
+                "userid": "shipper"
+            },
+            {
+                "changeDateTime": "2023-07-27T17:43:29.201Z",
+                "field": "shipFromAddress.address3",
+                "fromValue": "",
+                "toValue": "N/A",
+                "userid": "shipper"
+            },
+            {
+                "changeDateTime": "2023-07-27T17:43:29.201Z",
+                "field": "shipFromAddress.address4",
+                "fromValue": "",
+                "toValue": "STANLEYWEG 8-10",
+                "userid": "shipper"
+            },
+            {
+                "changeDateTime": "2023-07-27T17:43:29.201Z",
+                "field": "shipFromAddress.address5",
+                "fromValue": "",
+                "toValue": "N/A",
+                "userid": "shipper"
+            },
+            {
+                "changeDateTime": "2023-07-27T17:43:29.201Z",
+                "field": "shipFromAddress.address6",
+                "fromValue": "",
+                "toValue": "N/A",
+                "userid": "shipper"
+            },
+            {
+                "changeDateTime": "2023-07-27T17:43:29.201Z",
+                "field": "shipFromAddress.shipFromStreet",
+                "fromValue": "",
+                "toValue": "STANLEYWEG 8-10",
+                "userid": "shipper"
+            },
+            {
+                "changeDateTime": "2023-07-27T17:43:29.201Z",
+                "field": "shipFromAddress.shipFromZipCode",
+                "fromValue": "",
+                "toValue": "5928 LR",
+                "userid": "shipper"
+            },
+            {
+                "changeDateTime": "2023-07-27T17:43:29.201Z",
+                "field": "shipToAddress.shipToCountryCode",
+                "fromValue": "",
+                "toValue": "806",
+                "userid": "shipper"
+            },
+            {
+                "changeDateTime": "2023-07-27T17:43:29.201Z",
+                "field": "shipToAddress.shipToLocationCode",
+                "fromValue": "",
+                "toValue": "UT2",
+                "userid": "shipper"
+            },
+            {
+                "changeDateTime": "2023-07-27T17:43:29.201Z",
+                "field": "shipToAddress.shipToState",
+                "fromValue": "",
+                "toValue": "NORWAY",
+                "userid": "shipper"
+            },
+            {
+                "changeDateTime": "2023-07-27T17:43:29.201Z",
+                "field": "shipToAddress.address1",
+                "fromValue": "",
+                "toValue": "IMPL BV.",
+                "userid": "shipper"
+            },
+            {
+                "changeDateTime": "2023-07-27T17:43:29.201Z",
+                "field": "shipToAddress.address2",
+                "fromValue": "",
+                "toValue": "806UT2 C/O DANX AS",
+                "userid": "shipper"
+            },
+            {
+                "changeDateTime": "2023-07-27T17:43:29.201Z",
+                "field": "shipToAddress.address3",
+                "fromValue": "",
+                "toValue": "OSTRE AKER VEI 95",
+                "userid": "shipper"
+            },
+            {
+                "changeDateTime": "2023-07-27T17:43:29.201Z",
+                "field": "shipToAddress.address4",
+                "fromValue": "",
+                "toValue": "Oslo",
+                "userid": "shipper"
+            },
+            {
+                "changeDateTime": "2023-07-27T17:43:29.201Z",
+                "field": "shipToAddress.address5",
+                "fromValue": "",
+                "toValue": "0596",
+                "userid": "shipper"
+            },
+            {
+                "changeDateTime": "2023-07-27T17:43:29.201Z",
+                "field": "shipToAddress.address6",
+                "fromValue": "",
+                "toValue": "Norway",
+                "userid": "shipper"
+            },
+            {
+                "changeDateTime": "2023-07-27T17:43:29.201Z",
+                "field": "shipToAddress.shipToStreet",
+                "fromValue": "",
+                "toValue": "OSTRE AKER VEI 95",
+                "userid": "shipper"
+            },
+            {
+                "changeDateTime": "2023-07-27T17:43:29.201Z",
+                "field": "shipToAddress.shipToZipCode",
+                "fromValue": "",
+                "toValue": "0586",
+                "userid": "shipper"
+            },
+            {
+                "changeDateTime": "2023-07-27T17:43:29.201Z",
+                "field": "invoiceTotalCurrencyType",
+                "fromValue": "",
+                "toValue": "EUR",
+                "userid": "shipper"
+            },
+            {
+                "changeDateTime": "2023-07-27T17:43:29.201Z",
+                "field": "netWeight",
+                "fromValue": "",
+                "toValue": "0.31",
+                "userid": "shipper"
+            },
+            {
+                "changeDateTime": "2023-07-27T17:43:29.201Z",
+                "field": "invoiceTotal",
+                "fromValue": "",
+                "toValue": "1392.93",
+                "userid": "shipper"
+            },
+            {
+                "changeDateTime": "2023-07-27T17:43:29.201Z",
+                "field": "countryOfOrigin",
+                "fromValue": "",
+                "toValue": "PH",
+                "userid": "shipper"
+            },
+            {
+                "changeDateTime": "2023-07-27T17:43:29.201Z",
+                "field": "insurance",
+                "fromValue": "",
+                "toValue": "0.000873830189925455",
+                "userid": "shipper"
+            },
+            {
+                "changeDateTime": "2023-07-27T17:43:29.201Z",
+                "field": "insuranceValue",
+                "fromValue": "",
+                "toValue": "1.22",
+                "userid": "shipper"
+            },
+            {
+                "changeDateTime": "2023-07-27T17:43:29.201Z",
+                "field": "invoiceTotalWithInsurance",
+                "fromValue": "",
+                "toValue": "1394.15",
+                "userid": "shipper"
+            },
+            {
+                "changeDateTime": "2023-07-27T17:43:29.201Z",
+                "field": "invoiceTotalValueOfGoods",
+                "fromValue": "",
+                "toValue": "1392.93",
+                "userid": "shipper"
+            },
+            {
+                "changeDateTime": "2023-07-27T17:43:29.201Z",
+                "field": "invoiceTotalDeclared",
+                "fromValue": "",
+                "toValue": "1392.93",
+                "userid": "shipper"
+            },
+            {
+                "changeDateTime": "2023-07-27T17:43:29.201Z",
+                "field": "totalItems",
+                "fromValue": "",
+                "toValue": "1",
+                "userid": "shipper"
+            },
+            {
+                "changeDateTime": "2023-07-27T17:43:29.201Z",
+                "field": "shipmentDeliveryTerms",
+                "fromValue": "",
+                "toValue": "CPT",
+                "userid": "shipper"
+            },
+            {
+                "changeDateTime": "2023-07-27T17:43:29.201Z",
+                "field": "flowType",
+                "fromValue": "",
+                "toValue": "IBM",
+                "userid": "shipper"
+            },
+            {
+                "changeDateTime": "2023-07-27T17:43:29.201Z",
+                "field": "businessUnit",
+                "fromValue": "",
+                "toValue": "SSC",
+                "userid": "shipper"
+            },
+            {
+                "changeDateTime": "2023-07-27T17:43:29.201Z",
+                "field": "Invoices",
+                "toValue": "merged with idde: 0ca0ea55313043e192832cbeed82307d",
+                "userid": "shipper"
+            },
+            {
+                "changeDateTime": "2023-07-27T17:58:43.316Z",
+                "field": "invoice.customsDocuments",
+                "fromValue": "[]",
+                "toValue": " Following value is changed/added: [{\"docType\":\"INV\",\"docNames\":[\"94023B1663-1690480720017.pdf\"]}]",
+                "userid": "system"
+            },
+            {
+                "changeDateTime": "2023-07-27T18:18:23.283Z",
+                "field": "blockchainStatus",
+                "fromValue": "CREATED",
+                "toValue": "PREPARED",
+                "userid": "system"
+            }
+        ],
+        "flowType": "IBM",
+        "foreignDestination": "NO",
+        "insurance": "0.000873830189925455",
+        "insuranceValue": "1.22",
+        "invoiceTotal": "1392.93",
+        "invoiceTotalCurrencyType": "EUR",
+        "invoiceTotalDeclared": "1392.93",
+        "invoiceTotalValueOfGoods": "1392.93",
+        "invoiceTotalWithInsurance": "1394.15",
+        "invoices": [
+            {
+                "bottomComments": [
+                    "Certified true and correct",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "Goods exported outside the EU in accordance with",
+                    "VAT Directive Article 146 (1)(a).",
+                    "",
+                    "",
+                    ""
+                ],
+                "buyerVATReference": "NO971001518 MVA",
+                "cases": [
+                    {
+                        "caseGW": "0.35",
+                        "caseInvoiceNumber": "94023B1663",
+                        "caseNW": "0.31",
+                        "caseNum": "W01448711",
+                        "customsDocuments": [
+                            {
+                                "docNames": [
+                                    "AWB-W01448711-1690470271444.pdf"
+                                ],
+                                "docType": "AWB"
+                            }
+                        ],
+                        "dims": "23.00x13.00x6.00",
+                        "items": [
+                            {
+                                "coo": "PH",
+                                "declaredValue": "1392.93",
+                                "goodID": "2PX542",
+                                "hacs": [
+                                    {
+                                        "dGBolStatement": "",
+                                        "dGClass": "",
+                                        "dGRegulated": "",
+                                        "hacCode": "",
+                                        "unNumber": ""
+                                    }
+                                ],
+                                "hsClassification": "84717000",
+                                "hsClassificationExt": "8471709800000000000000",
+                                "ind": "",
+                                "itemDescription": "3.84TB FLA",
+                                "itemExtDescription": "SOLID STATE DRIVE,FOR INCORPORATION",
+                                "itemGW": "0.35",
+                                "itemNW": "0.31",
+                                "itemNum": "2PX542",
+                                "orderNum": "661276",
+                                "price": "1392.93",
+                                "qty": "1",
+                                "unitPrice": "1392.9300",
+                                "uom": "PCE"
+                            }
+                        ]
+                    }
+                ],
+                "currency": "EUR",
+                "currencyConversionRate": "",
+                "customsDocuments": [
+                    {
+                        "docNames": [
+                            "94023B1663-1690480720017.pdf"
+                        ],
+                        "docType": "INV"
+                    }
+                ],
+                "date": "Jul 27, 2023, 12:00:00 AM",
+                "deliveryTerms": "CPT",
+                "emergencyCode": "A",
+                "invoiceCharges": [],
+                "invoiceFromAddress": {
+                    "address1": "IMPL B.V.",
+                    "address2": "C/O IBM NEDERLAND B.V.",
+                    "address3": "JOHAN HUIZINGALAAN 765",
+                    "address4": "1066 VH AMSTERDAM",
+                    "address5": "THE NETHERLANDS",
+                    "address6": "VAT NBR: NL802265753B01",
+                    "invoiceFromCity": "MADRID",
+                    "invoiceFromCountryCode": "697",
+                    "invoiceFromCountryName": "NL",
+                    "invoiceFromLocationCode": "09F",
+                    "invoiceFromState": "SPAIN",
+                    "invoiceFromStreet": "SA STA HORTENSIA 26-28",
+                    "invoiceFromZipCode": "28002"
+                },
+                "invoiceGW": "0.35",
+                "invoiceNW": "0.31",
+                "invoiceNumber": "94023B1663",
+                "invoiceToAddress": {
+                    "address1": "IMPL c/o IBM AS",
+                    "address2": "LAKKEGATA 53",
+                    "address3": "VAT ID 971001518 MVA",
+                    "address4": "0187 OSLO",
+                    "address5": "NORWAY",
+                    "address6": "",
+                    "invoiceToCity": "MADRID",
+                    "invoiceToCountryCode": "697",
+                    "invoiceToCountryName": "NL",
+                    "invoiceToLocationCode": "09F",
+                    "invoiceToState": "SPAIN",
+                    "invoiceToStreet": "SA STA HORTENSIA 26-28",
+                    "invoiceToZipCode": "28002"
+                },
+                "invoiceTotalAlternateCurrency": "",
+                "invoiceTotalAlternateCurrencyType": "",
+                "invoiceType": "NO CHARGE",
+                "methodOfTransport": "4",
+                "methodOfTransportDescription": "AIR FREIGHT (REG)",
+                "otherCharges": "0",
+                "paymentTerms": "PAYMENT WITHIN 30 DAYS FROM GOODS RCPT",
+                "references": [
+                    "ACCOUNTING RATE  E3697  27/07/23  EUR  1.0000000",
+                    "EC93 BUYER VAT REFERENCE  NO971001518",
+                    "DATE OF SUPPLY  27/07/23",
+                    "INVOICE EXCHANGE RATE SHIPPING  E3788  27/07/23  EUR  1.0000000",
+                    "EC93 SELLER VAT REFERENCE  NL802265753B01"
+                ],
+                "remarks": [
+                    "PH: PHILIPPINES"
+                ],
+                "sellerVATReference": "NL802265753B01",
+                "totalCases": "1",
+                "totalFreightCost": "",
+                "totalPrice": "1392.93",
+                "valueOfGoods": "1392.93",
+                "vendorNum": ""
+            }
+        ],
+        "masterAirwayBillNumber": "3641803126",
+        "netWeight": "0.31",
+        "productType": "COMPUTER SPARE PARTS",
+        "serviceLevels": "WPX Express Worldwide (non-doc)",
+        "shipDateTime": "2023-07-27",
+        "shipFromAddress": {
+            "address1": "IMPL BV",
+            "address2": "C/O UPS-SCS COP INTOPS/CE EMERGENC",
+            "address3": "N/A",
+            "address4": "STANLEYWEG 8-10",
+            "address5": "N/A",
+            "address6": "N/A",
+            "shipFromCity": "VENLO",
+            "shipFromCountryCode": "788",
+            "shipFromCountryName": "NL",
+            "shipFromLocationCode": "370",
+            "shipFromState": "NETHERLAN",
+            "shipFromStreet": "STANLEYWEG 8-10",
+            "shipFromZipCode": "5928 LR"
+        },
+        "shipToAddress": {
+            "address1": "IMPL BV.",
+            "address2": "806UT2 C/O DANX AS",
+            "address3": "OSTRE AKER VEI 95",
+            "address4": "Oslo",
+            "address5": "0596",
+            "address6": "Norway",
+            "shipToCity": "Tromso",
+            "shipToCountryCode": "806",
+            "shipToCountryName": "NO",
+            "shipToLocationCode": "UT2",
+            "shipToState": "NORWAY",
+            "shipToStreet": "OSTRE AKER VEI 95",
+            "shipToZipCode": "0586"
+        },
+        "shipmentDeliveryTerms": "CPT",
+        "shipmentID": "20233641803126",
+        "shipmentStatus": "DELAYED",
+        "statusChange": [
+            {
+                "changeDateTime": "2023-07-27T14:50:56.728Z",
+                "statusComments": "Shipment Created",
+                "statusLocalTime": "",
+                "toStatus": "CREATED",
+                "userid": "system"
+            },
+            {
+                "changeDateTime": "2023-07-27T20:04:59.096Z",
+                "statusComments": "string",
+                "statusLocalTime": "2023-07-27T21:27:00.000Z",
+                "toStatus": "RECEIVED_AT_HUB",
+                "userid": "UpdateShipmentStatus"
+            },
+            {
+                "changeDateTime": "2023-07-28T06:12:39.223Z",
+                "statusComments": "string",
+                "statusLocalTime": "2023-07-28T07:38:01.000Z",
+                "toStatus": "LANDED",
+                "userid": "UpdateShipmentStatus"
+            },
+            {
+                "changeDateTime": "2023-07-28T06:12:42.776Z",
+                "statusComments": "string",
+                "statusLocalTime": "2023-07-28T07:47:16.000Z",
+                "toStatus": "RELEASED",
+                "userid": "UpdateShipmentStatus"
+            },
+            {
+                "changeDateTime": "2023-07-28T11:47:13.243Z",
+                "statusComments": "TU17  Special handling required",
+                "statusLocalTime": "2023-07-28T13:21:00.000Z",
+                "toStatus": "DELAYED",
+                "userid": "UpdateShipmentStatus"
+            }
+        ],
+        "totalCases": "1",
+        "totalItems": "1",
+        "tradingCountry": "NL"
+    }
+]

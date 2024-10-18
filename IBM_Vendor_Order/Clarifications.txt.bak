@@ -1,0 +1,11 @@
+invoicenumber= invoices[0].invoiceNumber
+filename= invoices[0].customsDocuments[]["docType": "INV"].docNames 
+
+ "customsDocuments":[
+               {
+                  "docNames":[
+                     "94023B0967-1689356118357.pdf"
+                  ],
+                  "docType":"INV"
+               }
+            ],

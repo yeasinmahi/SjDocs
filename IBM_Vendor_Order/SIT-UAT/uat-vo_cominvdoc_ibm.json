@@ -1,0 +1,47 @@
+{
+  "MapperName": "Vendor Order Invoice Document from IBM",
+  "Steps": [
+    {
+      "StepId": "001",
+      "StepName": "JSONParser",
+      "Config": {}
+    },
+    {
+      "Source": [ "001" ],
+      "StepId": "002",
+      "StepName": "DataTransformer",
+      "Config": {
+        "Templatepath": "configuration/mapper-configs/templates/vo_template_cominvdoc_ibm.json"
+      }
+    },
+    {
+      "Source": [ "002" ],
+      "StepId": "003",
+      "StepName": "HTTPOut",
+      "Config": {
+        "EndPoint": "https://20.218.218.193/bless/api/v3/messages/trusted",
+        "Token": "NmZiMDEzMGMtMmU3Yi00OWU0LTliYjItMjk4MDViOTE3ZDBl.MEQCIGclhjEKlbH7vUGOjY7Lt3edRLrf5VZqoRwamdx71rIVAiAt23ZAa4WgRxupwpaDT9HrwXdIQHhgv+RLs3foW7H3tw==",
+        "RequestFormat": "multipart/form-data",
+        "CustomHeaders": {
+          "kid": "dc8778973df625c6201f9332aafe63445b8833fc2ac9b65ddb9e00678fe8c813",
+          "resolve-receiver": false,
+          "did-enable": false,
+          "alg": "EcdsaSecp256r1Signature2019",
+          "bless-issuer": "BETA-DHL-LLP-TRF-UP",
+          "bless-message-type": "VND_ORD_IBM_COMINV_DOC",
+          "bless-subject-primary": "COURIER-FORWARDER",
+          "typ": "JWT",
+          "Created": "[DateTime]"
+        },
+        "IsDebug": true,
+        "CustomDataObjectWrapper": "body",
+        "PayloadKey": "message",
+        "DataRootPath": "$.data",
+        "FixedColumns": {
+          "messagetype": "VND_ORD_IBM_COMINV_DOC",
+          "org": "IBM"
+        }
+      }
+    }
+  ]
+}

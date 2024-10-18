@@ -1,0 +1,1 @@
+ssh shugangl@40.127.99.86 -i C:\Users\Yeasin\.ssh\uat_id_rsa

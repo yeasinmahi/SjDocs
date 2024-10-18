@@ -1,0 +1,45 @@
+curl -X POST 'http://localhost:8002/v1/auth/token' -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'client_id=ebab7d00-4381-11ed-8fb6-f5122bab5d02' --data-urlencode 'client_secret=gAAAAABjO4kAAAECAwQFBgcICQoLDA0OD7JUW4ZyJY2XKSawUKU5cEfEcgAj6jz2orL46qXNcP9mpZImtp4h6oiwES0ilVDMDA==' --data-urlencode 'grant_type=client_credentials'
+
+
+curl -X POST 'http://localhost:8101/v1/auth/token' -H 'Content-Type: application/x-www-form-urlencoded' --data-urlencode 'client_id=ebab7d00-4381-11ed-8fb6-f5122bab5d02' --data-urlencode 'client_secret=gAAAAABjO4kAAAECAwQFBgcICQoLDA0OD7JUW4ZyJY2XKSawUKU5cEfEcgAj6jz2orL46qXNcP9mpZImtp4h6oiwES0ilVDMDA==' --data-urlencode 'grant_type=client_credentials'
+
+
+curl -X POST 'http://localhost:8004/v1/ibm/invoice' \
+-H 'Authorization: Bearer eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE2OTE0Mzk1MzgsImV4cCI6MTY5NDAzMTUzOCwiaWF0IjoxNjkxNDM5NTM4LCJpc3MiOiJEYXRhVHJhbnNmb3JtZXIiLCJhdWQiOiJCTEVTUyJ9.p_tnRR5XfBcNrgNw6YS34xtMogkrI1hdNO9uVTURBIjQBecSU4Sg8gmvQbXqJAfZU22mZFft_9W3jswf002OhQ' \
+-H 'Content-Type: application/json' \
+-d @invoice.json
+
+
+ ERROR - Error: Error occurred during the request: HTTPConnectionPool(host='localhost', port=8002): Max retries exceeded with url: /v1/auth/token (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f766b1b09a0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+ 
+ 
+update dt_ibm_shipment set `COMINV_status` = 1, `COMINV_DOC_status` = 0, `COMINV_proces_date` = null, `COMINV_DOC_proces_date` = null, `COMINV_retry_count` = 0, `COMINV_DOC_retry_count` = 0, shipment_id='20230810001', `invoice_number`='94023B1610', `file_names` = '94023B1610-1690480682590.pdf' where id =3;
+
+20233641802415 94023B1610 94023B1610-1690480682590.pdf
+
+curl -X POST 'http://localhost:8004/v1/ibm/invoicedoc?doc=sample.pdf' \
+-H 'Authorization: Bearer eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE2OTE0Mzk1MzgsImV4cCI6MTY5NDAzMTUzOCwiaWF0IjoxNjkxNDM5NTM4LCJpc3MiOiJEYXRhVHJhbnNmb3JtZXIiLCJhdWQiOiJCTEVTUyJ9.p_tnRR5XfBcNrgNw6YS34xtMogkrI1hdNO9uVTURBIjQBecSU4Sg8gmvQbXqJAfZU22mZFft_9W3jswf002OhQ' \
+-H 'Content-Type: application/json' \
+-d @invoicedoc.json
+
+
+{
+    "shipment":"2312003887",
+    "invoice":"1007892593",
+    "file":"sample.pdf"
+}
+
+
+e788b7a41513d1be698b4f7f64a35cb5b53b834e2e9901c0730d123a0e206fa9
+
+base64.b64encode(pdf_data).decode('utf-8')
+
+update dt_ibm_shipment set `COMINV_status` = 1, `COMINV_DOC_status` = 0, `COMINV_proces_date` = null, `COMINV_DOC_proces_date` = null, `COMINV_retry_count` = 0, `COMINV_DOC_retry_count` = 0, shipment_id='8726826161', `invoice_number`='INV0811005', `file_names` = '94023B0967-1689356118357.pdf' where id =3;
+
+update dt_ibm_shipment set `COMINV_status` = 1, `COMINV_DOC_status` = 0, `COMINV_proces_date` = null, `COMINV_DOC_proces_date` = null, `COMINV_retry_count` = 0, `COMINV_DOC_retry_count` = 0, shipment_id='1184834453', `invoice_number`='INV0810002', `file_names` = 'AWB3641760496INV94023A9385.pdf' where id =2;
+
+update dt_ibm_shipment set `COMINV_status` = 1, `COMINV_DOC_status` = 0, `COMINV_proces_date` = null, `COMINV_DOC_proces_date` = null, `COMINV_retry_count` = 0, `COMINV_DOC_retry_count` = 0, shipment_id='20230810001', `invoice_number`='INV0810001', `file_names` = 'AWB3641776095Inv94023C7585.pdf' where id =3;
+
+update dt_ibm_shipment set `COMINV_DOC_retry_count` = 0;
+
+update dt_ibm_shipment set COMINV_status = 0, COMINV_retry_count=0, COMINV_DOC_status  = 0, COMINV_DOC_retry_count =0 where id in (12,13);

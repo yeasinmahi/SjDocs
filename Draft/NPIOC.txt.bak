@@ -1,0 +1,165 @@
+docker build -f .\SmartDoor.Dockerfile -t crngeeannpoly.azurecr.io/np-analysis-cardaccess:1.1 .
+docker build -f .\SmartDoor.Dockerfile -t crngeeannpoly.azurecr.io/np-analysis-cardaccess-windows:1.1 .
+docker build -f .\SmartToilet.Dockerfile -t crngeeannpoly.azurecr.io/np-analysis-smarttoilet:1.2 .
+docker build -f .\PowerDemand.Dockerfile -t crngeeannpoly.azurecr.io/np-analysis-powerdemand:1.2 .
+
+docker build -f .\Dockerfile.txt -t crngeeannpoly.azurecr.io/comunicationservice .
+docker push crngeeannpoly.azurecr.io/comunicationservice
+docker pull crngeeannpoly.azurecr.io/comunicationservice
+
+docker compose up -d
+docker compose down
+docker push crngeeannpoly.azurecr.io/np-analysis-cardaccess-windows:1.0
+docker push crngeeannpoly.azurecr.io/np-analysis-cardaccess:1.1
+docker push crngeeannpoly.azurecr.io/np-analysis-smarttoilet:1.1
+docker push crngeeannpoly.azurecr.io/np-analysis-powerdemand:1.2
+
+docker pull crngeeannpoly.azurecr.io/np-analysis-cardaccess-windows:1.0
+docker pull crngeeannpoly.azurecr.io/np-analysis-cardaccess:1.1
+docker pull crngeeannpoly.azurecr.io/np-analysis-smarttoilet:1.1
+docker pull crngeeannpoly.azurecr.io/np-analysis-powerdemand:1.2
+
+docker logs -f --since 10m cardaccess
+docker logs -f --since 10m smarttoilet
+docker logs -f --since 10m cardaccesswindow
+
+docker exec cardaccessdev date
+docker exec cardaccessdev timedatectl
+docker exec cardaccessdev cat /etc/timezone
+
+docker compose -f prod-docker-compose.yaml up -d smarttoilet
+
+ssh s3user@vmiocpilot004.southeastasia.cloudapp.azure.com
+
+scp s3user@vmiocpilot004.southeastasia.cloudapp.azure.com:/home/docker/services/logs/smarttoilet/log20240315.txt C:\Users\Yeasin\Docker\logs\smarttoilet\
+
+scp s3user@vmiocpilot004.southeastasia.cloudapp.azure.com:/home/docker/services/logs/smarttoilet/* C:\Users\Yeasin\Docker\logs\smarttoilet\
+scp s3user@vmiocpilot004.southeastasia.cloudapp.azure.com:/home/docker/services/logs/smartdoor/* C:\Users\Yeasin\Docker\logs\smartdoor\
+
+scp D:\CardAccess\ s3user@vmiocpilot004.southeastasia.cloudapp.azure.com:/home/docker/data/cardaccess/
+
+mv /home/docker/services/logs/smartdoorwindow /home/docker/logs
+
+CREATE NONCLUSTERED INDEX [nci_msft_Event_786101E9356788F0066D4888D8C4A433] ON [dbo].[Event] ([assetid]) INCLUDE ([cardid], [eventTime], [eventtype]) WITH (ONLINE = ON)
+
+jq '.[] | .events[] | .time' *
+
+
+hydra -l devteam -P ./Downloads/rockyou-20.txt localhost -s 5000 http-post-form "/:username=^USER^&password=^PASS^:F=Invalid"
+ 
+grep -iR '2023-01-20T10:43:59+08:00' * | cut -d ':' -f2 | sort | uniq -c
+grep -iR "2023-01-20T10:43:59+08:00"
+ls -1 | wc -l
+grep -E "2023-01-20T10:43:59+08:00" *
+
+
+2024-02-27 185 
+Z1-B5(DID)-L1-F
+2024-03-04 184
+Z1-B5(DID)-L1-F
+Z2-B58(O)-L5-H
+
++------------------------------------+-------------+
+|PowerDemand                         | -> Beebryte |
++------------------------------------+-------------+
+|SmartToilet(Peoplecount,Feedback)   | -> Exceltec |
++------------------------------------+-------------+
+|CardAccess                          | -> Bosch    |
++------------------------------------+-------------+
+
+Feedback: 2023-07-19
+People Count: Running
+
+Feedback: 2022-11-16 06:50:00.000 to 2023-07-18 19:13:00.000
+People Count: 2022-11-20 to 2024-01-30
+
+Azure data factory
+1 hour -> 50 minutes
+12 hours -> 50*12 = 600 Minutes
+
+Alternative solution
+12 hours -> 5 Minutes
+
+How many times faster? 600/5= 120 times. 
+
+
+size 6473
+
+1628407 
+
+total: 1628407
+max: 489024
+duplicate: 1553251
+				duplicate deleted: 1553251, remaining: 75156
+				
+delete min value: 489024 , Remaining: 1139383
+duplicate deleted: 1064227 , remaining: 75156
+
+
+
+
+visual flow
+
+Solution 1: 
+
+The process starts with a trigger that occurs every hour.
+The card access data is fetched, and duplicates are removed to create a unique list.
+The unique list is then checked against the database to determine whether the data already exists.
+If the data exists in the database, the process does nothing.
+If the data does not exist in the database, it is inserted into the database.
+The process then ends.
+
++-----------------------------------------------+
+|                Start Process                  |
++-----------------------------------------------+
+                    |
+                    V
++-----------------------------------------------+
+|             Trigger Every Hour                |
+|                                               |
+|              +----------------+               |
+|              |  Fetch Card    |               |
+|              |  Access Data   |               |
+|              +-------+--------+               |
+|                      |                        |
+|                      V                        |
+|             +-----------------+               |
+|             | Remove Duplicates|              |
+|             | from Access Data |              |
+|             +-----------------+               |
+|                      |                        |
+|                      V                        |
++---------------------|-------------------------+
+                      |
+                      V
+             +------------------+
+             |   Database       |
+             |   Query: Check if |
+             |   Data Exists     |
+             +---------+--------+
+                       |
+          +------------|------------+
+          |            V            |
++------------------+ +------------------+
+|  Data Exists     | |  Data Does Not   |
+|  in Database     | |  Exist in        |
+|                  | |  Database        |
++------------------+ +------------------+
+          |                     |
+          V                     V
++------------------+ +------------------+
+|  Do Nothing      | |   Insert Data    |
+|                  | |   into Database  |
++------------------+ +------------------+
+          |                     |
+          V                     V
++------------------+ +------------------+
+|    End Process   | |    End Process   |
++------------------+ +------------------+
+
+
+
+1. What is the purpose of SensorBase.Functions.ConfigIngress? Why we use PublishToCache method to cached toilet master data? 
+2. How to pull the peoplecount service in the SmartToilet project?
+3. What is the purpose of SensorBase.Storage.AzureFileShare? I Did not found any use of it?
+4. I am unable to understand the IDeviceService dependacy pass process. ->SensorBase.Extensions.RefitPollyExtension 

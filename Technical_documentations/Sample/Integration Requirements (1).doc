@@ -1,0 +1,710 @@
+Date: Wed, 16 Aug 2023 10:31:46 +0200 (CEST)
+Message-ID: <180135059.9780.1692174706407@czcholspc001078.prg-dc.dhl.com>
+Subject: Exported From Confluence
+MIME-Version: 1.0
+Content-Type: multipart/related; 
+	boundary="----=_Part_9779_1259449224.1692174706400"
+
+------=_Part_9779_1259449224.1692174706400
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///C:/exported.html
+
+<html xmlns:o=3D'urn:schemas-microsoft-com:office:office'
+      xmlns:w=3D'urn:schemas-microsoft-com:office:word'
+      xmlns:v=3D'urn:schemas-microsoft-com:vml'
+      xmlns=3D'urn:w3-org-ns:HTML'>
+<head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8=
+">
+    <title>Integration Requirements</title>
+    <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:TargetScreenSize>1024x640</o:TargetScreenSize>
+            <o:PixelsPerInch>72</o:PixelsPerInch>
+            <o:AllowPNG/>
+        </o:OfficeDocumentSettings>
+        <w:WordDocument>
+            <w:View>Print</w:View>
+            <w:Zoom>90</w:Zoom>
+            <w:DoNotOptimizeForBrowser/>
+        </w:WordDocument>
+    </xml>
+    <![endif]-->
+    <style>
+                <!--
+        @page Section1 {
+            size: 8.5in 11.0in;
+            margin: 1.0in;
+            mso-header-margin: .5in;
+            mso-footer-margin: .5in;
+            mso-paper-source: 0;
+        }
+
+        table {
+            border: solid 1px;
+            border-collapse: collapse;
+        }
+
+        table td, table th {
+            border: solid 1px;
+            padding: 5px;
+        }
+
+        td {
+            page-break-inside: avoid;
+        }
+
+        tr {
+            page-break-after: avoid;
+        }
+
+        div.Section1 {
+            page: Section1;
+        }
+
+        /* Confluence print stylesheet. Common to all themes for print medi=
+a */
+/* Full of !important until we improve batching for print CSS */
+
+@media print {
+    #main {
+        padding-bottom: 1em !important; /* The default padding of 6em is to=
+o much for printouts */
+    }
+
+    body {
+        font-family: Arial, Helvetica, FreeSans, sans-serif;
+        font-size: 10pt;
+        line-height: 1.2;
+    }
+
+    body, #full-height-container, #main, #page, #content, .has-personal-sid=
+ebar #content {
+        background: #fff !important;
+        color: #000 !important;
+        border: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: block !important;
+    }
+
+    a, a:link, a:visited, a:focus, a:hover, a:active {
+        color: #000;
+    }
+
+    #content h1,
+    #content h2,
+    #content h3,
+    #content h4,
+    #content h5,
+    #content h6 {
+        font-family: Arial, Helvetica, FreeSans, sans-serif;
+        page-break-after: avoid;
+    }
+
+    pre {
+        font-family: Monaco, "Courier New", monospace;
+    }
+
+    #header,
+    .aui-header-inner,
+    #navigation,
+    #sidebar,
+    .sidebar,
+    #personal-info-sidebar,
+    .ia-fixed-sidebar,
+    .page-actions,
+    .navmenu,
+    .ajs-menu-bar,
+    .noprint,
+    .inline-control-link,
+    .inline-control-link a,
+    a.show-labels-editor,
+    .global-comment-actions,
+    .comment-actions,
+    .quick-comment-container,
+    #addcomment {
+        display: none !important;
+    }
+
+    /* CONF-28544 cannot print multiple pages in IE */
+    #splitter-content {
+        position: relative !important;
+    }
+
+    .comment .date::before {
+        content: none !important; /* remove middot for print view */
+    }
+
+    h1.pagetitle img {
+        height: auto;
+        width: auto;
+    }
+
+    .print-only {
+        display: block;
+    }
+
+    #footer {
+        position: relative !important; /* CONF-17506 Place the footer at en=
+d of the content */
+        margin: 0;
+        padding: 0;
+        background: none;
+        clear: both;
+    }
+
+    #poweredby {
+        border-top: none;
+        background: none;
+    }
+
+    #poweredby li.print-only {
+        display: list-item;
+        font-style: italic;
+    }
+
+    #poweredby li.noprint {
+        display: none;
+    }
+
+    /* no width controls in print */
+    .wiki-content .table-wrap,
+    .wiki-content p,
+    .panel .codeContent,
+    .panel .codeContent pre,
+    .image-wrap {
+        overflow: visible !important;
+    }
+
+    /* TODO - should this work? */
+    #children-section,
+    #comments-section .comment,
+    #comments-section .comment .comment-body,
+    #comments-section .comment .comment-content,
+    #comments-section .comment p {
+        page-break-inside: avoid;
+    }
+
+    #page-children a {
+        text-decoration: none;
+    }
+
+    /**
+     hide twixies
+
+     the specificity here is a hack because print styles
+     are getting loaded before the base styles. */
+    #comments-section.pageSection .section-header,
+    #comments-section.pageSection .section-title,
+    #children-section.pageSection .section-header,
+    #children-section.pageSection .section-title,
+    .children-show-hide {
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    .children-show-hide.icon {
+        display: none;
+    }
+
+    /* personal sidebar */
+    .has-personal-sidebar #content {
+        margin-right: 0px;
+    }
+
+    .has-personal-sidebar #content .pageSection {
+        margin-right: 0px;
+    }
+
+    .no-print, .no-print * {
+        display: none !important;
+    }
+}
+-->
+    </style>
+</head>
+<body>
+    <h1>Integration Requirements</h1>
+    <div class=3D"Section1">
+        <p style=3D"text-align: center;"><span class=3D"confluence-anchor-l=
+ink" id=3D"IntegrationRequirements-_top"></span>&nbsp;<br>
+&nbsp;<br>
+&nbsp;<br>
+&nbsp;<br><strong>Group Centre of Excellence Blockchain</strong>&nbsp; <br =
+class=3D"atl-forced-newline"><span class=3D"confluence-embedded-file-wrappe=
+r confluence-embedded-manual-size"><img class=3D"confluence-embedded-image"=
+ draggable=3D"false" height=3D"72" width=3D"58" src=3D"b80b4a85f7ec0f01b696=
+c75c4c74aa77" data-image-src=3D"/download/attachments/363775365/worddavce91=
+fadc4f036d15a3972c95058d2255.png?version=3D1&amp;modificationDate=3D1691730=
+749037&amp;api=3Dv2" data-unresolved-comment-count=3D"0" data-linked-resour=
+ce-id=3D"363781715" data-linked-resource-version=3D"1" data-linked-resource=
+-type=3D"attachment" data-linked-resource-default-alias=3D"worddavce91fadc4=
+f036d15a3972c95058d2255.png" data-base-url=3D"https://confluence.dhl.com" d=
+ata-linked-resource-content-type=3D"image/png" data-linked-resource-contain=
+er-id=3D"363775365" data-linked-resource-container-version=3D"4" alt=3D""><=
+/span> <span style=3D"color: rgb(31,73,125);">&nbsp;</span><br><strong>Inte=
+gration Guide</strong>&nbsp;<br><strong>Transformer Shipment Module 1.0</st=
+rong>&nbsp;<br>
+&nbsp;<br>
+&nbsp;<br>
+&nbsp;<br>
+&nbsp;<br>
+Reference : <strong>Shipment Module 1.0</strong><br>
+Date Issued : <strong>Q3 2023</strong><br>
+Distribution : <strong>DHL ITS</strong><br>
+Document version : <strong>1.0</strong><br>
+Status : <strong>Draft</strong></p>
+<h1 id=3D"IntegrationRequirements-TableofContents">Table of Contents</h1>
+<p><br class=3D"atl-forced-newline"><br class=3D"atl-forced-newline"></p>
+<ol>
+<li><a href=3D"#IntegrationRequirements-_Introduction">Introduction</a></li=
+>
+<li><a href=3D"#IntegrationRequirements-_About_the_Data">About the Data Tra=
+nsformer</a></li>
+<li><a href=3D"#IntegrationRequirements-_Intended_Audience">Intended Audien=
+ce</a></li>
+<li><a href=3D"#IntegrationRequirements-_Key_Benefits">Key Benefits</a></li=
+>
+<li><a href=3D"#IntegrationRequirements-_Prerequisites">Prerequisites</a></=
+li>
+<li><a href=3D"#IntegrationRequirements-_Integration_Touchpoints_in">Integr=
+ation Touchpoints in Scope</a></li>
+<li><a href=3D"#IntegrationRequirements-_Integration_Steps">Integration Ste=
+ps</a>
+<ol>
+<li><a href=3D"#IntegrationRequirements-_DHL_Express_Remote">Express Checkp=
+oint Remote SFTP</a></li>
+<li><a href=3D"#IntegrationRequirements-_DHL_Global_Forwarding">DGF Checkpo=
+int Remote SFTP</a></li>
+<li><a href=3D"#IntegrationRequirements-_Document_API_=E2=80=93">Document A=
+PI</a></li>
+<li><a href=3D"#IntegrationRequirements-_Bless_Trusted_API">BLESS Trusted A=
+PI</a></li>
+</ol></li>
+<li><a href=3D"#IntegrationRequirements-_Setting_Up_the">Setting Up Configu=
+ration</a>
+<ol>
+<li><a class=3D"unresolved" href=3D"#">SFTP Client Config</a></li>
+<li><a class=3D"unresolved" href=3D"#">Bless Trusted API Config</a></li>
+</ol></li>
+<li><a href=3D"#IntegrationRequirements-_Authentication_and_Security">Authe=
+ntication and Security</a></li>
+<li><a href=3D"#IntegrationRequirements-_Exceptions_Handling">Error Handlin=
+g</a></li>
+</ol>
+<h1 id=3D"IntegrationRequirements-_IntroductionIntroduction"><span class=3D=
+"confluence-anchor-link" id=3D"IntegrationRequirements-_Introduction"></spa=
+n><span style=3D"color: rgb(47,84,150);">Introduction</span></h1>
+<p>This guide is designed to assist developers and system administrators in=
+ seamlessly integrating the Data Transformer Application into their existin=
+g systems and workflows. Whether you are looking to enhance data processing=
+, automate tasks, or improve data interoperability, this document will walk=
+ you through the necessary steps to successfully integrate and leverage the=
+ capabilities of the Data Transformer Application.</p>
+<h1 id=3D"IntegrationRequirements-_About_the_DataAbouttheDataTransformerApp=
+lication"><span class=3D"confluence-anchor-link" id=3D"IntegrationRequireme=
+nts-_About_the_Data"></span><span style=3D"color: rgb(47,84,150);">About th=
+e Data Transformer Application</span></h1>
+<p>The Data Transformer Application is a powerful tool designed to streamli=
+ne the transformation, conversion, and enrichment of data across diverse fo=
+rmats and sources. By integrating the Data Transformer Application into you=
+r ecosystem, you can achieve greater efficiency, accuracy, and flexibility =
+in handling data. Whether you're working with structured databases, unstruc=
+tured files, APIs, or cloud storage, the Data Transformer Application empow=
+ers you to reshape data according to your specific requirements.</p>
+<h1 id=3D"IntegrationRequirements-_Intended_AudienceIntendedAudience"><span=
+ class=3D"confluence-anchor-link" id=3D"IntegrationRequirements-_Intended_A=
+udience"></span>Intended Audience</h1>
+<p>This integration guide is intended for developers, system architects, an=
+d technical personnel responsible for integrating the Data Transformer Appl=
+ication into existing software systems, data pipelines, or business process=
+es. Whether you are a software engineer building a custom integration or a =
+system administrator managing data workflows, this guide provides the infor=
+mation you need to successfully integrate the Data Transformer Application.=
+</p>
+<h1 id=3D"IntegrationRequirements-_Key_BenefitsKeyBenefits"><span class=3D"=
+confluence-anchor-link" id=3D"IntegrationRequirements-_Key_Benefits"></span=
+>Key Benefits</h1>
+<ul>
+<li>Flexibility: Seamlessly transform data from one format to another, adap=
+ting to your organization's evolving data needs.</li>
+<li>Automation: Enable automated data transformation workflows to save time=
+ and reduce manual intervention.</li>
+<li>Interoperability: Bridge the gap between disparate systems, enabling sm=
+ooth data exchange and collaboration.</li>
+<li>Enhanced Productivity: Empower your team to focus on value-added tasks =
+by automating routine data transformation processes.</li>
+<li>Data Enrichment: Enrich your data with additional information from exte=
+rnal sources, enhancing its value and accuracy.</li>
+</ul>
+<h1 id=3D"IntegrationRequirements-_PrerequisitesPrerequisites"><span class=
+=3D"confluence-anchor-link" id=3D"IntegrationRequirements-_Prerequisites"><=
+/span>Prerequisites</h1>
+<p>Before proceeding with the integration, please ensure that you have the =
+following prerequisites in place:</p>
+<ul>
+<li>Access to the Data Transformer Application: Obtain the necessary access=
+ credentials or licensing information to use the Data Transformer Applicati=
+on.</li>
+<li>Basic Technical Proficiency: Familiarity with data formats, APIs, and i=
+ntegration concepts will be beneficial.</li>
+<li>Understanding of the Systems: A clear understanding of the existing sys=
+tems, data sources, and target formats will facilitate the integration proc=
+ess.</li>
+</ul>
+<h1 id=3D"IntegrationRequirements-_Integration_Touchpoints_inIntegrationTou=
+chpointsinScope"><span class=3D"confluence-anchor-link" id=3D"IntegrationRe=
+quirements-_Integration_Touchpoints_in"></span>Integration Touchpoints in S=
+cope</h1>
+<ul>
+<li>DHL Express remote SFTP (Express Checkpoint Files from TSS Genesis)</li=
+>
+<li>DGF remote SFTP (DGF Checkpoint Files from Cargowise)</li>
+<li>DGF Document API</li>
+<li>Bless Trusted API</li>
+</ul>
+<h1 id=3D"IntegrationRequirements-_Integration_StepsIntegrationSteps"><span=
+ class=3D"confluence-anchor-link" id=3D"IntegrationRequirements-_Integratio=
+n_Steps"></span>Integration Steps</h1>
+<h5 id=3D"IntegrationRequirements-_DHL_Express_RemoteDHLExpressRemoteSFTP">=
+<span class=3D"confluence-anchor-link" id=3D"IntegrationRequirements-_DHL_E=
+xpress_Remote"></span>DHL Express Remote SFTP</h5>
+<ol>
+<li><span style=3D"color: rgb(90,90,90);">Setting Up Credentials: To connec=
+t with the remote SFTP the SFTP-CLIENT is used which takes the following pa=
+rameters as a configuration to be able to connect to the remote SFTP locati=
+on and retrieve the files.</span>
+<ol>
+<li><span style=3D"color: rgb(90,90,90);">SFTP Hostname</span></li>
+<li><span style=3D"color: rgb(90,90,90);">SFTP PORT</span></li>
+<li><span style=3D"color: rgb(90,90,90);">Username/Password</span></li>
+<li><span style=3D"color: rgb(90,90,90);">File Path in SFTP</span></li>
+<li><span style=3D"color: rgb(90,90,90);">Archive Path in SFTP</span></li>
+</ol></li>
+<li><span style=3D"color: rgb(90,90,90);">Once the above information is obt=
+ained, the same can be added to the sftp-config.json file in the form of a =
+new JSON object appended to the existing configuration.</span></li>
+<li><span style=3D"color: rgb(90,90,90);">Additionally, the file_name_prefi=
+x and the Kafka topic for the respective transformation needs to be added w=
+hich essentially segregates each of the transformed data into its respectiv=
+e pipelines for further processing.</span></li>
+<li><span style=3D"color: rgb(90,90,90);">The sub folder path and processed=
+ folder path denotes File path and Archive path respectively and can be con=
+figured to point at any sub directory during sanity testing instead of poin=
+ting to the root directory where the files arrive from the workflow.</span>=
+</li>
+</ol>
+<p><br></p>
+<h5 id=3D"IntegrationRequirements-_DHL_Global_ForwardingDHLGlobalForwarding=
+RemoteSFTP"><span class=3D"confluence-anchor-link" id=3D"IntegrationRequire=
+ments-_DHL_Global_Forwarding"></span>DHL Global Forwarding Remote SFTP</h5>
+<ol>
+<li><span style=3D"color: rgb(90,90,90);">Setting Up Credentials: To connec=
+t with the remote SFTP the SFTP-CLIENT is used which takes the following pa=
+rameters as a configuration to be able to connect to the remote SFTP locati=
+on and retrieve the files.</span>
+<ol>
+<li><span style=3D"color: rgb(90,90,90);">SFTP Hostname</span></li>
+<li><span style=3D"color: rgb(90,90,90);">SFTP PORT</span></li>
+<li><span style=3D"color: rgb(90,90,90);">Username/Password</span></li>
+<li><span style=3D"color: rgb(90,90,90);">File Path in SFTP</span></li>
+<li><span style=3D"color: rgb(90,90,90);">Archive Path in SFTP</span></li>
+</ol></li>
+<li><span style=3D"color: rgb(90,90,90);">Once the above information is obt=
+ained, the same can be added to the sftp-config.json file in the form of a =
+new JSON object appended to the existing configuration.</span></li>
+<li><span style=3D"color: rgb(90,90,90);">Additionally, the file_name_prefi=
+x and the Kafka topic for the respective transformation needs to be added w=
+hich essentially segregates each of the transformed data into its respectiv=
+e pipelines for further processing.</span></li>
+<li><span style=3D"color: rgb(90,90,90);">The sub folder path and processed=
+ folder path denotes File path and Archive path respectively and can be con=
+figured to point at any sub directory during sanity testing instead of poin=
+ting to the root directory where the files arrive from the workflow.</span>=
+</li>
+</ol>
+<p><br></p>
+<h5 id=3D"IntegrationRequirements-_Document_API_=E2=80=93DocumentAPI=E2=80=
+=93NeedInformationfromS3"><span class=3D"confluence-anchor-link" id=3D"Inte=
+grationRequirements-_Document_API_=E2=80=93"></span>Document API =E2=80=93 =
+Need Information from S3</h5>
+<p><br></p>
+<h5 id=3D"IntegrationRequirements-_Bless_Trusted_APIBlessTrustedAPI"><span =
+class=3D"confluence-anchor-link" id=3D"IntegrationRequirements-_Bless_Trust=
+ed_API"></span>Bless Trusted API</h5>
+<ol>
+<li><span style=3D"color: rgb(90,90,90);">Setting Up Credentials:</span> <s=
+pan style=3D"color: rgb(90,90,90);">In order to Publish Messages to the BLE=
+SS Trusted API (POST) the following parameters are required to be configure=
+d at the data transformer component using the mapper-config JSON file:</spa=
+n>
+<ol>
+<li><span style=3D"color: rgb(90,90,90);">Bless Trusted API Endpoint</span>=
+</li>
+<li><span style=3D"color: rgb(90,90,90);">JWT Authentication Token &amp; KI=
+D</span></li>
+<li><span style=3D"color: rgb(90,90,90);">Bless-Issuer</span></li>
+<li><span style=3D"color: rgb(90,90,90);">Bless Message Type</span></li>
+<li><span style=3D"color: rgb(90,90,90);">Bless Subject Primary (Receivers)=
+</span></li>
+</ol></li>
+<li><span style=3D"color: rgb(90,90,90);">All the aforementioned values wil=
+l be provided by the Bless Admin Onboarding Team and the same has to be con=
+figured in the integration specific mapper-config file under the data trans=
+former component.</span></li>
+</ol>
+<p><span class=3D"confluence-anchor-link" id=3D"IntegrationRequirements-_Se=
+tting_Up_the"></span><br class=3D"atl-forced-newline"><br class=3D"atl-forc=
+ed-newline"></p>
+<h1 id=3D"IntegrationRequirements-SettingUptheConfiguration">Setting Up the=
+ Configuration</h1>
+<h5 id=3D"IntegrationRequirements-_SFTP-Client_Configuration:SFTP-ClientCon=
+figuration:"><span class=3D"confluence-anchor-link" id=3D"IntegrationRequir=
+ements-_SFTP-Client_Configuration:"></span>SFTP-Client Configuration:</h5>
+<ul>
+<li>To setup the SFTP Client configuration navigate to deployment/services/=
+configuration/sftp-client/sftp_config.json</li>
+<li>The configuration should be prepared in the following format and append=
+ed to the s3_sftp_client array</li>
+</ul>
+<p>{ <br>
+"customer":"Should be a unique name", <br>
+"url":"SFTP IP/HOST", <br>
+"port":SFTP PORT, <br>
+"user_name":"username", <br>
+"password":"PASSWORD ENCODED using FERNET Encryption", <br>
+"ssh_hostkey_figureprint":"To Be referred from the existing config", <br>
+"sub_folder_path":"SFTP Input File Path", <br>
+"processed_folder_path":"SFTP Processed File Path", <br>
+"kafka_topic":"Unique Kafka Topic Name (Existing format can be followed)", =
+<br>
+"file_name_prefix":"File name PREFIX of the Processed Files" <br>
+}</p>
+<h5 id=3D"IntegrationRequirements-_BLESS-TRUSTED_API_Configuration:BLESS-TR=
+USTEDAPIConfiguration:"><span class=3D"confluence-anchor-link" id=3D"Integr=
+ationRequirements-_BLESS-TRUSTED_API_Configuration:"></span>BLESS-TRUSTED A=
+PI Configuration:</h5>
+<ul>
+<li>To setup the BLESS Trusted API configuration navigate to deployment/ser=
+vices/configuration/data-transformer/mapper-configs/clientConfig.json</li>
+<li>The configuration should be prepared in the following JSON file format =
+and added to the mapper-config/ directory.</li>
+</ul>
+<p><br class=3D"atl-forced-newline"><span class=3D"confluence-embedded-file=
+-wrapper confluence-embedded-manual-size"><img class=3D"confluence-embedded=
+-image" draggable=3D"false" height=3D"63" width=3D"102" src=3D"f6b4b017bf4f=
+a58d3e1735c6230580d1" data-image-src=3D"/download/attachments/363775365/wor=
+ddav82f2f8aa33503a085ff3b7c0aa305e56.png?version=3D1&amp;modificationDate=
+=3D1691730749107&amp;api=3Dv2" data-unresolved-comment-count=3D"0" data-lin=
+ked-resource-id=3D"363781716" data-linked-resource-version=3D"1" data-linke=
+d-resource-type=3D"attachment" data-linked-resource-default-alias=3D"wordda=
+v82f2f8aa33503a085ff3b7c0aa305e56.png" data-base-url=3D"https://confluence.=
+dhl.com" data-linked-resource-content-type=3D"image/png" data-linked-resour=
+ce-container-id=3D"363775365" data-linked-resource-container-version=3D"4" =
+alt=3D""></span></p>
+<h1 id=3D"IntegrationRequirements-_Authentication_and_SecurityAuthenticatio=
+nandSecurity"><span class=3D"confluence-anchor-link" id=3D"IntegrationRequi=
+rements-_Authentication_and_Security"></span>Authentication and Security</h=
+1>
+<h6 id=3D"IntegrationRequirements-SFTPConnection">SFTP Connection</h6>
+<p>When connecting to an SFTP server, it's crucial to ensure a secure and a=
+uthenticated connection to protect the integrity of data and sensitive info=
+rmation.<br><span style=3D"color: rgb(90,90,90);">Current Authentication Me=
+thod:</span> <br>
+Username and Password: This basic method involves providing a username and =
+password for authentication. However, this method is less secure as credent=
+ials can be intercepted or brute-forced.</p>
+<h6 id=3D"IntegrationRequirements-BLESSTrustedAPIConnection">BLESS Trusted =
+API Connection</h6>
+<p>When connecting to a POST API, secure communication and proper authentic=
+ation are essential to prevent unauthorized access and data breaches.<br>
+HTTPS: All the requests from the Data Transformer to the Bless Trusted API =
+happen over HTTPS. It encrypts data in transit and helps prevent eavesdropp=
+ing and data tampering.<br><span style=3D"color: rgb(90,90,90);">Current Au=
+thentication Method:</span> <br>
+JWT Token: JWT tokens are used to authenticate API requests. These tokens a=
+re obtained during an initial authentication process and are included in th=
+e request header.</p>
+<h1 id=3D"IntegrationRequirements-_Exceptions_HandlingExceptionsHandling"><=
+span class=3D"confluence-anchor-link" id=3D"IntegrationRequirements-_Except=
+ions_Handling"></span>Exceptions Handling</h1>
+<p><br class=3D"atl-forced-newline"><span style=3D"color: rgb(90,90,90);">1=
+. Connection Issues</span><br>
+ConnectionTimeoutException: Raised when the connection to the SFTP server t=
+imes out. This can occur due to network issues or server unavailability. Th=
+e sftp-client keeps reconnecting at regular intervals to check for new file=
+s and the connection is closed once all the necessary files are downloaded =
+for further processing.<br>
+AuthenticationException: Raised when there are authentication failures duri=
+ng the connection setup. The issue can be identified from the sftp-client l=
+ogs following which the appropriate credentials need to be set up in the sf=
+tp-config file for a successful connection. <br><span style=3D"color: rgb(9=
+0,90,90);">2. File Not Found</span><br>
+FileNotFoundException: Raised when the specified file does not exist on the=
+ remote server. The issue can be identified from the sftp-client logs follo=
+wing which it is required to double-check the file path and name. <br><span=
+ style=3D"color: rgb(90,90,90);">3. Permission Issues</span><br>
+PermissionDeniedException: Raised when the user does not have the necessary=
+ permissions to access the specified file. Ensure proper permissions are se=
+t on the remote server.<br><span style=3D"color: rgb(90,90,90);">4. Network=
+ and Communication Errors</span><br>
+SocketException: Raised when there are issues with the underlying socket co=
+nnection. This could be due to network disruptions or server-side connectiv=
+ity problems.<br><span style=3D"color: rgb(90,90,90);">5. Data Corruption /=
+ File Format Issues</span><br>
+ChecksumMismatchException: Raised when the checksum of the downloaded file =
+does not match the expected checksum. This could indicate data corruption d=
+uring transfer. If such a situation arises, the faulty/corrupted file is mo=
+ved to an Exceptions directory in the SFTP which needs further attention fr=
+om the development and support team.</p>
+    </div>
+</body>
+</html>
+------=_Part_9779_1259449224.1692174706400
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: base64
+Content-Location: file:///C:/b80b4a85f7ec0f01b696c75c4c74aa77
+
+iVBORw0KGgoAAAANSUhEUgAAAMUAAAD3CAMAAACaVGBkAAADAFBMVEUAAADq6urr6+vq6urr6+vp
+6enr6+vr6+vq6urq6urr6+vl5eXr6+vr6+vr6+vr6+vs7Oz////t7e3r6+vs7Ozp6enq6urr6+vo
+6Ojr6+vX19fs7Ozf39/////r6+vs7OzYMzzGxsbffYSgoKDHx8eHhITgfoTdXmbdZ27kqKzr6enU
+BxOjo6PbUVnKysrp09Pfcnnfe4Hp3NzcW2PLy8vZO0TgfIKNinuNin3aTlXXJS+Oi3vr5+fUBRHe
+b3XUDhreb3bo0NHbT1fYOEHVGCLcWWHcYmjZOULjmp7ZQkrWGSTZQkzQ0NDWIizq5OTnu77q5OXn
+xMbaQ0zkrbHXLDbUDBfebXTednvbTVXlrrGGhoOGhoaQi3mQi3qHh4fZQEn9ygLq4uKSjXf+ywCI
+iIjXKjThi5D/zADea3GJiYnbS1PUEx/X19eGhITmtrjcXmaLi4vZPkfq4OGMjIzaP0nXKDKJh4Lr
+6uqNjY3UCBPUCBToysvoysyKiH+KiICKiIHbUlqUjXXls7aOjo6LiX6LiX+1tbWPj4/cXGPmvb+M
+in2Hg4O2trbWHCfq3t/q5+fnvsHTBRG3t7fe3t7XJjHr6OnUBhK4uLjbUFnYMDnbWWG5ubnp0tOT
+k5PfeoDcWmLmu726urrZOkPjm6Dge4Hh4eGVlZXr5uaOinzhjpLUDRjebnTj4+OPi3rYLjiQjHjk
+5OTVFyLl5eXZQUrWISvnw8Tda3LaQkvko6fr5OXXKzbn5+flrbDBwcGbm5vo6OiGhYXfdnzff4Tm
+t7rp6enWHyrggIXggIbq4eHq4eLdYGfq6uqIh4OSjHfExMSJiH/r6+vFxcXlq67o1NXbU1sAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAjdkCLAAAAH3RSTlMA4eH8gned3mTu7goNquDo6AOBdmMM/all3w3MCApqlwVi
+RQAADIFJREFUeF7tnXusHUUdx6e3pbe1l9aWQgu1p5GisdCIiSLaNHJDojHRWjGXFtT4AERaLIit
+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
+------=_Part_9779_1259449224.1692174706400
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: base64
+Content-Location: file:///C:/f6b4b017bf4fa58d3e1735c6230580d1
+
+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
+FwAAAABJRU5ErkJggg==
+------=_Part_9779_1259449224.1692174706400--

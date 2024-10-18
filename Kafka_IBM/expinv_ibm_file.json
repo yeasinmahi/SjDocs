@@ -1,0 +1,35 @@
+{
+  "MapperName": "IBM Finance",
+  "Steps": [
+    {
+      "StepId": "001",
+      "StepName": "JSONParser",
+      "Config": {}
+    },
+    {
+      "Source": [ "001" ],
+      "StepId": "002",
+      "StepName": "HTTPOut",
+      "Config": {
+        "EndPoint": "http://10.0.0.8:55555/p2",
+        "Token": "xyz",
+        "RequestFormat": "multipart/form-data",
+        "CustomHeaders": {
+          "kid": "ff4336cacc367668aa3cfdb7044b355cd83e62bc6494e86b7107761535a38f04",
+          "bless-message-type": "POSTED_DOC_IBM",
+          "bless-issuer": "DHL-LLP-TRF-UP",
+          "bless-subject-primary": "CLIENT-2",
+          "did-enable": false,
+          "resolve-receiver": false,
+          "Created": "[DateTime]",
+          "alg": "EcdsaSecp256r1Signature2019",
+          "typ": "JWT"
+        },
+        "IsDebug": true,
+        "CustomDataObjectWrapper": "body",
+        "PayloadKey": "message",
+        "DataRootPath": "$.data"
+      }
+    }
+  ]
+}

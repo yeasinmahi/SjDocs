@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by JOSEPH ANJILIPARAMPIL KURIAKOSE (DUBAI WORLD) -->
+<!-- Created with Liquid XML Studio 0.9.13.0 (http://www.liquid-technologies.com) -->
+<xsd:schema xmlns="http://www.customs.pcfc.com/Schema/Common/2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.customs.pcfc.com/Schema/Common/2.0" elementFormDefault="qualified">
+	<xsd:complexType name="UNBType">
+		<xsd:annotation>
+			<xsd:documentation>Interchange Header</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="MessageCode" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>
+            MessageCode - Vlaues DEC, RES, CLR, FLT, VAD, VSL
+          </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:length value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MessageVersionNumber" type="xsd:integer"/>
+			<xsd:element name="SenderIdentification" nillable="true" >
+				<xsd:annotation>
+					<xsd:documentation>
+            Valid Business Registration code (assigned by Customs to CTO)
+          </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="35"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="InterchangeControlReference" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+            Unique Identification for the message set.
+          </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="70"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="RecipientIdentification" nillable="true" >
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="35"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="DateTime" type="xsd:dateTime" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>
+           ISO Format:
+YYYY-MM-DDThh:mm:ss
+          </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="UNZType">
+		<xsd:annotation>
+			<xsd:documentation>Interchange Trailer</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="InterchangeControlCount" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+            No. of messages in an interchange
+          </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:integer">
+						<xsd:totalDigits value="6"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CheckSumCode" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+           </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="255"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="UNHType">
+		<xsd:annotation>
+			<xsd:documentation>Message Header</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="MessageReferenceNumber" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+            Unique Identification number per message within the interchange
+          </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="70"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MessageType" nillable="true" >
+				<xsd:annotation>
+					<xsd:documentation>
+            NEW, UPD, DEL
+          </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="UTHType">
+		<xsd:annotation>
+			<xsd:documentation>Technical header</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ReplytoTransportMode" nillable="true" >
+				<xsd:annotation>
+					<xsd:documentation>
+            Transport mode are "WEBSERVICE" &amp; "EMAIL"
+          </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="255"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ReplytoAddress" nillable="true" >
+				<xsd:annotation>
+					<xsd:documentation>
+            in case of WEBSERVICE this hold the service URL and in case of EMAIL
+            it holds email address to respond with
+          </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="255"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ReplytoMessageFormat" nillable="true" >
+				<xsd:annotation>
+					<xsd:documentation>
+            "WEBSERVICE" or "EMAIL"
+          </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ExceptionType">
+		<xsd:sequence>
+			<xsd:element name="ExceptionCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ExceptionMsg" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TechnicalAcknowledgementType">
+		<xsd:annotation>
+			<xsd:documentation> TAK</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="UNH" type="UNHType" nillable="true" minOccurs="0"/>
+			<xsd:element name="DateTime" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+                        <xsd:element name="DeclarationNo" type="xsd:string" nillable="true"  minOccurs="0"/>
+                        <xsd:element name="DeclarationStatus" type="xsd:string" nillable="true" minOccurs="0"/>
+                        <xsd:element name="Exception" type="ExceptionType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

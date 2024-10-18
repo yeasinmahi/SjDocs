@@ -1,0 +1,67 @@
+{
+  "MapperName": "IBM Finance",
+  "Steps": [
+    {
+      "StepId": "001",
+      "StepName": "ExcelParser",
+      "Config": {
+        "HasColumnHeader": true,
+        "KeepColumnHeaderAsAttribute": false,
+        "CustomColumnHeaders": "",
+        "HeaderRowStartedAt": 1,
+        "DataRowStartedAt": 2
+      }
+    },
+    {
+      "Source": [ "001" ],
+      "StepId": "002",
+      "StepName": "DataTransformer",
+      "Config": {
+        "Templatepath": "configuration/mapper-configs/templates/expinv_template_ibm_finance.json"
+      }
+    },
+    {
+      "Source": [ "002" ],
+      "StepId": "003",
+      "StepName": "ReplaceData",
+      "Config": {
+        "SelectionRules": [
+          {
+            "SelectionRule": "$.data..Charges",
+            "ReplaceRule": "$.*"
+          }
+        ]
+      }
+    },
+    {
+      "Source": [ "003" ],
+      "StepId": "004",
+      "StepName": "HTTPOut",
+      "Config": {
+        "EndPoint": "http://10.0.0.8:55555/invoice",
+        "Token": "xyz",
+        "RequestFormat": "multipart/form-data",
+        "CustomHeaders": {
+          "kid": "7cd27279c0d75f87f476ba5cac9ff991fd06a034e57bdda0f999ad74f4ba0b39",
+          "bless-message-type": "POSTED_IBM",
+          "bless-issuer": "DHL-EXP-TRF-UP",
+          "bless-subject-primary": "DHL-EXP,CLIENT-2,DHL-LLP",
+          "did-enable": false,
+          "resolve-receiver": false,
+          "Created": "[DateTime]",
+          "alg": "EcdsaSecp256r1Signature2019",
+          "typ": "JWT"
+        },
+        "IsDebug": true,
+        "SendItemByItem": true,
+        "AddFileNameAsAttribute": false,
+        "CustomDataObjectWrapper": "body",
+        "PayloadKey": "message",
+        "DataRootPath": "$.data",
+        "FixedColumns": {
+          "msgType": "POSTED_IBM"
+        }
+      }
+    }
+  ]
+}

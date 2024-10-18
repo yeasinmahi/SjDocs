@@ -1,0 +1,99 @@
+{
+  "MapperName": "DGF Check Point",
+  "Steps": [
+    {
+      "StepId": "001",
+      "StepName": "XMLParser",
+      "Config": {
+        "UUIDPrefix": "dgfcp_gsk",
+        "XmlnsJson": "http://james.newtonking.com/projects/json",
+        "TreatAsArray": [
+          "/ShipmentUpdate/Message/Masters/Master",
+          "/ShipmentUpdate/Message/Masters/Master/Events/Event",
+          "/ShipmentUpdate/Message/Masters/MasterLeg",
+          "/ShipmentUpdate/Message/References/Reference",
+          "/ShipmentUpdate/Message/Addresses/Address",
+          "/ShipmentUpdate/Message/Events/Event",
+          "/ShipmentUpdate/Message/Packages/Package",
+          "/ShipmentUpdate/Message/Containers/Container",
+          "/ShipmentUpdate/Message/Containers/Container/ContainerEvents/Event"
+        ],
+        "JoinXmlNodes": [],
+        "CombineXmlNodes": [
+          {
+            "ParentNode": "/ShipmentUpdate/Message/Addresses/Address",
+            "NodeName": "Line"
+          }
+        ]
+      }
+    },
+    {
+      "Source": [ "001" ],
+      "StepId": "002",
+      "StepName": "DataTransformer",
+      "Config": {
+        "Templatepath": "configuration/mapper-configs/templates/dgfcp_template_gsk.json"
+      }
+    },
+    {
+      "Source": [ "002" ],
+      "StepId": "003",
+      "StepName": "HTTPOut",
+      "Config": {
+        "EndPoint": "http://samurai.southeastasia.cloudapp.azure.com:55555/bless-dgf",
+        "Token": "xyz",
+        "RequestFormat": "multipart/form-data",
+        "CustomHeaders": {
+          "alg": "EcdsaSecp256r1Signature2019",
+          "bless-issuer": "DHL-DGF-TRF-UP",
+          "bless-message-type": "SHPC_DGF_GSK_STA",
+          "bless-subject-primary": "DHL-DGF",
+          "did-enable": false,
+          "kid": "0664dca7c58dc6627133d05f637097d1f0687af0fe1bc6511ba618ec9306a785",
+          "typ": "JWT",
+          "Created": "[DateTime]",
+          "resolve-receiver": false
+        },
+        "IsDebug": true,
+        "SendItemByItem": true,
+        "AddFileNameAsAttribute": true,
+        "CustomDataObjectWrapper": "body",
+        "PayloadKey": "message",
+        "DataRootPath": "$.data",
+        "FixedColumns": {
+          "msgType": "SHPC_DGF_GSK_STA"
+        }
+      }
+    },
+
+
+    {
+      "Source": [ "002" ],
+      "StepId": "004",
+      "StepName": "MatchData",
+      "Remarks": "conditions for subsequent documents processing",
+      "Config": {
+        "Conditions": [
+          {
+            "SelectionRule": "$.data..MessageTrigger",
+            "SelectionValues": [ "CLC", "POD", "ECR", "APT", "A39", "A32", "A45", "A04" ]
+          }
+        ]
+      }
+    },
+    {
+      "Source": [ "004" ],
+      "StepId": "005",
+      "StepName": "HTTPOut",
+      "Config": {
+        "EndPoint": "",
+        "AddFileNameAsAttribute": true,
+        "CustomDataObjectWrapper": "body",
+        "DataRootPath": "$.data",
+        "FixedColumns": {
+          "#sourcedata": "for documents api flow"
+        }
+      }
+    }
+  ]
+}

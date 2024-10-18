@@ -1,0 +1,156 @@
+{
+    "info": {
+        "_postman_id": "a1986838-ad28-45cf-abb7-7c8c524a36aa",
+        "name": "s2d-api-dev",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "getBearerToken",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "https://us-south.appid.cloud.ibm.com/oauth/v4/7d5b4708-1e3b-4ce5-923e-48886debfac0/token",
+                    "path": [
+                        "oauth",
+                        "v4",
+                        "7d5b4708-1e3b-4ce5-923e-48886debfac0",
+                        "token"
+                    ],
+                    "protocol": "https",
+                    "host": [
+                        "us-south",
+                        "appid",
+                        "cloud",
+                        "ibm",
+                        "com"
+                    ]
+                },
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                    },
+                    {
+                        "key": "User-Agent",
+                        "value": "Thunder Client (https://www.thunderclient.com)",
+                        "disabled": true
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "grant_type",
+                            "value": "client_credentials"
+                        }
+                    ]
+                },
+                "auth": {
+                    "type": "basic",
+                    "basic": [
+                        {
+                            "key": "username",
+                            "value": "4b18fb36-c59c-40bc-b564-e58205b529e3",
+                            "type": "string"
+                        },
+                        {
+                            "key": "password",
+                            "value": "Y2M3OGEzOTEtYTU0Yy00MTA1LWEyMmMtZmMxNzZjZTBkZDY0",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "selectShipments",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "https://cdb-api.dev.logistics.ibm.com/queries/selectShipments?shipmentID=20233641789863&process=SPO",
+                    "query": [
+                        {
+                            "key": "shipmentID",
+                            "value": "20233641789863"
+                        },
+                        {
+                            "key": "process",
+                            "value": "SPO"
+                        }
+                    ],
+                    "variable": [],
+                    "path": [
+                        "queries",
+                        "selectShipments"
+                    ],
+                    "protocol": "https",
+                    "host": [
+                        "cdb-api",
+                        "dev",
+                        "logistics",
+                        "ibm",
+                        "com"
+                    ]
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImFwcElkLTdkNWI0NzA4LTFlM2ItNGNlNS05MjNlLTQ4ODg2ZGViZmFjMC0yMDE5LTA1LTI0VDIwOjIzOjQ4LjUyOSIsInZlciI6NH0.eyJpc3MiOiJodHRwczovL3VzLXNvdXRoLmFwcGlkLmNsb3VkLmlibS5jb20vb2F1dGgvdjQvN2Q1YjQ3MDgtMWUzYi00Y2U1LTkyM2UtNDg4ODZkZWJmYWMwIiwiZXhwIjoxNjg5ODE5MzQ1LCJhdWQiOlsiNGIxOGZiMzYtYzU5Yy00MGJjLWI1NjQtZTU4MjA1YjUyOWUzIl0sInN1YiI6IjRiMThmYjM2LWM1OWMtNDBiYy1iNTY0LWU1ODIwNWI1MjllMyIsImFtciI6WyJhcHBpZF9jbGllbnRfY3JlZGVudGlhbHMiXSwiaWF0IjoxNjg5NzMyOTQ1LCJ0ZW5hbnQiOiI3ZDViNDcwOC0xZTNiLTRjZTUtOTIzZS00ODg4NmRlYmZhYzAiLCJzY29wZSI6ImFwcGlkX2RlZmF1bHQifQ.EyCVfyej3T3K5KI0Rl_MMxgwmFj5pBDjfCXVt4yetrP-jNF3W110KA6lC40EZq0Uo5zwfwTFo-VuCMqyWGHsphKlZDQc83W0jtNIB4YUaC6WzltRmdQ2Ez4ATc2gRG_cwxycDIhGEWfMoHWxmyP_G1BbuaN1hwmEuHGMMDAPzwrRniVJ75aCGZWniS3PBvlOk4CNXQBcoF1nk19FgQ3rzAGBHLANFwkR3a2RKyfFk8g4NkQfudU0-T6w0wVypRzjzQEyWWGWKRR-qW9BWJHbtcvLwfCTKzhgbOfOC74QR1cNipndIdMOLPq8qbR2pmaQCdAa28dZ-VI6ZjKfhfU34w",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "retrieve-document",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "https://cdb-api.dev.logistics.ibm.com/retrieve-document/filename?docType=INV&fileName=94023B0967-1689356118357.pdf",
+                    "query": [
+                        {
+                            "key": "docType",
+                            "value": "INV"
+                        },
+                        {
+                            "key": "fileName",
+                            "value": "94023B0967-1689356118357.pdf"
+                        }
+                    ],
+                    "variable": [],
+                    "path": [
+                        "retrieve-document",
+                        "filename"
+                    ],
+                    "protocol": "https",
+                    "host": [
+                        "cdb-api",
+                        "dev",
+                        "logistics",
+                        "ibm",
+                        "com"
+                    ]
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImFwcElkLTdkNWI0NzA4LTFlM2ItNGNlNS05MjNlLTQ4ODg2ZGViZmFjMC0yMDE5LTA1LTI0VDIwOjIzOjQ4LjUyOSIsInZlciI6NH0.eyJpc3MiOiJodHRwczovL3VzLXNvdXRoLmFwcGlkLmNsb3VkLmlibS5jb20vb2F1dGgvdjQvN2Q1YjQ3MDgtMWUzYi00Y2U1LTkyM2UtNDg4ODZkZWJmYWMwIiwiZXhwIjoxNjg5ODE5MzQ1LCJhdWQiOlsiNGIxOGZiMzYtYzU5Yy00MGJjLWI1NjQtZTU4MjA1YjUyOWUzIl0sInN1YiI6IjRiMThmYjM2LWM1OWMtNDBiYy1iNTY0LWU1ODIwNWI1MjllMyIsImFtciI6WyJhcHBpZF9jbGllbnRfY3JlZGVudGlhbHMiXSwiaWF0IjoxNjg5NzMyOTQ1LCJ0ZW5hbnQiOiI3ZDViNDcwOC0xZTNiLTRjZTUtOTIzZS00ODg4NmRlYmZhYzAiLCJzY29wZSI6ImFwcGlkX2RlZmF1bHQifQ.EyCVfyej3T3K5KI0Rl_MMxgwmFj5pBDjfCXVt4yetrP-jNF3W110KA6lC40EZq0Uo5zwfwTFo-VuCMqyWGHsphKlZDQc83W0jtNIB4YUaC6WzltRmdQ2Ez4ATc2gRG_cwxycDIhGEWfMoHWxmyP_G1BbuaN1hwmEuHGMMDAPzwrRniVJ75aCGZWniS3PBvlOk4CNXQBcoF1nk19FgQ3rzAGBHLANFwkR3a2RKyfFk8g4NkQfudU0-T6w0wVypRzjzQEyWWGWKRR-qW9BWJHbtcvLwfCTKzhgbOfOC74QR1cNipndIdMOLPq8qbR2pmaQCdAa28dZ-VI6ZjKfhfU34w",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

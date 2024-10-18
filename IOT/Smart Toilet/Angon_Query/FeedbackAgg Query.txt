@@ -1,0 +1,18 @@
+SELECT
+    [location],
+    FORMAT([createdAt], 'MM/dd/yyyy') AS [date],
+    COUNT(*) AS [totalFeedback],
+    SUM(CASE WHEN [Smelly_CubicleUrinal] = 1 THEN 1 ELSE 0 END) AS [totalSmellyCubicle],
+    SUM(CASE WHEN [rating] > 3 THEN 1 ELSE 0 END) AS [totalGoodReview],
+    CASE
+        WHEN (CAST(SUM(CASE WHEN [rating] > 3 THEN 1 ELSE 0 END) AS DECIMAL(10, 2)) / COUNT(*) * 100) < 1 THEN ''
+        ELSE CONCAT(FORMAT(CAST(SUM(CASE WHEN [rating] > 3 THEN 1 ELSE 0 END) AS DECIMAL(10, 2)) / COUNT(*) * 100, 'N2'), '%')
+    END AS [performance]
+FROM
+    [dbo].[Feedback]
+GROUP BY
+    [location],
+    FORMAT([createdAt], 'MM/dd/yyyy')
+ORDER BY
+    [location],
+    FORMAT([createdAt], 'MM/dd/yyyy');

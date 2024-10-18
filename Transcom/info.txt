@@ -1,0 +1,20 @@
+TransComm
+==========
+1. Shipment (Express, no dgf)
+    - YNAP
+    - LUXC
+
+ 
+
+2. ECOM
+    - systemLogin
+    - submitOrder
+    - returnOrder
+    - cancelOrder
+    - confirmReturnDeliveryOrder
+
+ 
+
+3. SOAP service / Dubai Custom
+    - CUSDEC (custom declaration)
+    - CUSRES (custom response)

@@ -1,0 +1,84 @@
+******************************DateTime*****************************
+
+SELECT DISTINCT
+    CAST([date] AS datetime) + DATEADD(hh,cast(SUBSTRING(hour, 2, 2) AS INT),'00:00:00') AS [DateTime],
+    CAST(SUBSTRING(hour, 2, 2) AS INT) AS [Time]
+FROM (
+    SELECT 
+        location_id,
+        location_name,
+        date,
+        h0, h1, h2, h3, h4, h5, h6, h7, h8, h9, h10, h11, h12, h13, h14, h15, h16, h17, h18, h19, h20, h21, h22, h23
+    FROM PeopleCount 
+) AS src
+UNPIVOT (
+    count FOR hour IN (h0, h1, h2, h3, h4, h5, h6, h7, h8, h9, h10, h11, h12, h13, h14, h15, h16, h17, h18, h19, h20, h21, h22, h23)
+) AS unpvt;
+
+
+******************************FeedbackAgg*****************************
+
+SELECT
+    [location],
+    FORMAT([createdAt], 'MM/dd/yyyy') AS [date],
+    COUNT(*) AS [totalFeedback],
+    SUM(CASE WHEN [Smelly_CubicleUrinal] = 1 THEN 1 ELSE 0 END) AS [totalSmellyCubicle],
+    SUM(CASE WHEN [rating] > 3 THEN 1 ELSE 0 END) AS [totalGoodReview],
+    CASE
+        WHEN (CAST(SUM(CASE WHEN [rating] > 3 THEN 1 ELSE 0 END) AS DECIMAL(10, 2)) / COUNT(*) * 100) < 1 THEN ''
+        ELSE CONCAT(FORMAT(CAST(SUM(CASE WHEN [rating] > 3 THEN 1 ELSE 0 END) AS DECIMAL(10, 2)) / COUNT(*) * 100, 'N2'), '%')
+    END AS [performance]
+FROM
+    [dbo].[Feedback]
+GROUP BY
+    [location],
+    FORMAT([createdAt], 'MM/dd/yyyy')
+ORDER BY
+    [location],
+    FORMAT([createdAt], 'MM/dd/yyyy');
+
+******************************Location*****************************
+
+SELECT
+    MIN([id]) AS [id],
+    [location_id],
+    MIN([location_name]) AS [location_name],
+    MIN(PARSENAME(REPLACE([location_name], '-', '.'), 4)) AS [zone],
+    MIN(CONCAT(PARSENAME(REPLACE([location_name], '-', '.'), 4), '-', LEFT(PARSENAME(REPLACE([location_name], '-', '.'), 3), CHARINDEX('(', PARSENAME(REPLACE([location_name], '-', '.'), 3)) - 1))) AS [building],
+    MIN(PARSENAME(REPLACE([location_name], '-', '.'), 2)) AS [level],
+    MIN(PARSENAME(REPLACE([location_name], '-', '.'), 1)) AS [type]
+FROM [dev-sqldb-ioc].[dbo].[PeopleCount]
+WHERE [location_name] IS NOT NULL
+GROUP BY [location_id];
+
+
+******************************PeopleCountAgg*****************************
+
+SELECT TOP (1000)
+    [location_name],
+    FORMAT([date], 'MM/dd/yyyy') AS [date],
+    [total]
+FROM [dev-sqldb-ioc].[dbo].[PeopleCount];
+
+
+******************************Toilet*****************************
+
+SELECT TOP 100000
+    location_id,
+    location_name,
+    date,
+    RIGHT('00' + SUBSTRING(hour, 2, 2), 2) + ':00' AS hour,
+    CAST(count AS int) AS count,
+    FORMAT(CAST(date AS DATE), 'dd/MM/yyyy') + ' ' + RIGHT('00' + SUBSTRING(hour, 2, 2), 2) + ':00:00 ' + 
+        CASE WHEN SUBSTRING(hour, 3, 2) >= '12' THEN 'PM' ELSE 'AM' END AS normalizedDateTime
+FROM (
+    SELECT
+        location_id,
+        location_name,
+        date,
+        h0, h1, h2, h3, h4, h5, h6, h7, h8, h9, h10, h11, h12, h13, h14, h15, h16, h17, h18, h19, h20, h21, h22, h23
+    FROM PeopleCount
+) AS src
+UNPIVOT (
+    count FOR hour IN (h0, h1, h2, h3, h4, h5, h6, h7, h8, h9, h10, h11, h12, h13, h14, h15, h16, h17, h18, h19, h20, h21, h22, h23)
+) AS unpvt;

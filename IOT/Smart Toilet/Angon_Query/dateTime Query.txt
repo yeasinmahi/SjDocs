@@ -1,0 +1,15 @@
+SELECT DISTINCT
+    FORMAT(CAST(date AS DATE), 'dd/MM/yyyy') + ' ' + RIGHT('00' + SUBSTRING(hour, 2, 2), 2) + ':00:00 ' + 
+        CASE WHEN SUBSTRING(hour, 3, 2) >= '12' THEN 'PM' ELSE 'AM' END AS [dateTime],
+    CAST(SUBSTRING(hour, 2, 2) AS INT) AS [Time]
+FROM (
+    SELECT
+        location_id,
+        location_name,
+        date,
+        h0, h1, h2, h3, h4, h5, h6, h7, h8, h9, h10, h11, h12, h13, h14, h15, h16, h17, h18, h19, h20, h21, h22, h23
+    FROM PeopleCount
+) AS src
+UNPIVOT (
+    count FOR hour IN (h0, h1, h2, h3, h4, h5, h6, h7, h8, h9, h10, h11, h12, h13, h14, h15, h16, h17, h18, h19, h20, h21, h22, h23)
+) AS unpvt;

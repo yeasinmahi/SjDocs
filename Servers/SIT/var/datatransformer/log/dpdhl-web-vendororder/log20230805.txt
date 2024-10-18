@@ -1,0 +1,7 @@
+[2023-08-05 18:30:42.030 INF]    MySqlRepository - DB Server: mysql, User: s3dbuser, DB: dpdhl_db
+[2023-08-05 18:30:42.163 WRN]    Storing keys in a directory '/root/.aspnet/DataProtection-Keys' that may not be persisted outside of the container. Protected data will be unavailable when container is destroyed.
+[2023-08-05 18:30:42.178 WRN]    No XML encryptor configured. Key {4551971d-5caf-426c-87c0-db05280885aa} may be persisted to storage in unencrypted form.
+[2023-08-05 18:30:42.216 INF]    Now listening on: http://[::]:80
+[2023-08-05 18:30:42.217 INF]    Application started. Press Ctrl+C to shut down.
+[2023-08-05 18:30:42.220 INF]    Hosting environment: Production
+[2023-08-05 18:30:42.222 INF]    Content root path: /app/

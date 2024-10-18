@@ -1,0 +1,11 @@
+SELECT
+    MIN([id]) AS [id],
+    [location_id],
+    MIN([location_name]) AS [location_name],
+    MIN(PARSENAME(REPLACE([location_name], '-', '.'), 4)) AS [zone],
+    MIN(CONCAT(PARSENAME(REPLACE([location_name], '-', '.'), 4), '-', LEFT(PARSENAME(REPLACE([location_name], '-', '.'), 3), CHARINDEX('(', PARSENAME(REPLACE([location_name], '-', '.'), 3)) - 1))) AS [building],
+    MIN(PARSENAME(REPLACE([location_name], '-', '.'), 2)) AS [level],
+    MIN(PARSENAME(REPLACE([location_name], '-', '.'), 1)) AS [type]
+FROM [dev-sqldb-ioc].[dbo].[PeopleCount]
+WHERE [location_name] IS NOT NULL
+GROUP BY [location_id];

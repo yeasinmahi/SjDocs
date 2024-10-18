@@ -1,0 +1,7 @@
+{
+    "eventName": "SHIPMENT_PREPARED",
+    "shipmentID": "20233641789863",
+    "docType": "TBD",
+    "process": "SPO",
+    "shipToCountryCode": "3-digit code"
+}

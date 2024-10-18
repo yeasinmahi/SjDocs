@@ -1,0 +1,7 @@
+1. Import collection s2d-api-dev_postman.json in postman
+2. execute getBearerToken
+3. copy access_token returned & set in Authorization section of /selectShipments (prefix with Bearer)
+4. Execute selectShipments ( parameters are already set to retrieve test shipment)
+5. Shipment json returned has customsDocuments array at invoice level, with docType = INV, copy entry in docNames array
+6. Paste that entry as parameter fileName in /retrieve-document, along with access_token in Authorization section (prefix with Bearer)
+7. Execute /retrieve-document, pdf should be returned.

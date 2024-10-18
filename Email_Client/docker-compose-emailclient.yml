@@ -1,0 +1,20 @@
+version: "3.9"
+services:
+  email-client:
+    image: "s3innovatesg/email-client:1.9"
+    hostname: emailclient
+    container_name: emailclient
+    restart: always
+    environment:
+      BOOTSTRAP_SERVERS: "kafka:29092"
+      INTERVAL_IN_SECOND: 60
+      EMAIL_HOST: imap.gmail.com
+      EMAIL_PORT: 993
+      EMAIL_CLIENT_PROTOCOL: IMAP
+      KEY: "MmNaRbS2E9HGlEaaUmbcOQktSvfEPQASA2aUbDc3Ue8="
+      HEARTBEATINTERVAL: 300000 #milisecond
+    extra_hosts:
+      kafka: 10.0.2.5
+    volumes:
+      - ./configuration/email/:/home/site/wwwroot/configuration
+      - /var/datatransformer/data:/home/site/wwwroot/data

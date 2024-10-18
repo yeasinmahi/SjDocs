@@ -1,0 +1,195 @@
+{
+  "data": {
+    "msgType": "SHPC_DHLE_CUR_STA",
+    "receiverId": "#valueof($.ShipmentUpdate.Message.Shipment.TrackingNo)",
+    "waybillNumber": "#valueof($.ShipmentUpdate.Message.Shipment.TrackingNo)",
+    "shipId": "#valueof($.ShipmentUpdate.Message.Shipment.TrackingNo)",
+    "MessageHeader": "#valueof($.ShipmentUpdate.Message.MessageHeader)",
+    "Shipment": {
+      "TrackingNo": "#valueof($.ShipmentUpdate.Message.Shipment.TrackingNo)",
+      "ShipReferenceId": "#valueof($.ShipmentUpdate.Message.Shipment.ShipReferenceId)",
+      "ModeOfTransport": "#valueof($.ShipmentUpdate.Message.Shipment.ModeOfTransport)",
+      "ShipmentDateTime": "#valueof($.ShipmentUpdate.Message.Shipment.WaybillCreation.DateTime)",
+      "ShipmentDateTimeOffset": "#valueof($.ShipmentUpdate.Message.Shipment.WaybillCreation.DateTimeOffset)",
+      "ETDDateTime": "#valueof($.ShipmentUpdate.Message.Shipment.Etd.DateTime)",
+      "ETDDateTimeOffset": "#valueof($.ShipmentUpdate.Message.Shipment.Etd.DateTimeOffset)",
+      "ETADateTime": "#valueof($.ShipmentUpdate.Message.Shipment.Eta.DateTime)",
+      "ETADateTimeOffset": "#valueof($.ShipmentUpdate.Message.Shipment.Eta.DateTimeOffset)",
+      "OriginCode": "#valueof($.ShipmentUpdate.Message.Shipment.OriginStation.Code)",
+      "OriginName": "#valueof($.ShipmentUpdate.Message.Shipment.OriginStation.Name)",
+      "OriginCountry": "#valueof($.ShipmentUpdate.Message.Shipment.OriginStation.Country)",
+      "DestinationCountry": "#valueof($.ShipmentUpdate.Message.Shipment.DestinationStation.Country)",
+      "DestinationCode": "#valueof($.ShipmentUpdate.Message.Shipment.DestinationStation.Code)",
+      "DestinationName": "#valueof($.ShipmentUpdate.Message.Shipment.DestinationStation.Name)",
+      "NumberOfPieces": "#valueof($.ShipmentUpdate.Message.Shipment.NumberOfPieces)",
+      "Weight": "#valueof($.ShipmentUpdate.Message.Shipment.Weight)",
+      "WeightUOM": "#valueof($.ShipmentUpdate.Message.Shipment.WeightUOM)",
+      "ChargeableWeight": "#valueof($.ShipmentUpdate.Message.Shipment.ChargeableWeight)",
+      "ChargeableWeightUOM": "#valueof($.ShipmentUpdate.Message.Shipment.ChargeableWeightUOM)",
+      "Volume": "#valueof($.ShipmentUpdate.Message.Shipment.Volume)",
+      "VolumeUOM": "#valueof($.ShipmentUpdate.Message.Shipment.VolumeUOM)",
+      "FreightTerms": "#valueof($.ShipmentUpdate.Message.Shipment.FreightTerms)",
+      "OtherChargesTerms": "#valueof($.ShipmentUpdate.Message.Shipment.OtherChargesTerms)",
+      "ShipmentIncoTerms": "#valueof($.ShipmentUpdate.Message.Shipment.ShipmentIncoTerms)",
+      "CommodityCode": "#valueof($.ShipmentUpdate.Message.Shipment.CommodityCode)",
+      "CommodityText": "#valueof($.ShipmentUpdate.Message.Shipment.CommodityText)",
+      "ShipmentServiceCode": "#valueof($.ShipmentUpdate.Message.Shipment.ShipmentServiceCode)",
+      "ShipmentTypeCode": "#valueof($.ShipmentUpdate.Message.Shipment.ShipmentTypeCode)",
+      "DangerousGoods": "#valueof($.ShipmentUpdate.Message.Shipment.DangerousGoods)",
+      "ShipmentTotalCurrency": "#valueof($.ShipmentUpdate.Message.Shipment.ShipmentTotalCurrency)",
+      "ShipmentTotalCharge": "#valueof($.ShipmentUpdate.Message.Shipment.ShipmentTotalCharge)",
+      "IncoTermLocation": "#valueof($.ShipmentUpdate.Message.Shipment.IncoTermLocation)"
+    },
+    "#ifgroup(#exists($.ShipmentUpdate.Message.Masters.Master))": {
+      "Masters": {
+        "#loop($.ShipmentUpdate.Message.Masters.Master)": {
+          "TrackingNo": "#currentvalueatpath($.TrackingNo)",
+          "MstReferenceId": "#currentvalueatpath($.MstReferenceId)",
+          "EtaDateTime": "#ifcondition(#exists($.Eta),true,#currentvalueatpath($.Eta.DateTime),#valueof(null))",
+          "EtaDateTimeOffset": "#ifcondition(#exists($.Eta),true,#currentvalueatpath($.Eta.DateTimeOffset),#valueof(null))",
+          "EtdDateTime": "#ifcondition(#exists($.Etd),true,#currentvalueatpath($.Etd.DateTime),#valueof(null))",
+          "EtdDateTimeOffset": "#ifcondition(#exists($.Etd),true,#currentvalueatpath($.Etd.DateTimeOffset),#valueof(null))",
+          "VesselNumber": "#ifcondition(#exists($.Vessel),true,#currentvalueatpath($.Vessel.Number),#valueof(null))",
+          "VesselName": "#ifcondition(#exists($.Vessel),true,#currentvalueatpath($.Vessel.Name),#valueof(null))",
+          "VoyageNumber": "#ifcondition(#exists($.Voyage),true,#currentvalueatpath($.Voyage.Number),#valueof(null))",
+          "MasterCreationDateTime": "#currentvalueatpath($.WaybillCreation.DateTime)",
+          "MasterCreationOffset": "#currentvalueatpath($.WaybillCreation.DateTimeOffset)",
+          "CarrierCountry": "#currentvalueatpath($.Carrier.Country)",
+          "CarrierIATACode2L": "#currentvalueatpath($.Carrier.IATACode2L)",
+          "CarrierName": "#currentvalueatpath($.Carrier.Name)",
+          "CarrierCode": "#currentvalueatpath($.Carrier.Code)",
+          "TransportNumber": "#currentvalueatpath($.TransportNumber)",
+          "OriginCountry": "#currentvalueatpath($.Origin.Country)",
+          "OriginCode": "#currentvalueatpath($.Origin.Code)",
+          "OriginName": "#currentvalueatpath($.Origin.Name)",
+          "DestinationCountry": "#currentvalueatpath($.Destination.Country)",
+          "DestinationCode": "#currentvalueatpath($.Destination.Code)",
+          "DestinationName": "#currentvalueatpath($.Destination.Name)",
+          "ModeOfTransport": "#currentvalueatpath($.ModeOfTransport)",
+          "#ifgroup(#exists($.Events.Event))": {
+            "Events": {
+              "#loop($.Events.Event)": {
+                "EventCode": "#currentvalueatpath($.EventCode)",
+                "EventCodeLegacy": "#currentvalueatpath($.EventCodeLegacy)",
+                "Description": "#currentvalueatpath($.Description)",
+                "DateTime": "#currentvalueatpath($.DateTime)",
+                "DateTimeOffset": "#currentvalueatpath($.DateTimeOffset)",
+                "LocationCode": "#currentvalueatpath($.LocationCode)",
+                "EventType": "MASTER"
+              }
+            }
+          },
+          "#ifgroup(#exists($.MasterLeg))": {
+            "MasterLeg": {
+              "#loop($.MasterLeg)": {
+                "SequenceNo": "#currentvalueatpath($.SequenceNo)",
+                "CarrierCode": "#currentvalueatpath($.Carrier.Code)",
+                "CarrierName": "#currentvalueatpath($.Carrier.Name)",
+                "CarrierCountry": "#currentvalueatpath($.Carrier.Country)",
+                "TransportNumber": "#currentvalueatpath($.TransportNumber)",
+                "OriginCode": "#currentvalueatpath($.Origin.Code)",
+                "OriginName": "#currentvalueatpath($.Origin.Name)",
+                "OriginCountry": "#currentvalueatpath($.Origin.Country)",
+                "DestinationCode": "#currentvalueatpath($.Destination.Code)",
+                "DestinationName": "#currentvalueatpath($.Destination.Name)",
+                "DestinationCountry": "#currentvalueatpath($.Destination.Country)",
+                "AtdDateTime": "#currentvalueatpath($.Atd.DateTime)",
+                "AtdDateTimeOffset": "#currentvalueatpath($.Atd.DateTimeOffset)",
+                "AtaDateTime": "#currentvalueatpath($.Ata.DateTime)",
+                "AtaDateTimeOffset": "#currentvalueatpath($.Ata.DateTimeOffset)",
+                "ModeOfTransport": "#currentvalueatpath($.ModeOfTransport)"
+              }
+            }
+          }
+        }
+      }
+    },
+    "#ifgroup(#exists($.ShipmentUpdate.Message.Addresses.Address))": {
+      "Addresses": {
+        "#loop($.ShipmentUpdate.Message.Addresses.Address)": {
+          "IdSource": "#currentvalueatpath($.IdSource)",
+          "Id": "#currentvalueatpath($.Id)",
+          "LegacyId_Origin": "#currentvalueatpath($.LegacyId_Origin)",
+          "Party": "#currentvalueatpath($.Party)",
+          "Name": "#currentvalueatpath($.Name)",
+          "Line": "#currentvalueatpath($.Line)",
+          "City": "#currentvalueatpath($.City)",
+          "State": "#currentvalueatpath($.State)",
+          "Zip": "#currentvalueatpath($.Zip)",
+          "Country": "#currentvalueatpath($.Country)",
+          "CountryName": "#currentvalueatpath($.CountryName)",
+          "CompanyName": "#currentvalueatpath($.CompanyName)"
+        }
+      }
+    },
+    "#ifgroup(#exists($.ShipmentUpdate.Message.Events.Event))": {
+      "Events": {
+        "#loop($.ShipmentUpdate.Message.Events.Event)": {
+          "EventCode": "#currentvalueatpath($.EventCode)",
+          "EventCodeLegacy": "#currentvalueatpath($.EventCodeLegacy)",
+          "Description": "#currentvalueatpath($.Description)",
+          "DateTime": "#currentvalueatpath($.DateTime)",
+          "DateTimeOffset": "#currentvalueatpath($.DateTimeOffset)",
+          "LocationCode": "#currentvalueatpath($.LocationCode)",
+          "EventType": "SHIPMENT"
+        }
+      }
+    },
+    "#ifgroup(#exists($.ShipmentUpdate.Message.References))": {
+      "References": {
+        "#loop($.ShipmentUpdate.Message.References.Reference)": {
+          "Qualifier": "#currentvalueatpath($.Qualifier)",
+          "ReferenceValue": "#currentvalueatpath($.Value)"
+        }
+      }
+    },
+    "#ifgroup(#exists($.ShipmentUpdate.Message.Packages.Package))": {
+      "Packages": {
+        "#loop($.ShipmentUpdate.Message.Packages.Package)": {
+          "PackageCount": "#currentvalueatpath($.PackageCount)",
+          "Type": "#currentvalueatpath($.Type)",
+          "ContainerNumber": "#currentvalueatpath($.ContainerNumber)",
+          "GrossWeight": "#currentvalueatpath($.GrossWeight)",
+          "GrossWeightUOM": "#currentvalueatpath($.GrossWeightUOM)",
+          "Commodity": "#currentvalueatpath($.Commodity)",
+          "Length": "#currentvalueatpath($.Length)",
+          "LengthUOM": "#currentvalueatpath($.LengthUOM)",
+          "Width": "#currentvalueatpath($.Width)",
+          "WidthUOM": "#currentvalueatpath($.WidthUOM)",
+          "Height": "#currentvalueatpath($.Height)",
+          "HeightUOM": "#currentvalueatpath($.HeightUOM)",
+          "HarmonisedCode": "#currentvalueatpath($.HarmonisedCode)",
+          "RequiredTemperatureMinimum": "#ifcondition(#exists($.TemperatureRange),true,#currentvalueatpath($.TemperatureRange.RequiredTemperatureMinimum),#valueof(null))",
+          "RequiredTemperatureMaximum": "#ifcondition(#exists($.TemperatureRange),true,#currentvalueatpath($.TemperatureRange.RequiredTemperatureMaximum),#valueof(null))"
+        }
+      }
+    },
+    "#ifgroup(#exists($.ShipmentUpdate.Message.Containers))": {
+      "Containers": {
+        "#loop($.ShipmentUpdate.Message.Containers.Container)": {
+          "ContainerNumber": "#currentvalueatpath($.ContainerNumber)",
+          "ContainerType": "#currentvalueatpath($.ContainerType)",
+          "SealNumber": "#currentvalueatpath($.SealNumber)",
+          "NumberOfPieces": "#currentvalueatpath($.NumberOfPieces)",
+          "PackageCode": "#currentvalueatpath($.PackageCode)",
+          "Weight": "#currentvalueatpath($.Weight)",
+          "WeightUOM": "#currentvalueatpath($.WeightUOM)",
+          "Volume": "#currentvalueatpath($.Volume)",
+          "VolumeUOM": "#currentvalueatpath($.VolumeUOM)",
+          "#ifgroup(#exists($.ContainerEvents.Event))": {
+            "ContainerEvents": {
+              "#loop($.ContainerEvents.Event)": {
+                "EventType": "CONTAINER",
+                "EventCode": "#currentvalueatpath($.EventCodeLegacy)",
+                "Description": "#currentvalueatpath($.EventCode)",
+                "DateTime": "#currentvalueatpath($.DateTime)",
+                "DateTimeOffset": "#currentvalueatpath($.DateTimeOffset)",
+                "LocationCode": "#currentvalueatpath($.LocationCode)"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,122 @@
+version: "3.9"
+services:
+
+  web-bless:
+    image: s3innovatesg/dpdhl-web-bless:1.2
+    hostname: dpdhl-web-bless
+    container_name: dpdhl-web-bless
+    depends_on:
+      - data-transformer
+    restart: unless-stopped
+    logging:
+      driver: "local"
+      options:
+        max-file: "10"
+        max-size: "20m"
+    ports:
+      - "8001:80"
+    environment:
+      JWT__VALIDITY: 30
+      CONNECTIONSTRINGS__DEFAULT: "Server=mysql;Port=3306;Database=dpdhl_db;Uid=s3dbuser;Pwd=gAAAAABjoncgkMv-Q0g3PREa3-DfPI1Ra0kP1k74dKE6FIVeE2mCA-iiFUCWShICy2rEvZjBLf4NqYv6Hnw6KsHrNfbUqd0p0A==;"
+      REST__DATATRANSFORMER__URL: "http://data-transformer:80"
+      REST__OH__URL: "http://samurai.southeastasia.cloudapp.azure.com:55555"
+      REST__OH__PATH: "overhaul"
+      REST__OH__APIKEY": "ABCDEFG1234567"
+      REST__BPIWEBSERVICE__URL: "https://wsbexpressuat.dhl.com"
+      REST__BPIWEBSERVICE__TOKEN: "Ymxlc3M6S1gkdkRjflVZOV5iZzFhdg=="
+      REST__BPIWEBSERVICE__BATCH: 30
+      TRANSFORMATION__BMSOH: "bms_oh_test"
+      EXP__SHIPMENT__EXTRACT: "expws_extract_hawb"
+      EXP__SHIPMENT__TRANSFORM__IBM: "expws_shipment_ibm"
+    extra_hosts:
+      mysql: 10.0.0.7
+    volumes:
+      -  /var/datatransformer/log/dpdhl-web-bless:/app/log
+
+  web-dutydrawback:
+    image: s3innovatesg/dpdhl-web-dutydrawback:1.2
+    hostname: dpdhl-web-dutydrawback
+    container_name: dpdhl-web-dutydrawback
+    depends_on:
+      - data-transformer
+    restart: unless-stopped
+    logging:
+      driver: "local"
+      options:
+        max-file: "10"
+        max-size: "20m"
+    ports:
+      - "8002:80"
+    environment:
+      JWT__VALIDITY: 30
+      CONNECTIONSTRINGS__DEFAULT: "Server=mysql;Port=3306;Database=dpdhl_db;Uid=s3dbuser;Pwd=gAAAAABjoncgkMv-Q0g3PREa3-DfPI1Ra0kP1k74dKE6FIVeE2mCA-iiFUCWShICy2rEvZjBLf4NqYv6Hnw6KsHrNfbUqd0p0A==;"
+      REST__DATATRANSFORMER__URL: "http://data-transformer:80"
+    extra_hosts:
+      mysql: 10.0.0.7
+    volumes:
+      -  /var/datatransformer/log/dpdhl-web-dutydrawback:/app/log
+
+  web-kenya:
+    image: s3innovatesg/dpdhl-web-kenya:1.0
+    hostname: dpdhl-web-kenya
+    container_name: dpdhl-web-kenya
+    depends_on:
+      - data-transformer
+    restart: unless-stopped
+    logging:
+      driver: "local"
+      options:
+        max-file: "10"
+        max-size: "20m"
+    ports:
+      - "8003:80"
+    environment:
+      JWT__VALIDITY: 30
+      CONNECTIONSTRINGS__DEFAULT: "Server=mysql;Port=3306;Database=dpdhl_db;Uid=s3dbuser;Pwd=gAAAAABjoncgkMv-Q0g3PREa3-DfPI1Ra0kP1k74dKE6FIVeE2mCA-iiFUCWShICy2rEvZjBLf4NqYv6Hnw6KsHrNfbUqd0p0A==;"
+      REST__DATATRANSFORMER__URL: "http://data-transformer:80"
+    extra_hosts:
+      mysql: 10.0.0.7
+    volumes:
+      -  /var/datatransformer/log/dpdhl-web-kenya:/app/log
+
+  web-vendororder:
+    image: s3innovatesg/dpdhl-web-vendororder:1.0
+    hostname: dpdhl-web-vendororder
+    container_name: dpdhl-web-vendororder
+    depends_on:
+      - data-transformer
+    restart: unless-stopped
+    logging:
+      driver: "local"
+      options:
+        max-file: "10"
+        max-size: "20m"
+    ports:
+      - "8004:80"
+    environment:
+      JWT__VALIDITY: 30
+      CONNECTIONSTRINGS__DEFAULT: "Server=mysql;Port=3306;Database=dpdhl_db;Uid=s3dbuser;Pwd=gAAAAABjoncgkMv-Q0g3PREa3-DfPI1Ra0kP1k74dKE6FIVeE2mCA-iiFUCWShICy2rEvZjBLf4NqYv6Hnw6KsHrNfbUqd0p0A==;"
+      REST__DATATRANSFORMER__URL: "http://data-transformer:80"
+    extra_hosts:
+      mysql: 10.0.0.7
+    volumes:
+      -  ./var/datatransformer/log/dpdhl-web-vendororder:/app/log
+
+  data-transformer:
+    image: s3innovatesg/data-transformer-v2:2.1.1
+    hostname: data-transformer
+    container_name: data-transformer
+    restart: unless-stopped
+    logging:
+      driver: "local"
+      options:
+        max-file: "10"
+        max-size: "20m"
+    ports:
+      - "8088:80"
+    volumes:
+      -  ./configuration/data-transformer/mapper-configs:/home/site/wwwroot/configuration/mapper-configs
+      -  ./configuration/data-transformer/master-code:/home/site/wwwroot/configuration/master-code
+      -  /var/datatransformer/data:/home/site/wwwroot/data
+      -  /var/datatransformer/httpoutdata:/home/site/wwwroot/httpoutdata
+      -  /var/datatransformer/log/data-transformer:/home/site/wwwroot/log

@@ -1,0 +1,258 @@
+version: "3.9"
+services:
+
+  sftp-client:
+    image: "s3innovatesg/sftp-client:1.9.3"
+    hostname: sftp-client
+    container_name: sftp-client
+    restart: unless-stopped
+    logging:
+        driver: "local"
+        options:
+            max-file: "10"
+            max-size: "20m"
+    environment:
+      BOOTSTRAP_SERVERS: "kafka:29092"
+      INTERVAL_IN_SECOND: 60
+      FILEUPLOAD_BUFFER_TIME_IN_SECOND: 30
+      HEARTBEATINTERVAL: 300000
+      KEY: "MmNaRbS2E9HGlEaaUmbcOQktSvfEPQASA2aUbDc3Ue8="
+    extra_hosts:
+      kafka: 10.0.0.7
+    volumes:
+      - ./configuration/sftp-client/:/app/configuration/
+      - /var/datatransformer/data:/app/data/
+
+  sftp-file-mover:
+    image: "s3innovatesg/sftp-file-mover:1.0.0"
+    hostname: sftp-file-mover
+    container_name: sftp-file-mover
+    restart: unless-stopped
+    logging:
+        driver: "local"
+        options:
+            max-file: "10"
+            max-size: "20m"
+    environment:
+      INTERVAL_IN_SECOND: 10
+      KEY: "MmNaRbS2E9HGlEaaUmbcOQktSvfEPQASA2aUbDc3Ue8="
+    volumes:
+      - ./configuration/sftp-file-mover/:/app/configuration/
+
+  kafka-client:
+    image: s3innovatesg/kafka-client:1.2
+    hostname: kafka-client
+    container_name: kafka-client
+    depends_on:
+      - data-transformer
+    restart: unless-stopped
+    logging:
+      driver: "local"
+      options:
+        max-file: "10"
+        max-size: "20m"
+    ports:
+      - "8001:80"
+    environment:
+      KAFKA__BOOTSTRAP: "kafka:29092"
+      KAFKA__GROUPID: kafka-client-1
+      KAFKA__PARTITIONS: 1
+      KAFKA__REPLICATION: 1
+      CONNECTIONSTRINGS__DEFAULT: "Server=mysql;Port=3306;Database=dpdhl_db;Uid=s3dbuser;Pwd=gAAAAABjoncgkMv-Q0g3PREa3-DfPI1Ra0kP1k74dKE6FIVeE2mCA-iiFUCWShICy2rEvZjBLf4NqYv6Hnw6KsHrNfbUqd0p0A==;"
+      REST__DATATRANSFORMER__URL: "http://data-transformer:80"
+      REST__DATATRANSFORMER__RETRY: 1
+      REST__DATATRANSFORMER__WAIT: 5000
+      ATTACHFILE: ""
+    extra_hosts:
+      kafka: 10.0.0.7
+      mysql: 10.0.0.7
+    volumes:
+      -  ./configuration/kafka-client:/home/site/wwwroot/configuration
+      -  /var/datatransformer/data:/home/site/wwwroot/data
+      -  /var/datatransformer/log/kafka-client:/home/site/wwwroot/log
+
+  kafka-documentapi:
+    image: s3innovatesg/kafka-documentapi:1.2
+    hostname: kafka-documentapi
+    container_name: kafka-documentapi
+    depends_on:
+      - data-transformer
+    restart: unless-stopped
+    logging:
+      driver: "local"
+      options:
+        max-file: "10"
+        max-size: "20m"
+    ports:
+      - "8002:80"
+    environment:
+      KAFKA__BOOTSTRAP: "kafka:29092"
+      KAFKA__GROUPID: kafka-documentapi-client-1
+      KAFKA__PARTITIONS: 1
+      KAFKA__REPLICATION: 1
+      CONNECTIONSTRINGS__DEFAULT: "Server=mysql;Port=3306;Database=dpdhl_db;Uid=s3dbuser;Pwd=gAAAAABjoncgkMv-Q0g3PREa3-DfPI1Ra0kP1k74dKE6FIVeE2mCA-iiFUCWShICy2rEvZjBLf4NqYv6Hnw6KsHrNfbUqd0p0A==;"
+      REST__DATATRANSFORMER__URL: "http://data-transformer:80"
+    extra_hosts:
+      kafka: 10.0.0.7
+      mysql: 10.0.0.7
+    volumes:
+      -  ./configuration/kafka-documentapi:/home/site/wwwroot/configuration
+      -  /var/datatransformer/data:/home/site/wwwroot/data
+      -  /var/datatransformer/log/kafka-documentapi:/home/site/wwwroot/log
+
+  kafka-dutydrawback:
+    image: s3innovatesg/kafka-dutydrawback:1.2
+    hostname: kafka-dutydrawback
+    container_name: kafka-dutydrawback
+    depends_on:
+      - data-transformer
+    restart: unless-stopped
+    logging:
+      driver: "local"
+      options:
+        max-file: "10"
+        max-size: "20m"
+    ports:
+      - "8003:80"
+    environment:
+      KAFKA__BOOTSTRAP: "kafka:29092"
+      KAFKA__GROUPID: kafka-dutydrawback-client-1
+      KAFKA__PARTITIONS: 1
+      KAFKA__REPLICATION: 1
+      CONNECTIONSTRINGS__DEFAULT: "Server=mysql;Port=3306;Database=dpdhl_db;Uid=s3dbuser;Pwd=gAAAAABjoncgkMv-Q0g3PREa3-DfPI1Ra0kP1k74dKE6FIVeE2mCA-iiFUCWShICy2rEvZjBLf4NqYv6Hnw6KsHrNfbUqd0p0A==;"
+      REST__DATATRANSFORMER__URL: "http://data-transformer:80"
+      IMPORTDUTY__EMAIL__FROM: "uat-bruhubrequest@blesstrace.com"
+      IMPORTDUTY__EMAIL__TO: "shugang@s3innovate.com"
+      IMPORTDUTY__EMAIL__BCC: ""
+      IMPORTDUTY__EMAIL__PASS: "gAAAAABjlAy0feuHZ3wFGMW5eogWfW8ww9LcXHMsAOfvMs6Mn46kh01KVxmnc0R53HsgYIHG00Az-RDfvzXG6Ebo56gu8GrApw=="
+      SCHEDULEDTASK.EMAIL.CRON: "0 0 0 * * Mon"
+      SCHEDULEDTASK.DELETE.CRON: "0 0 0 * * Mon"
+    extra_hosts:
+      kafka: 10.0.0.7
+      mysql: 10.0.0.7
+    volumes:
+      -  ./configuration/kafka-dutydrawback:/home/site/wwwroot/configuration
+      -  /var/datatransformer/data:/home/site/wwwroot/data
+      -  /var/datatransformer/log/kafka-dutydrawback:/home/site/wwwroot/log
+
+  kafka-kenya:
+    image: s3innovatesg/kafka-kenya:1.2
+    hostname: kafka-kenya
+    container_name: kafka-kenya
+    depends_on:
+      - data-transformer
+    restart: unless-stopped
+    logging:
+      driver: "local"
+      options:
+        max-file: "10"
+        max-size: "20m"
+    ports:
+      - "8004:80"
+    environment:
+      KAFKA__BOOTSTRAP: "kafka:29092"
+      KAFKA__GROUPID: kafka-kenya-client-1
+      KAFKA__PARTITIONS: 1
+      KAFKA__REPLICATION: 1
+      CONNECTIONSTRINGS__DEFAULT: "Server=mysql;Port=3306;Database=dpdhl_db;Uid=s3dbuser;Pwd=gAAAAABjoncgkMv-Q0g3PREa3-DfPI1Ra0kP1k74dKE6FIVeE2mCA-iiFUCWShICy2rEvZjBLf4NqYv6Hnw6KsHrNfbUqd0p0A==;"
+      REST__DATATRANSFORMER__URL: "http://data-transformer:80"
+      REST__BPIWEBSERVICE__URL: "https://wsbexpress.dhl.com"
+      REST__BPIWEBSERVICE__SHIPMENTQUERY: "rest/bpim/BPIShipmentQuery"
+      REST__BPIWEBSERVICE__TOKEN: "Ymxlc3M6ZFdhN2llbzVIOC01SXhpTVI3dHRBLWRF"
+      DOCUMENT__MESSAGETRIGGER: "CLC,POD,ECR,APT,A39,A32,A45,A04"
+      DOCUMENT__EMAIL__FROM: "customs.docs@blesstrace.com"
+      DOCUMENT__EMAIL__TO: ""
+      DOCUMENT__EMAIL__BCC: ""
+      DOCUMENT__EMAIL__PASS: "gAAAAABkItKhVOmhh7IAxPTSnF5e2q9wY_edeTkVyP85-Yq2UXsa8zkiobtklAi9k_sCpaXNzEvJ93DA7uy1M9xbU2GaWLptxQ=="
+    extra_hosts:
+      kafka: 10.0.0.7
+      mysql: 10.0.0.7
+    volumes:
+      -  ./configuration/kafka-kenya:/home/site/wwwroot/configuration
+      -  /var/datatransformer/data:/home/site/wwwroot/data
+      -  /var/datatransformer/log/kafka-kenya:/home/site/wwwroot/log
+
+  kafka-rwanda:
+    image: s3innovatesg/kafka-rwanda:1.0
+    hostname: kafka-rwanda
+    container_name: kafka-rwanda
+    depends_on:
+      - data-transformer
+    restart: unless-stopped
+    logging:
+      driver: "local"
+      options:
+        max-file: "10"
+        max-size: "20m"
+    ports:
+      - "8005:80"
+    environment:
+      KAFKA__BOOTSTRAP: "kafka:29092"
+      KAFKA__GROUPID: kafka-rwanda-client-1
+      KAFKA__PARTITIONS: 1
+      KAFKA__REPLICATION: 1
+      CONNECTIONSTRINGS__DEFAULT: "Server=mysql;Port=3306;Database=dpdhl_db;Uid=s3dbuser;Pwd=gAAAAABjoncgkMv-Q0g3PREa3-DfPI1Ra0kP1k74dKE6FIVeE2mCA-iiFUCWShICy2rEvZjBLf4NqYv6Hnw6KsHrNfbUqd0p0A==;"
+      REST__DATATRANSFORMER__URL: "http://data-transformer:80"
+      REST__BPIWEBSERVICE__URL: "https://wsbexpress.dhl.com"
+      REST__BPIWEBSERVICE__SHIPMENTQUERY: "rest/bpim/BPIShipmentQuery"
+      REST__BPIWEBSERVICE__TOKEN: "Ymxlc3M6ZFdhN2llbzVIOC01SXhpTVI3dHRBLWRF"
+    extra_hosts:
+      kafka: 10.0.0.7
+      mysql: 10.0.0.7
+    volumes:
+      -  ./configuration/kafka-rwanda:/home/site/wwwroot/configuration
+      -  /var/datatransformer/data:/home/site/wwwroot/data
+      -  /var/datatransformer/log/kafka-rwanda:/home/site/wwwroot/log
+
+  kafka-ibm:
+    image: s3innovatesg/kafka-ibm:1.0
+    hostname: kafka-ibm
+    container_name: kafka-ibm
+    depends_on:
+      - data-transformer
+    restart: unless-stopped
+    logging:
+      driver: "local"
+      options:
+        max-file: "10"
+        max-size: "20m"
+    ports:
+      - "8006:80"
+    environment:
+      KAFKA__BOOTSTRAP: "kafka:29092"
+      KAFKA__GROUPID: kafka-ibm-client-1
+      KAFKA__PARTITIONS: 1
+      KAFKA__REPLICATION: 1
+      CONNECTIONSTRINGS__DEFAULT: "Server=mysql;Port=3306;Database=dpdhl_db;Uid=s3dbuser;Pwd=gAAAAABjoncgkMv-Q0g3PREa3-DfPI1Ra0kP1k74dKE6FIVeE2mCA-iiFUCWShICy2rEvZjBLf4NqYv6Hnw6KsHrNfbUqd0p0A==;"
+      REST__DATATRANSFORMER__URL: "http://data-transformer:80"
+      INVOICE__EMAIL__FROM: "ibm_invoice@blesstrace.com"
+      INVOICE__EMAIL__TO: "Yunus.Ali@surbanajurong.com"
+      INVOICE__EMAIL__BCC: ""
+      INVOICE__EMAIL__PASS: "gAAAAABkdhdZY0Vvk1n1Yds0BYripc7frnvuJTLRO6eQW_uWn1LaZlo3a2fZ3qO0qxQDBxb-XLBtqRy7lLcbnmWoEW7tSrNtIA=="
+      INVOICE__SENDFILE__LAG: 120
+    extra_hosts:
+      kafka: 10.0.0.7
+      mysql: 10.0.0.7
+    volumes:
+      -  ./configuration/kafka-ibm:/home/site/wwwroot/configuration
+      -  /var/datatransformer/data:/home/site/wwwroot/data
+      -  /var/datatransformer/log/kafka-ibm:/home/site/wwwroot/log
+
+  data-transformer:
+    image: s3innovatesg/data-transformer-v2:2.1.1
+    hostname: data-transformer
+    container_name: data-transformer
+    restart: unless-stopped
+    logging:
+      driver: "local"
+      options:
+        max-file: "10"
+        max-size: "20m"
+    ports:
+      - "8088:80"
+    volumes:
+      -  ./configuration/data-transformer/mapper-configs:/home/site/wwwroot/configuration/mapper-configs
+      -  ./configuration/data-transformer/master-code:/home/site/wwwroot/configuration/master-code
+      -  /var/datatransformer/data:/home/site/wwwroot/data
+      -  /var/datatransformer/httpoutdata:/home/site/wwwroot/httpoutdata
+      -  /var/datatransformer/log/data-transformer:/home/site/wwwroot/log

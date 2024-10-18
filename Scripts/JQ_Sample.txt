@@ -1,0 +1,10 @@
+jq '.[] | .events[] | .time' *
+
+jq '.[] | .reports[] | select (.location_id == 1654)' *
+
+jq -s 'map(.[] | .reports[] | select ((.location_id == 1654) and (.date == "2023-07-11")) | .total) | max' * as $r |
+
+jq '.[] | .reports[] | select(.total == 0)' * 
+
+jq --arg r "$(jq -s 'map(.[] | .reports[] | select ((.location_id == 1654) and (.date == "2023-07-11")) | .total) | max' *)" '.[] | .reports[] | select(.total == ($r | tonumber))' *
+

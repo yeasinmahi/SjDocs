@@ -1,0 +1,122 @@
+﻿Access Denied,Access Denied
+Access Denied (TZ),Access Denied
+"ALPHONSUS, Access Denied",Access Denied
+"DAVID, Access Denied",Access Denied
+"ERIC, Door Access Denied",Access Denied
+"EUNICE, Access Denied",Access Denied
+"FRANCIS, Access Denied",Access Denied
+"GREGORY, Access Denied",Access Denied
+"JAMES, Access Denied",Access Denied
+"JEFFREY, Access Denied",Access Denied
+"MICHAEL, Access Denied",Access Denied
+"PAUL, Access Denied",Access Denied
+"SUNNY, Access Denied",Access Denied
+"ALPHONSUS, Door Access Enabled",Access Enabled
+"DAVID, Door Access Enabled",Access Enabled
+"ERIC, Door Access Enabled",Access Enabled
+"EUNICE, Door Access Enabled",Access Enabled
+"FRANCIS, Door Access Enabled",Access Enabled
+"GREGORY, Door Access Enabled",Access Enabled
+"JAMES, Door Access Enabled",Access Enabled
+"JEFFREY, Door Access Enabled",Access Enabled
+"MICHAEL, Door Access Enabled",Access Enabled
+"PAUL, Door Access Enabled",Access Enabled
+"SUNNY, Door Access Enabled",Access Enabled
+Access Granted,Access Granted
+"ALPHONSUS, Access Granted",Access Granted
+"DAVID, Access Granted",Access Granted
+"ERIC, Access Granted",Access Granted
+"EUNICE, Access Granted",Access Granted
+"FRANCIS, Access Granted",Access Granted
+"GREGORY, Access Granted",Access Granted
+"JAMES, Access Granted",Access Granted
+"JEFFREY, Access Granted",Access Granted
+"MICHAEL, Access Granted",Access Granted
+"PAUL, Access Granted",Access Granted
+"SUNNY, Access Granted",Access Granted
+"ALPHONSUS, Ctrl Group B Activated",Activated
+"ALPHONSUS, Ctrl Group C Activated",Activated
+Ctrl Group B Activated,Activated
+Ctrl Group C Activated,Activated
+"DAVID, Ctrl Group B Activated",Activated
+"DAVID, Ctrl Group C Activated",Activated
+"ERIC, Ctrl Group B Activated",Activated
+"ERIC, Ctrl Group C Activated",Activated
+"EUNICE, Ctrl Group B Activated",Activated
+"EUNICE, Ctrl Group C Activated",Activated
+"FRANCIS, Ctrl Group B Activated",Activated
+"FRANCIS, Ctrl Group C Activated",Activated
+"GREGORY, Ctrl Group B Activated",Activated
+"GREGORY, Ctrl Group C Activated",Activated
+"JAMES, Ctrl Group B Activated",Activated
+"JAMES, Ctrl Group C Activated",Activated
+"JEFFREY, Ctrl Group B Activated",Activated
+"JEFFREY, Ctrl Group C Activated",Activated
+"MICHAEL, Ctrl Group B Activated",Activated
+"MICHAEL, Ctrl Group C Activated",Activated
+"PAUL, Ctrl Group B Activated",Activated
+"PAUL, Ctrl Group C Activated",Activated
+"SUNNY, Ctrl Group B Activated",Activated
+"SUNNY, Ctrl Group C Activated",Activated
+"ALPHONSUS, Card Lockout",Card Lockout
+Card Lockout,Card Lockout
+"DAVID, Card Lockout",Card Lockout
+"ERIC, Card Lockout",Card Lockout
+"EUNICE, Card Lockout",Card Lockout
+"FRANCIS, Card Lockout",Card Lockout
+"GREGORY, Card Lockout",Card Lockout
+"JAMES, Card Lockout",Card Lockout
+"JEFFREY, Card Lockout",Card Lockout
+"MICHAEL, Card Lockout",Card Lockout
+"PAUL, Card Lockout",Card Lockout
+"SUNNY, Card Lockout",Card Lockout
+"ALPHONSUS, Door Left Opened Alarm",Door Left Opened Alarm
+"DAVID, Door Left Opened Alarm",Door Left Opened Alarm
+Door Left Opened Alarm,Door Left Opened Alarm
+"ERIC, Door Left Opened Alarm",Door Left Opened Alarm
+"EUNICE, Door Left Opened Alarm",Door Left Opened Alarm
+"FRANCIS, Door Left Opened Alarm",Door Left Opened Alarm
+"GREGORY, Door Left Opened Alarm",Door Left Opened Alarm
+"JAMES, Door Left Opened Alarm",Door Left Opened Alarm
+"JEFFREY, Door Left Opened Alarm",Door Left Opened Alarm
+"MICHAEL, Door Left Opened Alarm",Door Left Opened Alarm
+"PAUL, Door Left Opened Alarm",Door Left Opened Alarm
+"SUNNY, Door Left Opened Alarm",Door Left Opened Alarm
+"ALPHONSUS, Door Opened",Door Opened
+"DAVID, Door Opened",Door Opened
+Door Opened,Door Opened
+"ERIC, Door Opened",Door Opened
+"EUNICE, Door Opened",Door Opened
+"FRANCIS, Door Opened",Door Opened
+"GREGORY, Door Opened",Door Opened
+"JAMES, Door Opened",Door Opened
+"JEFFREY, Door Opened",Door Opened
+"MICHAEL, Door Opened",Door Opened
+"PAUL, Door Opened",Door Opened
+"SUNNY, Door Opened",Door Opened
+"ALPHONSUS, Exit Granted",Exit Granted
+"DAVID, Exit Granted",Exit Granted
+"ERIC, Exit Granted",Exit Granted
+"EUNICE, Exit Granted",Exit Granted
+Exit Granted,Exit Granted
+"FRANCIS, Exit Granted",Exit Granted
+"GREGORY, Exit Granted",Exit Granted
+"JAMES, Exit Granted",Exit Granted
+"JEFFREY, Exit Granted",Exit Granted
+"MICHAEL, Exit Granted",Exit Granted
+"PAUL, Exit Granted",Exit Granted
+"SUNNY, Exit Granted",Exit Granted
+"ALPHONSUS, Invalid Card",Invalid Card
+"DAVID, Invalid Card",Invalid Card
+"ERIC, Invalid Card",Invalid Card
+"EUNICE, Invalid Card",Invalid Card
+"FRANCIS, Invalid Card",Invalid Card
+"GREGORY, Invalid Card",Invalid Card
+Invalid Card,Invalid Card
+"JAMES, Invalid Card",Invalid Card
+"JEFFREY, Invalid Card",Invalid Card
+"MICHAEL, Invalid Card",Invalid Card
+"PAUL, Invalid Card",Invalid Card
+"SUNNY, Invalid Card",Invalid Card
+"Card Has Expired",Invalid Card
+"Wrong Pin # Detected",Invalid Card

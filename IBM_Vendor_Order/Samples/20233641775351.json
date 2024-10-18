@@ -1,0 +1,416 @@
+[
+    {
+        "active": "true",
+        "blockchainStatus": "PREPARED",
+        "blockchainStatusChanges": [
+            {
+                "blockchainStatus": "CREATED",
+                "blockchainStatusTimestamp": "2023-07-03T09:54:15.241Z"
+            },
+            {
+                "blockchainStatus": "PREPARED",
+                "blockchainStatusTimestamp": "2023-07-03T18:21:53.306Z"
+            }
+        ],
+        "blockchainStatusTimestamp": "2023-07-03T18:21:53.306Z",
+        "brokerName": "DHL Express",
+        "businessUnit": "SSC",
+        "carriers": [
+            {
+                "carrierName": "DHL Express",
+                "changeDateTime": "2023-07-03 11:54:14Z",
+                "houseAirwayBillNumber": "3641775351"
+            }
+        ],
+        "cases": [
+            "W01393019",
+            "W01395083"
+        ],
+        "controlTower": "DHL LLP",
+        "countryOfExport": "NL",
+        "countryOfLastConsignment": "NL",
+        "countryOfOrigin": "MANY",
+        "currentCarrier": {
+            "carrierName": "DHL Express",
+            "changeDateTime": "2023-07-03 11:54:14Z",
+            "houseAirwayBillNumber": "3641775351"
+        },
+        "customsDocuments": [
+            {
+                "docNames": [
+                    "CUS-3641775351-1688408518033.pdf",
+                    "CUS-3641775351-1688408762716.pdf",
+                    "CUS-3641775351-1688430054150.pdf",
+                    "CUS-3641775351-1688494299539.pdf",
+                    "CUS-3641775351-1688494577789.pdf",
+                    "CUS-3641775351-1688494876187.pdf"
+                ],
+                "docType": "CUS"
+            }
+        ],
+        "customsIdentifier": "GB744859390000",
+        "docType": "Shipment",
+        "fieldChanges": [
+            {
+                "changeDateTime": "2023-07-03 11:54:14Z",
+                "field": "unknown",
+                "userid": "unknown"
+            },
+            {
+                "changeDateTime": "2023-07-03T10:08:15.175Z",
+                "field": "case.customsDocuments",
+                "toValue": " Following value is changed/added for caseNum W01393019: [{\"docType\":\"AWB\",\"docNames\":[\"AWB-W01393019-1688378885848.pdf\"]}]",
+                "userid": "system"
+            },
+            {
+                "changeDateTime": "2023-07-03T10:08:48.903Z",
+                "field": "case.customsDocuments",
+                "toValue": " Following value is changed/added for caseNum W01395083: [{\"docType\":\"AWB\",\"docNames\":[\"AWB-W01395083-1688378919840.pdf\"]}]",
+                "userid": "system"
+            },
+            {
+                "changeDateTime": "2023-07-03T17:35:59.555Z",
+                "field": "Invoices",
+                "toValue": "merged with idde: 3c418a456c2145a39f8758c13dfb972c",
+                "userid": "shipper"
+            },
+            {
+                "changeDateTime": "2023-07-03T17:46:12.479Z",
+                "field": "invoice.customsDocuments",
+                "fromValue": "[]",
+                "toValue": " Following value is changed/added: [{\"docType\":\"INV\",\"docNames\":[\"94023B0276-1688406367738.pdf\"]}]",
+                "userid": "system"
+            },
+            {
+                "changeDateTime": "2023-07-03T18:21:53.306Z",
+                "field": "blockchainStatus",
+                "fromValue": "CREATED",
+                "toValue": "PREPARED",
+                "userid": "system"
+            },
+            {
+                "changeDateTime": "2023-07-03T18:21:58.654Z",
+                "field": "shipment.customsDocuments",
+                "fromValue": "added/modified below docType & docNames/docProperties in customsDocuments",
+                "toValue": "[{\"docType\":\"CUS\",\"docNames\":[\"CUS-3641775351-1688408518033.pdf\"]}]",
+                "userid": "CDB_DOC_UPLOADER_COMPONENT"
+            },
+            {
+                "changeDateTime": "2023-07-03T18:26:03.769Z",
+                "field": "shipment.customsDocuments",
+                "fromValue": "added/modified below docType & docNames/docProperties in customsDocuments",
+                "toValue": "[{\"docType\":\"CUS\",\"docNames\":[\"CUS-3641775351-1688408762716.pdf\"]}]",
+                "userid": "CDB_DOC_UPLOADER_COMPONENT"
+            },
+            {
+                "changeDateTime": "2023-07-04T00:20:54.754Z",
+                "field": "shipment.customsDocuments",
+                "fromValue": "added/modified below docType & docNames/docProperties in customsDocuments",
+                "toValue": "[{\"docType\":\"CUS\",\"docNames\":[\"CUS-3641775351-1688430054150.pdf\"]}]",
+                "userid": "CDB_DOC_UPLOADER_COMPONENT"
+            },
+            {
+                "changeDateTime": "2023-07-04T18:11:40.131Z",
+                "field": "shipment.customsDocuments",
+                "fromValue": "added/modified below docType & docNames/docProperties in customsDocuments",
+                "toValue": "[{\"docType\":\"CUS\",\"docNames\":[\"CUS-3641775351-1688494299539.pdf\"]}]",
+                "userid": "CDB_DOC_UPLOADER_COMPONENT"
+            },
+            {
+                "changeDateTime": "2023-07-04T18:16:19.424Z",
+                "field": "shipment.customsDocuments",
+                "fromValue": "added/modified below docType & docNames/docProperties in customsDocuments",
+                "toValue": "[{\"docType\":\"CUS\",\"docNames\":[\"CUS-3641775351-1688494577789.pdf\"]}]",
+                "userid": "CDB_DOC_UPLOADER_COMPONENT"
+            },
+            {
+                "changeDateTime": "2023-07-04T18:21:16.425Z",
+                "field": "shipment.customsDocuments",
+                "fromValue": "added/modified below docType & docNames/docProperties in customsDocuments",
+                "toValue": "[{\"docType\":\"CUS\",\"docNames\":[\"CUS-3641775351-1688494876187.pdf\"]}]",
+                "userid": "CDB_DOC_UPLOADER_COMPONENT"
+            }
+        ],
+        "flowType": "IBM",
+        "foreignDestination": "GB",
+        "insurance": "0.00100485",
+        "insuranceValue": "7.28",
+        "invoiceTotal": "7240.48",
+        "invoiceTotalCurrencyType": "EUR",
+        "invoiceTotalDeclared": "7240.48",
+        "invoiceTotalValueOfGoods": "7240.48",
+        "invoiceTotalWithInsurance": "7247.76",
+        "invoices": [
+            {
+                "bottomComments": [
+                    "Certified true and correct",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "Goods exported outside the EU in accordance with",
+                    "VAT Directive Article 146 (1)(a).",
+                    "",
+                    "",
+                    ""
+                ],
+                "buyerVATReference": "GB744859390",
+                "cases": [
+                    {
+                        "caseGW": "0.50",
+                        "caseInvoiceNumber": "94023B0276",
+                        "caseNW": "0.45",
+                        "caseNum": "W01393019",
+                        "customsDocuments": [
+                            {
+                                "docNames": [
+                                    "AWB-W01393019-1688378885848.pdf"
+                                ],
+                                "docType": "AWB"
+                            }
+                        ],
+                        "dims": "28.00x24.00x7.00",
+                        "items": [
+                            {
+                                "coo": "CN",
+                                "declaredValue": "683.35",
+                                "goodID": "2WF534",
+                                "hacs": [
+                                    {
+                                        "dGBolStatement": "",
+                                        "dGClass": "",
+                                        "dGRegulated": "",
+                                        "hacCode": "",
+                                        "unNumber": ""
+                                    }
+                                ],
+                                "hsClassification": "8473302000",
+                                "hsClassificationExt": "8473302000000000000000",
+                                "ind": "",
+                                "itemDescription": "BEARLAKE",
+                                "itemExtDescription": "CARD,POPULATED FOR ADP MACHINE ASSEMBLY FOR ADP MACH/UNITS",
+                                "itemGW": "0.50",
+                                "itemNW": "0.45",
+                                "itemNum": "2WF534",
+                                "orderNum": "628553",
+                                "price": "683.35",
+                                "qty": "1",
+                                "unitPrice": "683.3500",
+                                "uom": "PCE"
+                            }
+                        ]
+                    },
+                    {
+                        "caseGW": "10.70",
+                        "caseInvoiceNumber": "94023B0276",
+                        "caseNW": "9.63",
+                        "caseNum": "W01395083",
+                        "customsDocuments": [
+                            {
+                                "docNames": [
+                                    "AWB-W01395083-1688378919840.pdf"
+                                ],
+                                "docType": "AWB"
+                            }
+                        ],
+                        "dims": "71.00x54.00x51.00",
+                        "items": [
+                            {
+                                "coo": "TH",
+                                "declaredValue": "6557.13",
+                                "goodID": "3GN904",
+                                "hacs": [
+                                    {
+                                        "dGBolStatement": "",
+                                        "dGClass": "",
+                                        "dGRegulated": "",
+                                        "hacCode": "",
+                                        "unNumber": ""
+                                    }
+                                ],
+                                "hsClassification": "8473308000",
+                                "hsClassificationExt": "8473308000000000000000",
+                                "ind": "",
+                                "itemDescription": "CPMA FRU",
+                                "itemExtDescription": "PLATE FOR AUTOMATED DATA PROCESSING MACHINES/UNITS",
+                                "itemGW": "10.70",
+                                "itemNW": "9.63",
+                                "itemNum": "3GN904",
+                                "orderNum": "626103",
+                                "price": "6557.13",
+                                "qty": "1",
+                                "unitPrice": "6557.1300",
+                                "uom": "PCE"
+                            }
+                        ]
+                    }
+                ],
+                "currency": "EUR",
+                "currencyConversionRate": "",
+                "customsDocuments": [
+                    {
+                        "docNames": [
+                            "94023B0276-1688406367738.pdf"
+                        ],
+                        "docType": "INV"
+                    }
+                ],
+                "date": "Jul 3, 2023, 12:00:00 AM",
+                "deliveryTerms": "CPT",
+                "emergencyCode": "",
+                "invoiceCharges": [],
+                "invoiceFromAddress": {
+                    "address1": "IMPL B.V.",
+                    "address2": "C/O IBM NEDERLAND B.V.",
+                    "address3": "JOHAN HUIZINGALAAN 765",
+                    "address4": "1066 VH AMSTERDAM",
+                    "address5": "THE NETHERLANDS",
+                    "address6": "VAT NBR: NL802265753B01",
+                    "invoiceFromCity": "MADRID",
+                    "invoiceFromCountryCode": "697",
+                    "invoiceFromCountryName": "NL",
+                    "invoiceFromLocationCode": "09F",
+                    "invoiceFromState": "SPAIN",
+                    "invoiceFromStreet": "SA STA HORTENSIA 26-28",
+                    "invoiceFromZipCode": "28002"
+                },
+                "invoiceGW": "11.20",
+                "invoiceNW": "10.08",
+                "invoiceNumber": "94023B0276",
+                "invoiceToAddress": {
+                    "address1": "IMPL B.V. EORI GB744859390",
+                    "address2": "J.HUIZINGALAAN 765, 1066VH AMS.NL",
+                    "address3": "VAT GB744859390 FISC. REP IBM UK LT",
+                    "address4": "GB107328000",
+                    "address5": "PO6 3AU PO BOX 41, PORTSMOUTH",
+                    "address6": "UNITED KINGDOM",
+                    "invoiceToCity": "MADRID",
+                    "invoiceToCountryCode": "697",
+                    "invoiceToCountryName": "NL",
+                    "invoiceToLocationCode": "09F",
+                    "invoiceToState": "SPAIN",
+                    "invoiceToStreet": "SA STA HORTENSIA 26-28",
+                    "invoiceToZipCode": "28002"
+                },
+                "invoiceTotalAlternateCurrency": "",
+                "invoiceTotalAlternateCurrencyType": "",
+                "invoiceType": "NO CHARGE",
+                "methodOfTransport": "3",
+                "methodOfTransportDescription": "TRUCK",
+                "otherCharges": "0",
+                "paymentTerms": "PAYMENT WITHIN 30 DAYS FROM GOODS RCPT",
+                "references": [
+                    "ACCOUNTING RATE  03/07/23",
+                    "ACCOUNTING RATE  E3697  03/07/23  EUR  1.0000000",
+                    "ACCOUNTING RATE  E3866  03/07/23  EUR  1.1653302",
+                    "EC93 BUYER VAT REFERENCE  GB744859390",
+                    "DATE OF SUPPLY  03/07/23",
+                    "INVOICE EXCHANGE RATE SHIPPING  E3788  03/07/23  EUR  1.0000000",
+                    "EC93 SELLER VAT REFERENCE  NL802265753B01"
+                ],
+                "remarks": [
+                    "CN: CHINA",
+                    "TH: THAILAND"
+                ],
+                "sellerVATReference": "NL802265753B01",
+                "totalCases": "2",
+                "totalFreightCost": "",
+                "totalPrice": "7240.48",
+                "valueOfGoods": "7240.48",
+                "vendorNum": ""
+            }
+        ],
+        "masterAirwayBillNumber": "3641775351",
+        "netWeight": "10.08",
+        "productType": "COMPUTER SPARE PARTS",
+        "serviceLevels": "ESI Economy Select (non-doc)",
+        "shipDateTime": "2023-06-30",
+        "shipFromAddress": {
+            "address1": "IMPL BV",
+            "address2": "C/O UPS-SCS COP INTOPS/CE EMERGENC",
+            "address3": "N/A",
+            "address4": "STANLEYWEG 8-10",
+            "address5": "N/A",
+            "address6": "N/A",
+            "shipFromCity": "VENLO",
+            "shipFromCountryCode": "788",
+            "shipFromCountryName": "NL",
+            "shipFromLocationCode": "370",
+            "shipFromState": "NETHERLAN",
+            "shipFromStreet": "STANLEYWEG 8-10",
+            "shipFromZipCode": "5928 LR"
+        },
+        "shipToAddress": {
+            "address1": "IBM LSH DHL SCS",
+            "address2": "MILTON KEYNES DIGITAL CENTRE",
+            "address3": "PENDEEN CRESCENT",
+            "address4": "MILTON KEYNES, BUCKS",
+            "address5": "MK4 3FU",
+            "address6": "United Kingdom",
+            "shipToCity": "MILTON KEYNES",
+            "shipToCountryCode": "866",
+            "shipToCountryName": "GB",
+            "shipToLocationCode": "XY1",
+            "shipToState": "UNITED KI",
+            "shipToStreet": "PENDEEN CRESCENT",
+            "shipToZipCode": "MK4 3FU"
+        },
+        "shipmentDeliveryTerms": "CPT",
+        "shipmentID": "20233641775351",
+        "shipmentStatus": "CLOSED",
+        "statusChange": [
+            {
+                "changeDateTime": "2023-07-03T09:54:15.241Z",
+                "statusComments": "Shipment Created",
+                "statusLocalTime": "",
+                "toStatus": "CREATED",
+                "userid": "system"
+            },
+            {
+                "changeDateTime": "2023-07-03T20:34:39.651Z",
+                "statusComments": "string",
+                "statusLocalTime": "2023-07-03T22:17:00.000Z",
+                "toStatus": "RECEIVED_AT_HUB",
+                "userid": "UpdateShipmentStatus"
+            },
+            {
+                "changeDateTime": "2023-07-04T12:32:10.864Z",
+                "statusComments": "string",
+                "statusLocalTime": "2023-07-04T12:57:00.000Z",
+                "toStatus": "LANDED",
+                "userid": "UpdateShipmentStatus"
+            },
+            {
+                "changeDateTime": "2023-07-04T15:34:47.677Z",
+                "statusComments": "string",
+                "statusLocalTime": "2023-07-04T16:05:52.000Z",
+                "toStatus": "RELEASED",
+                "userid": "UpdateShipmentStatus"
+            },
+            {
+                "changeDateTime": "2023-07-04T19:52:37.749Z",
+                "statusComments": "string",
+                "statusLocalTime": "2023-07-04T20:14:26.000Z",
+                "toStatus": "RELEASED",
+                "userid": "UpdateShipmentStatus"
+            },
+            {
+                "changeDateTime": "2023-07-05T11:51:01.969Z",
+                "statusComments": "string",
+                "statusLocalTime": "2023-07-05T12:28:00.000Z",
+                "toStatus": "DELIVERED",
+                "userid": "UpdateShipmentStatus"
+            },
+            {
+                "changeDateTime": "2023-07-05T11:52:38.468Z",
+                "statusComments": "Updated by Node-Red component in CDB",
+                "statusLocalTime": "2023-07-05T11:52:36.530Z",
+                "toStatus": "CLOSED",
+                "userid": "UpdateShipmentStatus"
+            }
+        ],
+        "totalCases": "2",
+        "totalItems": "2",
+        "tradingCountry": "NL"
+    }
+]

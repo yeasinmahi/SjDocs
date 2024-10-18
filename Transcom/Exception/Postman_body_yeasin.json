@@ -1,0 +1,8 @@
+{
+    "id": "b96e9b19-76c0-402c-a009-3d55bc136d3b",
+    "msg_type": "Dubai-Custom-Exception",
+    "sender": "S3",
+    "issueTime": 1690779580000.0,
+    "transformedMessage": "ewogICAgImlkIjogIjEyMy00NTY3OCIsCiAgICAiZGF0ZVRpbWUiOiAiMTY5MDc3OTUyODAwMC4wIiwKICAgICJlcnJvckNvZGUiOiAiRENFLTEyMzQ1IiwKICAgICJlcnJvckRlc2MiOiAiSW52b2ljZSBudW1iZXIgaXMgbWlzc2luZyIsCiAgICAibXNnSWRlbnRpZmllciI6IHsKICAgICAgICAidHhuSWQiOiAiMTIzLTQ1Njc4IiwKICAgICAgICAiZWNvbUJ1c2luZXNzQ29kZSI6ICJEQy0xMjM0NSIKICAgIH0KfQ==",
+    "token": "b96e9b19-76c0-402c-a009-3d55bc136d3b"
+}

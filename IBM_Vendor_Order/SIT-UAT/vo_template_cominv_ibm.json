@@ -1,0 +1,9 @@
+{
+  "data": {
+	"org": "IBM",
+    "messagetype": "VND_ORD_IBM_COMINV",
+    "shipmenttrackingnumber": "#valueof($.shipment)",
+    "invoicenumber": "#valueof($.invoice)",
+    "payload": "#valueof($.payload)"
+  }
+}

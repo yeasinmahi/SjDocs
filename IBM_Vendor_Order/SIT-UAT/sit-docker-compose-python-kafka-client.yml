@@ -1,0 +1,48 @@
+version: "3.9"
+services:
+  python-kafka-client:
+    image: "yeasinmahi/python-kafka-client:1.1"     
+    container_name: "python-kafka-client"      
+    restart: always
+    environment:
+        bootstrap.servers: broker-3-xjldmhkrp2n7bz7b.kafka.svc10.us-south.eventstreams.cloud.ibm.com:9093,broker-5-xjldmhkrp2n7bz7b.kafka.svc10.us-south.eventstreams.cloud.ibm.com:9093,broker-4-xjldmhkrp2n7bz7b.kafka.svc10.us-south.eventstreams.cloud.ibm.com:9093,broker-2-xjldmhkrp2n7bz7b.kafka.svc10.us-south.eventstreams.cloud.ibm.com:9093,broker-0-xjldmhkrp2n7bz7b.kafka.svc10.us-south.eventstreams.cloud.ibm.com:9093,broker-1-xjldmhkrp2n7bz7b.kafka.svc10.us-south.eventstreams.cloud.ibm.com:9093
+        topic: sample-topic
+
+        ## Consumer specific properties
+        group.id: ibmeventstreams_starter_app_group
+        auto.offset.reset: earliest
+        enable.auto.commit: false
+        consumer.timeout: 1
+        key.deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        value.deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+        ## Producer specific properties
+        acks: all
+        key.serializer: org.apache.kafka.common.serialization.StringSerializer
+        value.serializer: org.apache.kafka.common.serialization.StringSerializer
+
+        ## Optional security options
+        security.protocol: SASL_SSL
+        ssl.protocol: TLSv1.2
+        sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username = "token" password = "p8PGJ250PRGTUicpOReYoitcjsCLFS8TAwcUnlUAxXHl";
+        sasl.username: token
+        sasl.password: p8PGJ250PRGTUicpOReYoitcjsCLFS8TAwcUnlUAxXHl
+        sasl.mechanism: PLAIN
+        ssl.enabled.protocols: TLSv1.2
+        ssl.endpoint.identification.algorithm: HTTPS
+
+        ## Log Specific
+        log.save.location: log
+        log.console.level: 10
+        log.file.level: 10
+
+        #MySQL Credentials
+        db.host: "10.0.0.7"
+        db.user: "s3dbuser"
+        db.pwd: "S3@dpdhl@sit"
+        db.name: "dpdhl_db"
+        # KEY: "MmNaRbS2E9HGlEaaUmbcOQktSvfEPQASA2aUbDc3Ue8="
+
+    volumes:
+      - ./data/python-kafka-client:/app/data/
+      - /var/datatransformer/log/python-kafka-client:/app/log

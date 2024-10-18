@@ -1,0 +1,8 @@
+{
+    "id": "b96e9b19-76c0-402c-a009-3d55bc136d3a",
+    "msg_type": "TNT_SUB_EXC",
+    "sender": "TNT_SUB_SVC",
+    "issueTime": 1647221023000.0,
+    "transformedMessage": "eyJpZCI6ICIxMjMtNDU2NzgiLCAiZGF0ZVRpbWUiOiAiMTY0NzIyMTAyMzAwMC4wIiwgImVycm9yQ29kZSI6ICJTRTAwMDEiLCAiZXJyb3JEZXNjIjogIlN1YnNjcmlwdGlvbiBjb25maWd1cmF0aW9uIG1pc3NpbmcgZm9yIEFTTkNOTiIsICJtc2dJZGVudGlmaWVyIjogeyJ0eG5JZCI6ICIxMjMtNDU2NzgiLCAiZWNvbUJ1c2luZXNzQ29kZSI6ICJUTlRfU1VCX1NWQyJ9fQ==",
+    "token": "b96e9b19-76c0-402c-a009-3d55bc136d3a"
+}

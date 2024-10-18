@@ -1,0 +1,9 @@
+Steps to test Event Streams connection
+
+Note: below is java client sample for testing connectivity, team can choose to implement client code in the language of their choice
+
+1. Download demo-all.jar from https://github.com/ibm-messaging/kafka-java-vertx-starter/releases
+2. Copy kafka.properties to file system
+3. Run the following command by replacing <path-to-properties> with the full filepath to the kafka.properties file --> java -Dproperties_path=<path-to-properties> -jar demo-all.jar
+4. Wait till log says following --> Application started in X ms
+5. Click the localhost:8080 link to access the application. Use the start button in the UI to produce messages and see how they get consumed.

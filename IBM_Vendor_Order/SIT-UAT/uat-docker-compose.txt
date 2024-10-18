@@ -1,0 +1,131 @@
+version: "3.1"
+services:
+
+  web-bless:
+    image: s3innovatesg/dpdhl-web-bless:1.2
+    hostname: dpdhl-web-bless
+    container_name: dpdhl-web-bless
+    depends_on:
+      - data-transformer
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "10"
+        max-size: "20m"
+    ports:
+      - "8100:80"
+    environment:
+      REST__BPIWEBSERVICE__URL: "https://wsbexpress.dhl.com"
+      REST__BPIWEBSERVICE__SHIPMENTQUERY: "rest/bpim/BPIShipmentQuery"
+      REST__BPIWEBSERVICE__TOKEN: "Ymxlc3M6ZFdhN2llbzVIOC01SXhpTVI3dHRBLWRF"
+      JWT__VALIDITY: 30
+      CONNECTIONSTRINGS__DEFAULT: "Server=mysql;Port=3306;Database=dpdhl_db;Uid=s3dbuser;Pwd=gAAAAABjT_TeDTQljgAeBcIGN7LKvvEmelOL8gVFI4-h8U0Xnw9dqskshLq7nKNO10J5ZrcD2CHTyiBMCsU9g-FrbgDnmq1mGg==;"
+      REST__DATATRANSFORMER__URL: "http://data-transformer:80"
+      SERILOG__MINIMUMLEVEL__DEFAULT: Information
+    extra_hosts:
+      mysql: 20.113.63.254
+    networks:
+      -  rmoff_kafka
+    volumes:
+      -  /var/datatransformer/log/dpdhl-web-bless:/app/log
+
+
+
+  web-kenya:
+    image: s3innovatesg/dpdhl-web-kenya:1.0
+    hostname: dpdhl-web-kenya
+    container_name: dpdhl-web-kenya
+    depends_on:
+      - data-transformer
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "10"
+        max-size: "20m"
+    ports:
+      - "8003:80"
+    environment:
+      JWT__VALIDITY: 30
+      CONNECTIONSTRINGS__DEFAULT: "Server=mysql;Port=3306;Database=dpdhl_db;Uid=s3dbuser;Pwd=gAAAAABjT_TeDTQljgAeBcIGN7LKvvEmelOL8gVFI4-h8U0Xnw9dqskshLq7nKNO10J5ZrcD2CHTyiBMCsU9g-FrbgDnmq1mGg==;"
+      REST__DATATRANSFORMER__URL: "http://data-transformer:80"
+    extra_hosts:
+      mysql: 20.113.63.254
+    networks:
+      -  rmoff_kafka
+    volumes:
+      -  /var/datatransformer/log/dpdhl-web-kenya:/app/log
+
+  web-dutydrawback:
+    image: s3innovatesg/dpdhl-web-dutydrawback:1.2
+    hostname: dpdhl-web-dutydrawback
+    container_name: dpdhl-web-dutydrawback
+    depends_on:
+      - data-transformer
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "10"
+        max-size: "20m"
+    ports:
+      - "8101:80"
+    environment:
+      JWT__VALIDITY: 30
+      CONNECTIONSTRINGS__DEFAULT: "Server=mysql;Port=3306;Database=dpdhl_db;Uid=s3dbuser;Pwd=gAAAAABjT_TeDTQljgAeBcIGN7LKvvEmelOL8gVFI4-h8U0Xnw9dqskshLq7nKNO10J5ZrcD2CHTyiBMCsU9g-FrbgDnmq1mGg==;"
+      REST__DATATRANSFORMER__URL: "http://data-transformer:80"
+    extra_hosts:
+      mysql: 20.113.63.254
+    networks:
+      -  rmoff_kafka
+    volumes:
+      -  /var/datatransformer/log/dpdhl-web-dutydrawback:/app/log
+
+  web-vendororder:
+    image: s3innovatesg/dpdhl-web-vendororder:1.0
+    hostname: dpdhl-web-vendororder
+    container_name: dpdhl-web-vendororder
+    depends_on:
+      - data-transformer
+    restart: unless-stopped
+    logging:
+      driver: "local"
+      options:
+        max-file: "10"
+        max-size: "20m"
+    ports:
+      - "8004:80"
+    environment:
+      JWT__VALIDITY: 30
+      CONNECTIONSTRINGS__DEFAULT: "Server=mysql;Port=3306;Database=dpdhl_db;Uid=s3dbuser;Pwd=gAAAAABjT_TeDTQljgAeBcIGN7LKvvEmelOL8gVFI4-h8U0Xnw9dqskshLq7nKNO10J5ZrcD2CHTyiBMCsU9g-FrbgDnmq1mGg==;"
+      REST__DATATRANSFORMER__URL: "http://data-transformer:80"
+    extra_hosts:
+      mysql: 20.113.63.254
+    volumes:
+      -  /var/datatransformer/log/dpdhl-web-vendororder:/app/log
+	  
+  data-transformer:
+    image: s3innovatesg/data-transformer-v2:2.1.1
+    hostname: data-transformer
+    container_name: data-transformer
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "10"
+        max-size: "20m"
+    ports:
+      - "8088:80"
+    networks:
+      -  rmoff_kafka
+    volumes:
+      -  ./configuration/data-transformer/mapper-configs:/home/site/wwwroot/configuration/mapper-configs
+      -  ./configuration/data-transformer/master-code:/home/site/wwwroot/configuration/master-code
+      -  /var/datatransformer/data:/home/site/wwwroot/data
+      -  /var/datatransformer/httpoutdata:/home/site/wwwroot/httpoutdata
+      -  /var/datatransformer/log/data-transformer:/home/site/wwwroot/log
+
+networks:
+    rmoff_kafka:
+        external: true

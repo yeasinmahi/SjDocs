@@ -1,0 +1,23 @@
+#1 Shipment->
+	1. DGF
+	2. EXP (transcom)
+	
+#2 Express manifest->
+	1. CargoAI(CAI)
+	2. CCN
+	3. IBS
+	4. Air cargo (Transcom)(Movement)
+	
+#3 Transcom ECOM->
+	1. Submit order
+	2. Return Order
+	3. cancel Order
+	4. Confirm return delivery
+	
+#4 Dubai custom (DCG)(SOAP service)->
+	1. CUSDEC
+	2. CUSRES
+	
+Note: #3 and #4 is the part of transcom project. 
+
+	

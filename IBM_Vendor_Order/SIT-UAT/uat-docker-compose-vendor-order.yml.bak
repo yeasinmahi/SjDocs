@@ -1,0 +1,89 @@
+version: "3.9"
+services:
+  python-kafka-client:
+    image: "yeasinmahi/python-kafka-client:1.1"     
+    container_name: "python-kafka-client"      
+    restart: always
+    environment:
+        bootstrap.servers: broker-4-xls69gx4n2mn4wmv.kafka.svc11.us-south.eventstreams.cloud.ibm.com:9093,broker-2-xls69gx4n2mn4wmv.kafka.svc11.us-south.eventstreams.cloud.ibm.com:9093,broker-0-xls69gx4n2mn4wmv.kafka.svc11.us-south.eventstreams.cloud.ibm.com:9093,broker-3-xls69gx4n2mn4wmv.kafka.svc11.us-south.eventstreams.cloud.ibm.com:9093,broker-1-xls69gx4n2mn4wmv.kafka.svc11.us-south.eventstreams.cloud.ibm.com:9093,broker-5-xls69gx4n2mn4wmv.kafka.svc11.us-south.eventstreams.cloud.ibm.com:9093
+        topic: s2d-spo-from-ibm-to-supplier2
+
+        ## Consumer specific properties
+        group.id: ibmeventstreams_starter_app_group
+        auto.offset.reset: earliest
+        enable.auto.commit: false
+        consumer.timeout: 1
+        key.deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        value.deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+        ## Producer specific properties
+        acks: all
+        key.serializer: org.apache.kafka.common.serialization.StringSerializer
+        value.serializer: org.apache.kafka.common.serialization.StringSerializer
+
+        ## Optional security options
+        security.protocol: SASL_SSL
+        ssl.protocol: TLSv1.2
+        sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username = "token" password = "p8PGJ250PRGTUicpOReYoitcjsCLFS8TAwcUnlUAxXHl"
+        sasl.username: token
+        sasl.password: AKDbiBbl-WgTluX5e8hNRPf7-bhmE02RRNYBcJGdpoLX
+        sasl.mechanism: PLAIN
+        ssl.enabled.protocols: TLSv1.2
+        ssl.endpoint.identification.algorithm: HTTPS
+
+        ## Log Specific
+        log.save.location: log
+        log.console.level: 10
+        log.file.level: 10
+
+        #MySQL Credentials
+        db.host: "20.113.63.254"
+        db.user: "s3dbuser"
+        db.pwd: "S3@dpdhl"
+        db.name: "dpdhl_db"
+        # KEY: "MmNaRbS2E9HGlEaaUmbcOQktSvfEPQASA2aUbDc3Ue8="
+
+    volumes:
+      - ./data/python-kafka-client:/app/data/
+      - /var/datatransformer/log/python-kafka-client:/app/log
+
+  vendor-order-service:
+    image: "yeasinmahi/vendor-order-service:1.0"     
+    container_name: "vendor-order-service"      
+    restart: always
+    environment:
+        ## IBM config
+        ibm.api.host: https://s2d-api.test.logistics.ibm.com
+        ibm.auth.host: https://us-south.appid.cloud.ibm.com
+        ibm.auth.url.id: 0e35b23f-70a7-4879-9e5c-4866963c4c1c
+        ibm.client.id: a171ebaf-e7c8-4d27-8c63-84d2ff53b84d
+        ibm.client.secret: NTNjZmFlOGMtNGVkMy00OGE4LWIyMTctOGUwNWFmNzhiNjNh
+
+        # trans request
+        trans.api.host: http://137.135.139.37:8004
+        trans.auth.host: http://137.135.139.37:8101
+        trans.client.id: ebab7d00-4381-11ed-8fb6-f5122bab5d02
+        trans.client.secret: gAAAAABjO4kAAAECAwQFBgcICQoLDA0OD7JUW4ZyJY2XKSawUKU5cEfEcgAj6jz2orL46qXNcP9mpZImtp4h6oiwES0ilVDMDA==
+
+        ## data specific
+        shipment.response.json.location: data
+        shipment.response.pdf.location: data
+
+        ## Log Specific
+        log.save.location: log
+        log.console.level: 10
+        log.file.level: 10
+
+        #MySQL Credentials
+        db.host: "10.0.2.4"
+        db.user: "s3dbuser"
+        db.pwd: "S3@dpdhl"
+        db.name: "dpdhl_db"
+
+        # Thread
+        thread.interval :  5
+        coninv.retry.limit :  3
+        coninv.doc.retry.limit : 3
+    volumes:
+      - ./data/vendor-order-service:/app/data/
+      - /var/datatransformer/log/vendor-order-service:/app/log

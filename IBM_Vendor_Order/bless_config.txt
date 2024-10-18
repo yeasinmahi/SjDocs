@@ -1,0 +1,11 @@
+"EndPoint": "https://20.218.218.193/bless/api/v3/messages/trusted",
+"Token": "NmZiMDEzMGMtMmU3Yi00OWU0LTliYjItMjk4MDViOTE3ZDBl.MEQCIGclhjEKlbH7vUGOjY7Lt3edRLrf5VZqoRwamdx71rIVAiAt23ZAa4WgRxupwpaDT9HrwXdIQHhgv+RLs3foW7H3tw==",
+"bless-issuer": "BETA-DHL-LLP-TRF-UP",
+"bless-subject-primary": "COURIER-FORWARDER",
+"kid": "dc8778973df625c6201f9332aafe63445b8833fc2ac9b65ddb9e00678fe8c813"
+
+ 
+Below are the message types for commercial Invoice:
+"bless-message-type": 
+"VND_ORD_IBM_COMINV",
+"VND_ORD_IBM_COMINV_DOC"

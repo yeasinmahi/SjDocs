@@ -1,0 +1,15 @@
+[2023-08-07 05:31:20.474 INF]    MySqlRepository - DB Server: mysql, User: s3dbuser, DB: dpdhl_db
+[2023-08-07 05:31:20.739 WRN]    Storing keys in a directory '/root/.aspnet/DataProtection-Keys' that may not be persisted outside of the container. Protected data will be unavailable when container is destroyed.
+[2023-08-07 05:31:20.809 INF]    Now listening on: http://[::]:80
+[2023-08-07 05:31:20.810 INF]    Application started. Press Ctrl+C to shut down.
+[2023-08-07 05:31:20.811 INF]    Hosting environment: Production
+[2023-08-07 05:31:20.812 INF]    Content root path: /app/
+[2023-08-07 05:41:42.175 INF]    Application is shutting down...
+[2023-08-07 05:41:46.085 INF]    MySqlRepository - DB Server: mysql, User: s3dbuser, DB: dpdhl_db
+[2023-08-07 05:41:46.203 WRN]    Storing keys in a directory '/root/.aspnet/DataProtection-Keys' that may not be persisted outside of the container. Protected data will be unavailable when container is destroyed.
+[2023-08-07 05:41:46.219 WRN]    No XML encryptor configured. Key {60ade96f-7253-4447-88d6-dcd05f94c6b4} may be persisted to storage in unencrypted form.
+[2023-08-07 05:41:46.256 INF]    Now listening on: http://[::]:80
+[2023-08-07 05:41:46.257 INF]    Application started. Press Ctrl+C to shut down.
+[2023-08-07 05:41:46.258 INF]    Hosting environment: Production
+[2023-08-07 05:41:46.258 INF]    Content root path: /app/
+[2023-08-07 12:34:07.862 INF]    Application is shutting down...

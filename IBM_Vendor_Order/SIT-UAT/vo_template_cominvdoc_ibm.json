@@ -1,0 +1,7 @@
+{
+  "data": {
+    "shipmenttrackingnumber": "#valueof($.shipment)",
+    "invoicenumber": "#valueof($.invoice)",
+    "filename": "#valueof($.file)"
+  }
+}

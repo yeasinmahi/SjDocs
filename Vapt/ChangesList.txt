@@ -1,0 +1,39 @@
+Kalmar-lobstar:
+1.	Package updated.
+2.	Test script removed.
+3.	Commented out the code for creating the local swagger file in swagger.ts
+// var fs = require('fs'); 
+// fs.writeFileSync("./swagger-spec.json", JSON.stringify(document));
+4.	Removed swagger-spec.json from the source.
+
+Transcom-Webservice:
+1.	Package updated.
+2.	Commented out the code for creating the local swagger file in swagger.ts 
+// var fs = require('fs'); 
+// fs.writeFileSync("./swagger-spec.json", JSON.stringify(document));
+3.	Removed swagger-spec.json from the source.
+
+Dubai custom:
+1.	Package updated.
+2.	Commented out some unnecessary logs.
+
+Transair-FSU:
+1.	Package updated.
+2.	Commented out an unused method in TransAir-FSU/API/src/modules/v1/system/system.service.ts -> findall()
+3.	Commented out some unnecessary logs.
+
+Data-transformer v2:
+1.	Removed the monitoring client project.
+2.	Changed the directory of the .pem file from inside to outside the project.
+3.	Removed all appsettings.development.json files.
+4.	Changed some fields from hardcoded to configuration-based.
+5.	Removed the docker-compose file from the solution.
+
+Data-transformer v1:
+1.	Added a dummy password to appsettings.json.
+2.	Removed an unnecessary unit test project.
+
+Removed two project from the utility
+1. Web-portal
+2. Web-Api
+

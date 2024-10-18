@@ -1,0 +1,7 @@
+{
+    "eventName": "EventName tied to business process",
+    "shipmentID": "UNIQUE_ID",
+    "docType": "TBD",
+    "process": "SPO",
+    "shipToCountryCode": "3-digit code"
+  }

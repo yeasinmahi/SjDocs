@@ -1,0 +1,5 @@
+SELECT TOP (1000)
+    [location_name],
+    FORMAT([date], 'MM/dd/yyyy') AS [date],
+    [total]
+FROM [dev-sqldb-ioc].[dbo].[PeopleCount];
