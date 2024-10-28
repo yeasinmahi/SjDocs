@@ -1,0 +1,1272 @@
+{
+	"info": {
+		"_postman_id": "e7e3e053-697b-4461-8322-5046d5b0859e",
+		"name": "EnOS API for Device Data Onboarding",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12239380",
+		"_collection_link": "https://planetary-flare-697078.postman.co/workspace/Team-Workspace~dd4c9f6b-34b4-4fd8-8859-a11988bcad15/collection/12239380-e7e3e053-697b-4461-8322-5046d5b0859e?action=share&source=collection_link&creator=12239380"
+	},
+	"item": [
+		{
+			"name": "DeviceAPI",
+			"item": [
+				{
+					"name": "AI_Raw",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "apim-accesstoken",
+								"value": "{{accessToken}}"
+							},
+							{
+								"key": "apim-signature",
+								"value": "{{signature}}"
+							},
+							{
+								"key": "apim-timestamp",
+								"value": "{{timestamp}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"assetIds\": \"UQmqocvc\",\n  \"pointIds\": \"AHU_raw_static_pressure\",\n  \"startTime\": \"2024-09-20 00:00:00\",\n  \"endTime\": \"2024-09-21 01:00:00\",\n  \"pageSize\": 100,\n  \"localTimeAccuracy\": true,\n  \"localTimeFormat\": 1,\n  \"itemFormat\": 0,\n  \"withQuality\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apigw-address}}/tsdb-service/v2.1/ai?orgId={{orgId}}",
+							"protocol": "https",
+							"host": [
+								"{{apigw-address}}"
+							],
+							"path": [
+								"tsdb-service",
+								"v2.1",
+								"ai"
+							],
+							"query": [
+								{
+									"key": "orgId",
+									"value": "{{orgId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createDevice",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "apim-accesstoken",
+								"value": "{{accessToken}}"
+							},
+							{
+								"key": "apim-signature",
+								"value": "{{signature}}"
+							},
+							{
+								"key": "apim-timestamp",
+								"value": "{{timestamp}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"productKey\":\"ka4xiQUb\",\n    \"deviceKey\":\"pcs0002\",\n    \"deviceName\":{\n        \"defaultValue\":\"Supertree - Entrance\",\n        \"i18nValue\":{\n            \"zh_CN\": \"超级树 - 入口\",\n            \"en_US\": \"Supertree - Entrance\"\n        }\n    },\n    \"timezone\":\"+08:00\",\n    \"deviceAttributes\":{\n        \"sensorId\": \"VCA2-in\",\n        \"type\": \"Outdoor\",\n        \"zone\": \"Bay South\",\n        \"location\": \"Supertree\",\n        \"capacity\": 1000,\n        \"longitude\": 103,\n        \"latitude\": 1\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apigw-address}}/connect-service/v2.1/devices?action=update&orgId={{orgId}}",
+							"protocol": "https",
+							"host": [
+								"{{apigw-address}}"
+							],
+							"path": [
+								"connect-service",
+								"v2.1",
+								"devices"
+							],
+							"query": [
+								{
+									"key": "action",
+									"value": "update"
+								},
+								{
+									"key": "orgId",
+									"value": "{{orgId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateDevice",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "apim-accesstoken",
+								"value": "{{accessToken}}"
+							},
+							{
+								"key": "apim-signature",
+								"value": "{{signature}}"
+							},
+							{
+								"key": "apim-timestamp",
+								"value": "{{timestamp}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"deviceAttributes\":{\n        \"sensorId\": \"VCA1-in\",\n        \"type\": \"Outdoor\",\n        \"zone\": \"Bay South\",\n        \"location\": \"Supertree\",\n        \"capacity\": 1200,\n        \"longitude\": 103,\n        \"latitude\": 1\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apigw-address}}/connect-service/v2.1/devices?action=update&orgId={{orgId}}&productKey=ka4xiQUb&deviceKey=pcs0001",
+							"protocol": "https",
+							"host": [
+								"{{apigw-address}}"
+							],
+							"path": [
+								"connect-service",
+								"v2.1",
+								"devices"
+							],
+							"query": [
+								{
+									"key": "action",
+									"value": "update"
+								},
+								{
+									"key": "orgId",
+									"value": "{{orgId}}"
+								},
+								{
+									"key": "productKey",
+									"value": "ka4xiQUb"
+								},
+								{
+									"key": "deviceKey",
+									"value": "pcs0001"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "uploadMeasurepoints",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "apim-accesstoken",
+								"value": "{{accessToken}}"
+							},
+							{
+								"key": "apim-signature",
+								"value": "{{signature}}",
+								"disabled": true
+							},
+							{
+								"key": "apim-timestamp",
+								"value": "{{timestamp}}",
+								"disabled": true
+							},
+							{
+								"key": "Content-Disposition",
+								"value": "Content-Disposition:form-data; name=\"enos-message\""
+							},
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Content-Disposition",
+									"value": "form-data",
+									"type": "text"
+								},
+								{
+									"key": "enos-message",
+									"value": "{\"method\":\"integration.measurepoint.post\",\"id\":\"123\",\"version\":\"1.1\",\"params\":[{\"productKey\":\"ka4xiQUb\",\"deviceKey\":\"pcs0001\",\"time\":1724813864000,\"measurepoints\":{\"liveCount\":100,\"totalAccumulatedCount\":10500}},{\"productKey\":\"ka4xiQUb\",\"deviceKey\":\"pcs0002\",\"time\":1724813864000,\"measurepoints\":{\"liveCount\":123,\"totalAccumulatedCount\":12500}}]}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://{{integration-address}}/connect-service/v2.1/integration?action=postMeasurepoint&orgId={{orgId}}",
+							"protocol": "https",
+							"host": [
+								"{{integration-address}}"
+							],
+							"path": [
+								"connect-service",
+								"v2.1",
+								"integration"
+							],
+							"query": [
+								{
+									"key": "action",
+									"value": "postMeasurepoint"
+								},
+								{
+									"key": "orgId",
+									"value": "{{orgId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-faults-counts-breakdown",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "apim-accesstoken",
+								"value": "{{accessToken}}",
+								"type": "text"
+							},
+							{
+								"key": "apim-signature",
+								"value": "{{signature}}",
+								"type": "text"
+							},
+							{
+								"key": "apim-timestamp",
+								"value": "{{timestamp}}",
+								"type": "text"
+							},
+							{
+								"key": "x-organization-id",
+								"value": "{{orgId}}",
+								"type": "text"
+							},
+							{
+								"key": "x-cache-refresh",
+								"value": "false",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"unit\": \"string\",\r\n  \"endDate\": 1727452799000,\r\n  \"aggType\": \"daily\",\r\n  \"type\": \"string\",\r\n  \"startDate\": 1727366400000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apigw-address}}/apim-instance-partner/fdd/v1/sites/faults/counts-breakdown/search",
+							"protocol": "https",
+							"host": [
+								"{{apigw-address}}"
+							],
+							"path": [
+								"apim-instance-partner",
+								"fdd",
+								"v1",
+								"sites",
+								"faults",
+								"counts-breakdown",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-faults-count",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-organization-id",
+								"value": "{{orgId}}",
+								"type": "text"
+							},
+							{
+								"key": "x-cache-refresh",
+								"value": "false",
+								"type": "text"
+							},
+							{
+								"key": "apim-accesstoken",
+								"value": "{{accessToken}}",
+								"type": "text"
+							},
+							{
+								"key": "apim-signature",
+								"value": "{{signature}}",
+								"type": "text"
+							},
+							{
+								"key": "apim-timestamp",
+								"value": "{{timestamp}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"unit\": \"string\",\r\n  \"endDate\": 1727452799000,\r\n  \"aggType\": \"daily\",\r\n  \"type\": \"string\",\r\n  \"startDate\": 1727366400000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apigw-address}}/apim-instance-partner/fdd/v1/sites/faults/counts/search",
+							"protocol": "https",
+							"host": [
+								"{{apigw-address}}"
+							],
+							"path": [
+								"apim-instance-partner",
+								"fdd",
+								"v1",
+								"sites",
+								"faults",
+								"counts",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-sites-faults-count-index",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-organization-id",
+								"value": "{{orgId}}",
+								"type": "text"
+							},
+							{
+								"key": "x-cache-refresh",
+								"value": "false",
+								"type": "text"
+							},
+							{
+								"key": "apim-accesstoken",
+								"value": "{{accessToken}}",
+								"type": "text"
+							},
+							{
+								"key": "apim-signature",
+								"value": "{{signature}}",
+								"type": "text"
+							},
+							{
+								"key": "apim-timestamp",
+								"value": "{{timestamp}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"unit\": \"string\",\r\n  \"endDate\": 1727452799000,\r\n  \"aggType\": \"daily\",\r\n  \"type\": \"string\",\r\n  \"startDate\": 1727366400000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apigw-address}}/apim-instance-partner/fdd/v1/sites/faults/count-index/search",
+							"protocol": "https",
+							"host": [
+								"{{apigw-address}}"
+							],
+							"path": [
+								"apim-instance-partner",
+								"fdd",
+								"v1",
+								"sites",
+								"faults",
+								"count-index",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-sites-performance",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-organization-id",
+								"value": "{{orgId}}",
+								"type": "text"
+							},
+							{
+								"key": "x-cache-refresh",
+								"value": "false",
+								"type": "text"
+							},
+							{
+								"key": "apim-accesstoken",
+								"value": "{{accessToken}}",
+								"type": "text"
+							},
+							{
+								"key": "apim-signature",
+								"value": "{{signature}}",
+								"type": "text"
+							},
+							{
+								"key": "apim-timestamp",
+								"value": "{{timestamp}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{apigw-address}}/apim-instance-partner/fdd/v1/sites/performance",
+							"protocol": "https",
+							"host": [
+								"{{apigw-address}}"
+							],
+							"path": [
+								"apim-instance-partner",
+								"fdd",
+								"v1",
+								"sites",
+								"performance"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-faults-active",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-organization-id",
+								"value": "{{orgId}}",
+								"type": "text"
+							},
+							{
+								"key": "x-cache-refresh",
+								"value": "false",
+								"type": "text"
+							},
+							{
+								"key": "apim-accesstoken",
+								"value": "{{accessToken}}",
+								"type": "text"
+							},
+							{
+								"key": "apim-signature",
+								"value": "{{signature}}",
+								"type": "text"
+							},
+							{
+								"key": "apim-timestamp",
+								"value": "{{timestamp}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{apigw-address}}/apim-instance-partner/fdd/v1/sites/faults/active",
+							"protocol": "https",
+							"host": [
+								"{{apigw-address}}"
+							],
+							"path": [
+								"apim-instance-partner",
+								"fdd",
+								"v1",
+								"sites",
+								"faults",
+								"active"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-sites-assets-info",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-organization-id",
+								"value": "{{orgId}}",
+								"type": "text"
+							},
+							{
+								"key": "x-cache-refresh",
+								"value": "false",
+								"type": "text"
+							},
+							{
+								"key": "apim-accesstoken",
+								"value": "{{accessToken}}",
+								"type": "text"
+							},
+							{
+								"key": "apim-signature",
+								"value": "{{signature}}",
+								"type": "text"
+							},
+							{
+								"key": "apim-timestamp",
+								"value": "{{timestamp}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{apigw-address}}/apim-instance-partner/fdd/v1/sites/assets/info",
+							"protocol": "https",
+							"host": [
+								"{{apigw-address}}"
+							],
+							"path": [
+								"apim-instance-partner",
+								"fdd",
+								"v1",
+								"sites",
+								"assets",
+								"info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-sites-potential-savings",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-organization-id",
+								"value": "{{orgId}}",
+								"type": "text"
+							},
+							{
+								"key": "x-cache-refresh",
+								"value": "false",
+								"type": "text"
+							},
+							{
+								"key": "apim-accesstoken",
+								"value": "{{accessToken}}",
+								"type": "text"
+							},
+							{
+								"key": "apim-signature",
+								"value": "{{signature}}",
+								"type": "text"
+							},
+							{
+								"key": "apim-timestamp",
+								"value": "{{timestamp}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"unit\": \"kwh\",\r\n  \"endDate\": 1727452799000,\r\n  \"aggType\": \"daily\",\r\n  \"type\": \"site\",\r\n  \"startDate\": 1727366400000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apigw-address}}/apim-instance-partner/fdd/v1/sites/:siteId/potential-savings/values/search",
+							"protocol": "https",
+							"host": [
+								"{{apigw-address}}"
+							],
+							"path": [
+								"apim-instance-partner",
+								"fdd",
+								"v1",
+								"sites",
+								":siteId",
+								"potential-savings",
+								"values",
+								"search"
+							],
+							"variable": [
+								{
+									"key": "siteId",
+									"value": "stsAEycE"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-sites-savings-energy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-organization-id",
+								"value": "{{orgId}}",
+								"type": "text"
+							},
+							{
+								"key": "x-cache-refresh",
+								"value": "false",
+								"type": "text"
+							},
+							{
+								"key": "apim-accesstoken",
+								"value": "{{accessToken}}",
+								"type": "text"
+							},
+							{
+								"key": "apim-signature",
+								"value": "{{signature}}",
+								"type": "text"
+							},
+							{
+								"key": "apim-timestamp",
+								"value": "{{timestamp}}",
+								"type": "text"
+							},
+							{
+								"key": "siteId",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"unit\": \"string\",\r\n  \"endDate\": 1727452799000,\r\n  \"aggType\": \"daily\",\r\n  \"type\": \"string\",\r\n  \"startDate\": 1727366400000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apigw-address}}/apim-instance-partner/fdd/v1/sites/:siteId/savings/energy/search",
+							"protocol": "https",
+							"host": [
+								"{{apigw-address}}"
+							],
+							"path": [
+								"apim-instance-partner",
+								"fdd",
+								"v1",
+								"sites",
+								":siteId",
+								"savings",
+								"energy",
+								"search"
+							],
+							"variable": [
+								{
+									"key": "siteId",
+									"value": "stsAEycE"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-potential-savings-values",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-organization-id",
+								"value": "{{orgId}}",
+								"type": "text"
+							},
+							{
+								"key": "x-cache-refresh",
+								"value": "false",
+								"type": "text"
+							},
+							{
+								"key": "apim-accesstoken",
+								"value": "{{accessToken}}",
+								"type": "text"
+							},
+							{
+								"key": "apim-signature",
+								"value": "{{signature}}",
+								"type": "text"
+							},
+							{
+								"key": "apim-timestamp",
+								"value": "{{timestamp}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"unit\": \"kwh\",\r\n  \"endDate\": 1727452799000,\r\n  \"aggType\": \"daily\",\r\n  \"type\": \"site\",\r\n  \"startDate\": 1727366400000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apigw-address}}/apim-instance-partner/fdd/v1/sites/potential-savings/values/search",
+							"protocol": "https",
+							"host": [
+								"{{apigw-address}}"
+							],
+							"path": [
+								"apim-instance-partner",
+								"fdd",
+								"v1",
+								"sites",
+								"potential-savings",
+								"values",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-sites-heatmap",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-organization-id",
+								"value": "{{orgId}}",
+								"type": "text"
+							},
+							{
+								"key": "apim-accesstoken",
+								"value": "{{accessToken}}",
+								"type": "text"
+							},
+							{
+								"key": "apim-signature",
+								"value": "{{signature}}",
+								"type": "text"
+							},
+							{
+								"key": "apim-timestamp",
+								"value": "{{timestamp}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{apigw-address}}/apim-instance-partner/fdd/v1/sites/:siteId/heatmap",
+							"protocol": "https",
+							"host": [
+								"{{apigw-address}}"
+							],
+							"path": [
+								"apim-instance-partner",
+								"fdd",
+								"v1",
+								"sites",
+								":siteId",
+								"heatmap"
+							],
+							"variable": [
+								{
+									"key": "siteId",
+									"value": "stsAEycE"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-sites-faults-counts",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-organization-id",
+								"value": "{{orgId}}",
+								"type": "text"
+							},
+							{
+								"key": "x-cache-refresh",
+								"value": "false",
+								"type": "text"
+							},
+							{
+								"key": "apim-accesstoken",
+								"value": "{{accessToken}}",
+								"type": "text"
+							},
+							{
+								"key": "apim-signature",
+								"value": "{{signature}}",
+								"type": "text"
+							},
+							{
+								"key": "apim-timestamp",
+								"value": "{{timestamp}}",
+								"type": "text"
+							},
+							{
+								"key": "siteId",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"unit\": \"string\",\r\n  \"endDate\": 1727452799000,\r\n  \"aggType\": \"daily\",\r\n  \"type\": \"string\",\r\n  \"startDate\": 1727366400000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apigw-address}}/apim-instance-partner/fdd/v1/sites/:siteId/faults/counts/search",
+							"protocol": "https",
+							"host": [
+								"{{apigw-address}}"
+							],
+							"path": [
+								"apim-instance-partner",
+								"fdd",
+								"v1",
+								"sites",
+								":siteId",
+								"faults",
+								"counts",
+								"search"
+							],
+							"variable": [
+								{
+									"key": "siteId",
+									"value": "stsAEycE"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-sites-faults-active",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-organization-id",
+								"value": "{{orgId}}",
+								"type": "text"
+							},
+							{
+								"key": "x-cache-refresh",
+								"value": "false",
+								"type": "text"
+							},
+							{
+								"key": "apim-accesstoken",
+								"value": "{{accessToken}}",
+								"type": "text"
+							},
+							{
+								"key": "apim-signature",
+								"value": "{{signature}}",
+								"type": "text"
+							},
+							{
+								"key": "apim-timestamp",
+								"value": "{{timestamp}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{apigw-address}}/apim-instance-partner/fdd/v1/sites/:siteId/faults/active",
+							"protocol": "https",
+							"host": [
+								"{{apigw-address}}"
+							],
+							"path": [
+								"apim-instance-partner",
+								"fdd",
+								"v1",
+								"sites",
+								":siteId",
+								"faults",
+								"active"
+							],
+							"variable": [
+								{
+									"key": "siteId",
+									"value": "stsAEycE"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-site-assets-info",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-organization-id",
+								"value": "{{orgId}}",
+								"type": "text"
+							},
+							{
+								"key": "x-cache-refresh",
+								"value": "false",
+								"type": "text"
+							},
+							{
+								"key": "apim-accesstoken",
+								"value": "{{accessToken}}",
+								"type": "text"
+							},
+							{
+								"key": "apim-signature",
+								"value": "{{signature}}",
+								"type": "text"
+							},
+							{
+								"key": "apim-timestamp",
+								"value": "{{timestamp}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{apigw-address}}/apim-instance-partner/fdd/v1/sites/:siteId/assets/info",
+							"protocol": "https",
+							"host": [
+								"{{apigw-address}}"
+							],
+							"path": [
+								"apim-instance-partner",
+								"fdd",
+								"v1",
+								"sites",
+								":siteId",
+								"assets",
+								"info"
+							],
+							"variable": [
+								{
+									"key": "siteId",
+									"value": "stsAEycE"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							"// Get SA from environments",
+							"let accessKey = pm.collectionVariables.get(\"accessKey\");",
+							"let secretKey = pm.collectionVariables.get(\"secretKey\");",
+							"let accessToken = pm.collectionVariables.get(\"accessToken\");",
+							"",
+							"// Get timestamp",
+							"const timestamp = new Date().getTime();",
+							"console.log(\"timestamp:\" + timestamp);",
+							"pm.collectionVariables.set(\"timestamp\",timestamp)",
+							"",
+							"",
+							"// query params",
+							"let params = pm.request.url.query.members;",
+							"console.log(\"params: \" + JSON.stringify(params));",
+							"",
+							"// Sort params",
+							"params.sort((a, b) => {",
+							"    let keyA = a.key;",
+							"    let keyB = b.key;",
+							"    if (keyA < keyB) {",
+							"        return -1;",
+							"    }",
+							"    if (keyA > keyB) {",
+							"        return 1;",
+							"    }",
+							"    return 0;",
+							"});",
+							"",
+							"console.log(\"sortedParams: \" + JSON.stringify(params));",
+							"",
+							"// Concatenate query params",
+							"let paramsData = params.map(param => param.key + pm.collectionVariables.replaceIn(param.value)).join(\"\");",
+							"// let paramsData = params.map(param => param.key + param.value).join(\"\");",
+							"// console.log(\"paramsData: \" + paramsData);",
+							"",
+							"// Add request body to paramsData (if present)",
+							"let bodyData = pm.request.body.raw || \"\";",
+							"let fullParamsData = paramsData + bodyData;",
+							"console.log(\"fullParamsData: \" + fullParamsData);",
+							"",
+							"// Concatenate the values of accessToken, paramsData, timestamp, and appSecret into a string to form the signData.",
+							"let signData = accessToken + fullParamsData + timestamp + secretKey;",
+							"console.log(\"signData: \" + signData);",
+							"",
+							"// Generate SHA-256 signature",
+							"// const signature = CryptoJS.SHA256(signData).toString(CryptoJS.enc.Hex).toLowerCase();",
+							"const signature = CryptoJS.SHA256(signData).toString().toLowerCase();",
+							"",
+							"console.log(\"signature: \" + signature);",
+							"",
+							"// Set environment variable",
+							"pm.collectionVariables.set(\"signature\", signature);"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "getToken",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Get response body",
+							"const responseJson = pm.response.json();",
+							"console.log(\"accessToken:\"+responseJson.data.accessToken);",
+							"",
+							"// Set accessToken to environment variables",
+							"pm.collectionVariables.set(\"accessToken\",responseJson.data.accessToken)"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Get SA from environments",
+							"let accessKey=pm.collectionVariables.get(\"accessKey\")",
+							"let secretKey=pm.collectionVariables.get(\"secretKey\")",
+							"",
+							"console.log(\"accessKey:\"+accessKey)",
+							"console.log(\"secretKey:\"+secretKey)",
+							"",
+							"console.log(\"enviromment:\"+pm.environment)",
+							"",
+							"",
+							"// Get timestamp ",
+							"const timestamp = new Date().getTime();",
+							"console.log(\"timestamp:\"+timestamp);",
+							"",
+							"// Concatenate the values of appKey, timestamp, and appSecret to generate a string for encryption",
+							"let msg = accessKey + timestamp +secretKey;",
+							"",
+							"// Convert the digest to hexadecimal format to generate the encrypted ciphertext.",
+							"const encryption = CryptoJS.SHA256(msg).toString().toLowerCase();",
+							"",
+							"console.log(\"encryption:\"+encryption);",
+							"",
+							"// Set environment variable",
+							"pm.collectionVariables.set(\"encryption\",encryption)",
+							"pm.collectionVariables.set(\"timestamp\",timestamp)",
+							"",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"appKey\": \"{{accessKey}}\",\n    \"encryption\": \"{{encryption}}\",\n    \"timestamp\": {{timestamp}}\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{apigw-address}}/apim-token-service/v2.0/token/get",
+					"protocol": "https",
+					"host": [
+						"{{apigw-address}}"
+					],
+					"path": [
+						"apim-token-service",
+						"v2.0",
+						"token",
+						"get"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "apigw-address",
+			"value": "apim-ppe1.envisioniot.com",
+			"type": "string"
+		},
+		{
+			"key": "orgId",
+			"value": "o16931955822231564",
+			"type": "string"
+		},
+		{
+			"key": "accessKey",
+			"value": "af5cf8bd-cc04-4e35-abdf-8229d07a36cd",
+			"type": "string"
+		},
+		{
+			"key": "secretKey",
+			"value": "8817e5e7-35c4-4252-be24-9cf64668d7be",
+			"type": "string"
+		},
+		{
+			"key": "encryption",
+			"value": ""
+		},
+		{
+			"key": "timestamp",
+			"value": ""
+		},
+		{
+			"key": "accessToken",
+			"value": ""
+		},
+		{
+			"key": "signature",
+			"value": ""
+		},
+		{
+			"key": "integration-address",
+			"value": "iot-http-integration-pdc1.eniot.io",
+			"type": "string"
+		}
+	]
+}

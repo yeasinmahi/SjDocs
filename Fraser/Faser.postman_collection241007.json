@@ -1,0 +1,1702 @@
+{
+	"info": {
+		"_postman_id": "4f937f7b-faf8-480c-ab43-aaeb20afbb19",
+		"name": "Faser",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29891979"
+	},
+	"item": [
+		{
+			"name": "Token Request",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Define your Access Key and Secret Key\r",
+							"const appKey = pm.environment.get('appKey');\r",
+							"console.log(\"appKey:\" + appKey);\r",
+							"const appSecret = pm.environment.get('appSecret');\r",
+							"console.log(\"appSecret:\" + appSecret);\r",
+							"\r",
+							"const timestamp = Math.floor(Date.now()).toString();\r",
+							"console.log(\"timestamp:\" + timestamp);\r",
+							"\r",
+							"const concatenatedString = appKey + timestamp + appSecret;\r",
+							"console.log(\"concatenatedString:\" + concatenatedString);\r",
+							"\r",
+							"const sha256Hash = CryptoJS.SHA256(CryptoJS.enc.Utf8.parse(concatenatedString))\r",
+							"                    .toString().toLowerCase();\r",
+							"\r",
+							"console.log(\"sha256Hash:\" + sha256Hash);\r",
+							"\r",
+							"pm.environment.set('sha256Hash', sha256Hash);\r",
+							"pm.environment.set('timestamp', timestamp);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Parse the JSON response body\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"// Extract the accessToken from the response\r",
+							"const accessToken = response.data.accessToken;\r",
+							"\r",
+							"// Save the accessToken to an environment variable\r",
+							"pm.environment.set('accessToken', accessToken);\r",
+							"\r",
+							"// Log the accessToken for verification (optional)\r",
+							"console.log('Access Token:', accessToken);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"appKey\": \"{{appKey}}\",\r\n    \"encryption\": \"{{sha256Hash}}\",\r\n    \"timestamp\": {{timestamp}}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{apigw-address}}/apim-token-service/v2.0/token/get",
+					"protocol": "https",
+					"host": [
+						"{{apigw-address}}"
+					],
+					"path": [
+						"apim-token-service",
+						"v2.0",
+						"token",
+						"get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Token Refresh Request",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Define your Access Key and Secret Key\r",
+							"const appKey = 'af5cf8bd-cc04-4e35-abdf-8229d07a36cd';\r",
+							"const appSecret = '8817e5e7-35c4-4252-be24-9cf64668d7be';\r",
+							"\r",
+							"// Get the current Unix timestamp\r",
+							"const timestamp = Math.floor(Date.now()).toString(); // Convert to string\r",
+							"\r",
+							"// Concatenate the Access Key, Unix timestamp, and Secret Key\r",
+							"const concatenatedString = appKey + timestamp + appSecret;\r",
+							"\r",
+							"// Generate SHA-256 hash and convert it to hexadecimal and lowercase\r",
+							"const sha256Hash = CryptoJS.SHA256(CryptoJS.enc.Utf8.parse(concatenatedString))\r",
+							"                    .toString().toLowerCase();\r",
+							"\r",
+							"// Set the hash and timestamp in environment variables for use in the request\r",
+							"pm.environment.set('sha256Hash', sha256Hash);\r",
+							"pm.environment.set('timestamp', timestamp);\r",
+							"\r",
+							"// Log the hash and timestamp for debugging (optional)\r",
+							"console.log('SHA-256 Hash:', sha256Hash);\r",
+							"console.log('Unix Timestamp:', timestamp);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Parse the JSON response body\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"// Extract the accessToken from the response\r",
+							"const accessToken = response.data.accessToken;\r",
+							"\r",
+							"// Save the accessToken to an environment variable\r",
+							"pm.environment.set('accessToken', accessToken);\r",
+							"\r",
+							"// Log the accessToken for verification (optional)\r",
+							"console.log('Access Token:', accessToken);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"appKey\": \"{{appKey}}\",\r\n    \"encryption\": \"{{sha256Hash}}\",\r\n    \"accessToken\": \"{{accessToken}}\",\r\n    \"timestamp\": {{timestamp}}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{apigw-address}}/apim-token-service/v2.0/token/refresh",
+					"protocol": "https",
+					"host": [
+						"{{apigw-address}}"
+					],
+					"path": [
+						"apim-token-service",
+						"v2.0",
+						"token",
+						"refresh"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAssetRawData",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Function to get SHA-256 hash using CryptoJS\r",
+							"function getSHA256(str) {\r",
+							"    return CryptoJS.SHA256(str).toString(CryptoJS.enc.Hex);\r",
+							"}\r",
+							"\r",
+							"// Main logic to prepare request\r",
+							"const accssToken = pm.environment.get('accessToken');\r",
+							"const appSecret = pm.environment.get('appSecret');\r",
+							"const timestamp = Date.now();\r",
+							"pm.environment.set('timestamp', timestamp);\r",
+							"\r",
+							"const url = pm.request.url.toString();\r",
+							"const requestBody = pm.request.body.raw;\r",
+							"console.log(\"requestBody:\" + requestBody);\r",
+							"console.log(\"requestRaw:\" + pm.request.body.raw);\r",
+							"// Extract query parameters manually\r",
+							"const queryString = url.split('?')[1] || '';\r",
+							"const paramsArray = queryString.split('&');\r",
+							"const params = [];\r",
+							"\r",
+							"paramsArray.forEach(param => {\r",
+							"    const [key, value] = param.split('=');\r",
+							"    if (key) {\r",
+							"        params.push({ key, value });\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"// Sort parameters by key\r",
+							"params.sort((a, b) => a.key.localeCompare(b.key));\r",
+							"\r",
+							"let paramsData = '';\r",
+							"params.forEach(param => {\r",
+							"    paramsData += param.key + (param.value || '');\r",
+							"});\r",
+							"paramsData += requestBody;\r",
+							"\r",
+							"const signData = accssToken + paramsData + timestamp + appSecret;\r",
+							"const apimSign = getSHA256(signData);\r",
+							"\r",
+							"// Set the calculated signature in an environment variable\r",
+							"pm.environment.set('signature', apimSign);\r",
+							"console.log(apimSign);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "apim-accesstoken",
+						"value": "{{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "apim-signature",
+						"value": "{{signature}}",
+						"type": "text"
+					},
+					{
+						"key": "apim-timestamp",
+						"value": "{{timestamp}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"assetIds\": \"UQmqocvc\",\r\n    \"pointIds\": \"AHU_raw_return_air_co2\",\r\n    \"startTime\": \"2024-09-29 00:00:00\",\r\n    \"endTime\": \"2024-09-30 00:00:00\",\r\n    \"localTimeAccuracy\": true,\r\n    \"localTimeFormat\": 1,\r\n    \"boundaryType\": \"\",\r\n    \"itemFormat\": 0,\r\n    \"withQuality\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{apigw-address}}/tsdb-service/v2.1/ai?orgId=o16931955822231564",
+					"protocol": "https",
+					"host": [
+						"{{apigw-address}}"
+					],
+					"path": [
+						"tsdb-service",
+						"v2.1",
+						"ai"
+					],
+					"query": [
+						{
+							"key": "orgId",
+							"value": "o16931955822231564"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAssetRawData ItemFormat 2",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Function to get SHA-256 hash using CryptoJS\r",
+							"function getSHA256(str) {\r",
+							"    return CryptoJS.SHA256(str).toString(CryptoJS.enc.Hex);\r",
+							"}\r",
+							"\r",
+							"// Main logic to prepare request\r",
+							"const accssToken = pm.environment.get('accessToken');\r",
+							"const appSecret = pm.environment.get('appSecret');\r",
+							"const timestamp = Date.now();\r",
+							"pm.environment.set('timestamp', timestamp);\r",
+							"\r",
+							"const url = pm.request.url.toString();\r",
+							"const requestBody = pm.request.body.raw;\r",
+							"console.log(\"requestBody:\" + requestBody);\r",
+							"console.log(\"requestRaw:\" + pm.request.body.raw);\r",
+							"// Extract query parameters manually\r",
+							"const queryString = url.split('?')[1] || '';\r",
+							"const paramsArray = queryString.split('&');\r",
+							"const params = [];\r",
+							"\r",
+							"paramsArray.forEach(param => {\r",
+							"    const [key, value] = param.split('=');\r",
+							"    if (key) {\r",
+							"        params.push({ key, value });\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"// Sort parameters by key\r",
+							"params.sort((a, b) => a.key.localeCompare(b.key));\r",
+							"\r",
+							"let paramsData = '';\r",
+							"params.forEach(param => {\r",
+							"    paramsData += param.key + (param.value || '');\r",
+							"});\r",
+							"paramsData += requestBody;\r",
+							"\r",
+							"const signData = accssToken + paramsData + timestamp + appSecret;\r",
+							"const apimSign = getSHA256(signData);\r",
+							"\r",
+							"// Set the calculated signature in an environment variable\r",
+							"pm.environment.set('signature', apimSign);\r",
+							"console.log(apimSign);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "apim-accesstoken",
+						"value": "{{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "apim-signature",
+						"value": "{{signature}}",
+						"type": "text"
+					},
+					{
+						"key": "apim-timestamp",
+						"value": "{{timestamp}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"assetIds\": \"U8kZ848Y\",\r\n    \"pointIds\": \"AHU_raw_return_air_co2\",\r\n    \"startTime\": \"2024-09-29 00:00:00\",\r\n    \"endTime\": \"2024-09-30 00:00:00\",\r\n    \"localTimeAccuracy\": true,\r\n   \"boundaryType\": \"sample\",\r\n   \"itemFormat\":2,\r\n    \"interval\":120\r\n   \r\n  \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{apigw-address}}/tsdb-service/v2.1/ai?orgId=o16931955822231564",
+					"protocol": "https",
+					"host": [
+						"{{apigw-address}}"
+					],
+					"path": [
+						"tsdb-service",
+						"v2.1",
+						"ai"
+					],
+					"query": [
+						{
+							"key": "orgId",
+							"value": "o16931955822231564"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Asset AI Data with Aggregation Logic",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Function to get SHA-256 hash using CryptoJS\r",
+							"function getSHA256(str) {\r",
+							"    return CryptoJS.SHA256(str).toString(CryptoJS.enc.Hex);\r",
+							"}\r",
+							"\r",
+							"// Main logic to prepare request\r",
+							"const accssToken = pm.environment.get('accessToken');\r",
+							"const appSecret = pm.environment.get('appSecret');\r",
+							"const timestamp = Date.now();\r",
+							"pm.environment.set('timestamp', timestamp);\r",
+							"\r",
+							"const url = pm.request.url.toString();\r",
+							"const requestBody = pm.request.body.raw;\r",
+							"console.log(\"requestBody:\" + requestBody);\r",
+							"console.log(\"requestRaw:\" + pm.request.body.raw);\r",
+							"// Extract query parameters manually\r",
+							"const queryString = url.split('?')[1] || '';\r",
+							"const paramsArray = queryString.split('&');\r",
+							"const params = [];\r",
+							"\r",
+							"paramsArray.forEach(param => {\r",
+							"    const [key, value] = param.split('=');\r",
+							"    if (key) {\r",
+							"        params.push({ key, value });\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"// Sort parameters by key\r",
+							"params.sort((a, b) => a.key.localeCompare(b.key));\r",
+							"\r",
+							"let paramsData = '';\r",
+							"params.forEach(param => {\r",
+							"    paramsData += param.key + (param.value || '');\r",
+							"});\r",
+							"paramsData += requestBody;\r",
+							"\r",
+							"const signData = accssToken + paramsData + timestamp + appSecret;\r",
+							"const apimSign = getSHA256(signData);\r",
+							"\r",
+							"// Set the calculated signature in an environment variable\r",
+							"pm.environment.set('signature', apimSign);\r",
+							"console.log(apimSign);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "apim-accesstoken",
+						"value": "{{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "apim-signature",
+						"value": "{{signature}}",
+						"type": "text"
+					},
+					{
+						"key": "apim-timestamp",
+						"value": "{{timestamp}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"assetIds\": \"U8kZ848Y\",\r\n    \"pointIdsWithLogic\": \"sum(AHU_raw_return_air_co2)\",\r\n    \"startTime\": \"2024-09-29 00:00:00\",\r\n    \"endTime\": \"2024-09-30 00:00:00\",\r\n    \"localTimeAccuracy\": false,\r\n    \"interval\":90,\r\n    \"localTimeAccuracy\":true,\r\n    \"localTimeFormat\":0,\r\n    \"itemFormat\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{apigw-address}}/tsdb-service/v2.1/ai-normalized?orgId=o16931955822231564",
+					"protocol": "https",
+					"host": [
+						"{{apigw-address}}"
+					],
+					"path": [
+						"tsdb-service",
+						"v2.1",
+						"ai-normalized"
+					],
+					"query": [
+						{
+							"key": "orgId",
+							"value": "o16931955822231564"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Asset Current Day Electric Power",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Function to get SHA-256 hash using CryptoJS\r",
+							"function getSHA256(str) {\r",
+							"    return CryptoJS.SHA256(str).toString(CryptoJS.enc.Hex);\r",
+							"}\r",
+							"\r",
+							"// Main logic to prepare request\r",
+							"const accssToken = pm.environment.get('accessToken');\r",
+							"const appSecret = pm.environment.get('appSecret');\r",
+							"const timestamp = Date.now();\r",
+							"pm.environment.set('timestamp', timestamp);\r",
+							"\r",
+							"const url = pm.request.url.toString();\r",
+							"const requestBody = pm.request.body.raw;\r",
+							"console.log(\"requestBody:\" + requestBody);\r",
+							"console.log(\"requestRaw:\" + pm.request.body.raw);\r",
+							"// Extract query parameters manually\r",
+							"const queryString = url.split('?')[1] || '';\r",
+							"const paramsArray = queryString.split('&');\r",
+							"const params = [];\r",
+							"\r",
+							"paramsArray.forEach(param => {\r",
+							"    const [key, value] = param.split('=');\r",
+							"    if (key) {\r",
+							"        params.push({ key, value });\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"// Sort parameters by key\r",
+							"params.sort((a, b) => a.key.localeCompare(b.key));\r",
+							"\r",
+							"let paramsData = '';\r",
+							"params.forEach(param => {\r",
+							"    paramsData += param.key + (param.value || '');\r",
+							"});\r",
+							"paramsData += requestBody;\r",
+							"\r",
+							"const signData = accssToken + paramsData + timestamp + appSecret;\r",
+							"const apimSign = getSHA256(signData);\r",
+							"\r",
+							"// Set the calculated signature in an environment variable\r",
+							"pm.environment.set('signature', apimSign);\r",
+							"console.log(apimSign);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "apim-accesstoken",
+						"value": "{{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "apim-signature",
+						"value": "{{signature}}",
+						"type": "text"
+					},
+					{
+						"key": "apim-timestamp",
+						"value": "{{timestamp}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"assetIds\": \"UQmqocvc\",\r\n  \"pointIds\": \" AHU_alert_faulty_sat\",\r\n  \"localTimeAccuracy\": true,\r\n  \"localTimeFormat\": 1,\r\n  \"itemFormat\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{apigw-address}}/tsdb-service/v2.1/electric-power/current-day?orgId=o16931955822231564",
+					"protocol": "https",
+					"host": [
+						"{{apigw-address}}"
+					],
+					"path": [
+						"tsdb-service",
+						"v2.1",
+						"electric-power",
+						"current-day"
+					],
+					"query": [
+						{
+							"key": "orgId",
+							"value": "o16931955822231564"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Asset DI Data [Get the status change (DI) data of specified devices within a certain period.]",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Function to get SHA-256 hash using CryptoJS\r",
+							"function getSHA256(str) {\r",
+							"    return CryptoJS.SHA256(str).toString(CryptoJS.enc.Hex);\r",
+							"}\r",
+							"\r",
+							"// Main logic to prepare request\r",
+							"const accssToken = pm.environment.get('accessToken');\r",
+							"const appSecret = pm.environment.get('appSecret');\r",
+							"const timestamp = Date.now();\r",
+							"pm.environment.set('timestamp', timestamp);\r",
+							"\r",
+							"const url = pm.request.url.toString();\r",
+							"const requestBody = pm.request.body.raw;\r",
+							"console.log(\"requestBody:\" + requestBody);\r",
+							"console.log(\"requestRaw:\" + pm.request.body.raw);\r",
+							"// Extract query parameters manually\r",
+							"const queryString = url.split('?')[1] || '';\r",
+							"const paramsArray = queryString.split('&');\r",
+							"const params = [];\r",
+							"\r",
+							"paramsArray.forEach(param => {\r",
+							"    const [key, value] = param.split('=');\r",
+							"    if (key) {\r",
+							"        params.push({ key, value });\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"// Sort parameters by key\r",
+							"params.sort((a, b) => a.key.localeCompare(b.key));\r",
+							"\r",
+							"let paramsData = '';\r",
+							"params.forEach(param => {\r",
+							"    paramsData += param.key + (param.value || '');\r",
+							"});\r",
+							"paramsData += requestBody;\r",
+							"\r",
+							"const signData = accssToken + paramsData + timestamp + appSecret;\r",
+							"const apimSign = getSHA256(signData);\r",
+							"\r",
+							"// Set the calculated signature in an environment variable\r",
+							"pm.environment.set('signature', apimSign);\r",
+							"console.log(apimSign);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "apim-accesstoken",
+						"value": "{{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "apim-signature",
+						"value": "{{signature}}",
+						"type": "text"
+					},
+					{
+						"key": "apim-timestamp",
+						"value": "{{timestamp}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"assetIds\": \"UQmqocvc\",\r\n    \"pointIds\": \"AHU_raw_return_air_co2\",\r\n    \"startTime\": \"2024-09-30 00:00:00\",\r\n    \"endTime\": \"2024-10-01 00:00:00\",\r\n    \"localTimeAccuracy\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{apigw-address}}/tsdb-service/v2.1/di?orgId=o16931955822231564",
+					"protocol": "https",
+					"host": [
+						"{{apigw-address}}"
+					],
+					"path": [
+						"tsdb-service",
+						"v2.1",
+						"di"
+					],
+					"query": [
+						{
+							"key": "orgId",
+							"value": "o16931955822231564"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Asset DI Data Duration [Get the duration of different status (DI) data of specified devices within a certain period.]",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Function to get SHA-256 hash using CryptoJS\r",
+							"function getSHA256(str) {\r",
+							"    return CryptoJS.SHA256(str).toString(CryptoJS.enc.Hex);\r",
+							"}\r",
+							"\r",
+							"// Main logic to prepare request\r",
+							"const accssToken = pm.environment.get('accessToken');\r",
+							"const appSecret = pm.environment.get('appSecret');\r",
+							"const timestamp = Date.now();\r",
+							"pm.environment.set('timestamp', timestamp);\r",
+							"\r",
+							"const url = pm.request.url.toString();\r",
+							"const requestBody = pm.request.body.raw;\r",
+							"console.log(\"requestBody:\" + requestBody);\r",
+							"console.log(\"requestRaw:\" + pm.request.body.raw);\r",
+							"// Extract query parameters manually\r",
+							"const queryString = url.split('?')[1] || '';\r",
+							"const paramsArray = queryString.split('&');\r",
+							"const params = [];\r",
+							"\r",
+							"paramsArray.forEach(param => {\r",
+							"    const [key, value] = param.split('=');\r",
+							"    if (key) {\r",
+							"        params.push({ key, value });\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"// Sort parameters by key\r",
+							"params.sort((a, b) => a.key.localeCompare(b.key));\r",
+							"\r",
+							"let paramsData = '';\r",
+							"params.forEach(param => {\r",
+							"    paramsData += param.key + (param.value || '');\r",
+							"});\r",
+							"paramsData += requestBody;\r",
+							"\r",
+							"const signData = accssToken + paramsData + timestamp + appSecret;\r",
+							"const apimSign = getSHA256(signData);\r",
+							"\r",
+							"// Set the calculated signature in an environment variable\r",
+							"pm.environment.set('signature', apimSign);\r",
+							"console.log(apimSign);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "apim-accesstoken",
+						"value": "{{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "apim-signature",
+						"value": "{{signature}}",
+						"type": "text"
+					},
+					{
+						"key": "apim-timestamp",
+						"value": "{{timestamp}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"assetIds\": \"UQmqocvc,U8kZ848Y\",\r\n    \"pointIds\": \"AHU_raw_return_air_co2,AHU_alert_faulty_sat\",\r\n    \"startTime\": \"2024-09-30 00:00:00\",\r\n    \"endTime\": \"2024-10-01 00:00:00\",\r\n    \"localTimeAccuracy\": true,\r\n    \"ifWithUnknown\":false\r\n    \r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{apigw-address}}/tsdb-service/v2.1/di/duration?orgId=o16931955822231564",
+					"protocol": "https",
+					"host": [
+						"{{apigw-address}}"
+					],
+					"path": [
+						"tsdb-service",
+						"v2.1",
+						"di",
+						"duration"
+					],
+					"query": [
+						{
+							"key": "orgId",
+							"value": "o16931955822231564"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Asset Electric Power Data",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Function to get SHA-256 hash using CryptoJS\r",
+							"function getSHA256(str) {\r",
+							"    return CryptoJS.SHA256(str).toString(CryptoJS.enc.Hex);\r",
+							"}\r",
+							"\r",
+							"// Main logic to prepare request\r",
+							"const accssToken = pm.environment.get('accessToken');\r",
+							"const appSecret = pm.environment.get('appSecret');\r",
+							"const timestamp = Date.now();\r",
+							"pm.environment.set('timestamp', timestamp);\r",
+							"\r",
+							"const url = pm.request.url.toString();\r",
+							"const requestBody = pm.request.body.raw;\r",
+							"console.log(\"requestBody:\" + requestBody);\r",
+							"console.log(\"requestRaw:\" + pm.request.body.raw);\r",
+							"// Extract query parameters manually\r",
+							"const queryString = url.split('?')[1] || '';\r",
+							"const paramsArray = queryString.split('&');\r",
+							"const params = [];\r",
+							"\r",
+							"paramsArray.forEach(param => {\r",
+							"    const [key, value] = param.split('=');\r",
+							"    if (key) {\r",
+							"        params.push({ key, value });\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"// Sort parameters by key\r",
+							"params.sort((a, b) => a.key.localeCompare(b.key));\r",
+							"\r",
+							"let paramsData = '';\r",
+							"params.forEach(param => {\r",
+							"    paramsData += param.key + (param.value || '');\r",
+							"});\r",
+							"paramsData += requestBody;\r",
+							"\r",
+							"const signData = accssToken + paramsData + timestamp + appSecret;\r",
+							"const apimSign = getSHA256(signData);\r",
+							"\r",
+							"// Set the calculated signature in an environment variable\r",
+							"pm.environment.set('signature', apimSign);\r",
+							"console.log(apimSign);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apim-accesstoken",
+						"value": "{{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "apim-signature",
+						"value": "{{signature}}",
+						"type": "text"
+					},
+					{
+						"key": "apim-timestamp",
+						"value": "{{timestamp}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{apigw-address}}/tsdb-service/v2.0/electric-power?orgId=o16931955822231564&modelId=&assetIds=U8kZ848Y&measurepointsWithLogic=sum(AHU_raw_return_air_co2)&interval=90&startTime=2024-09-29 00:00:00&endTime=2024-09-30 00:00:00&pageSize=10&accessKey={{appKey}}",
+					"protocol": "https",
+					"host": [
+						"{{apigw-address}}"
+					],
+					"path": [
+						"tsdb-service",
+						"v2.0",
+						"electric-power"
+					],
+					"query": [
+						{
+							"key": "orgId",
+							"value": "o16931955822231564"
+						},
+						{
+							"key": "modelId",
+							"value": ""
+						},
+						{
+							"key": "assetIds",
+							"value": "U8kZ848Y"
+						},
+						{
+							"key": "measurepointsWithLogic",
+							"value": "sum(AHU_raw_return_air_co2)"
+						},
+						{
+							"key": "interval",
+							"value": "90"
+						},
+						{
+							"key": "startTime",
+							"value": "2024-09-29 00:00:00"
+						},
+						{
+							"key": "endTime",
+							"value": "2024-09-30 00:00:00"
+						},
+						{
+							"key": "pageSize",
+							"value": "10"
+						},
+						{
+							"key": "accessKey",
+							"value": "{{appKey}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Asset Generic Data",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Function to get SHA-256 hash using CryptoJS\r",
+							"function getSHA256(str) {\r",
+							"    return CryptoJS.SHA256(str).toString(CryptoJS.enc.Hex);\r",
+							"}\r",
+							"\r",
+							"// Main logic to prepare request\r",
+							"const accssToken = pm.environment.get('accessToken');\r",
+							"const appSecret = pm.environment.get('appSecret');\r",
+							"const timestamp = Date.now();\r",
+							"pm.environment.set('timestamp', timestamp);\r",
+							"\r",
+							"const url = pm.request.url.toString();\r",
+							"const requestBody = pm.request.body.raw;\r",
+							"console.log(\"requestBody:\" + requestBody);\r",
+							"console.log(\"requestRaw:\" + pm.request.body.raw);\r",
+							"// Extract query parameters manually\r",
+							"const queryString = url.split('?')[1] || '';\r",
+							"const paramsArray = queryString.split('&');\r",
+							"const params = [];\r",
+							"\r",
+							"paramsArray.forEach(param => {\r",
+							"    const [key, value] = param.split('=');\r",
+							"    if (key) {\r",
+							"        params.push({ key, value });\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"// Sort parameters by key\r",
+							"params.sort((a, b) => a.key.localeCompare(b.key));\r",
+							"\r",
+							"let paramsData = '';\r",
+							"params.forEach(param => {\r",
+							"    paramsData += param.key + (param.value || '');\r",
+							"});\r",
+							"paramsData += requestBody;\r",
+							"\r",
+							"const signData = accssToken + paramsData + timestamp + appSecret;\r",
+							"const apimSign = getSHA256(signData);\r",
+							"\r",
+							"// Set the calculated signature in an environment variable\r",
+							"pm.environment.set('signature', apimSign);\r",
+							"console.log(apimSign);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "apim-accesstoken",
+						"value": "{{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "apim-signature",
+						"value": "{{signature}}",
+						"type": "text"
+					},
+					{
+						"key": "apim-timestamp",
+						"value": "{{timestamp}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"assetIds\": \"U8kZ848Y\",\r\n    \"pointIds\": \"AHU_raw_return_air_co2\",\r\n    \"startTime\": \"2024-10-01 00:00:00\",\r\n    \"endTime\": \"2024-10-02 01:00:00\",\r\n    \"localTimeAccuracy\": true,\r\n    \"localTimeFormat\": 1,\r\n    \"itemFormat\": 2,\r\n    \"withQuality\": true,\r\n    \"pageSize\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{apigw-address}}/tsdb-service/v2.1/generic?orgId=o16931955822231564",
+					"protocol": "https",
+					"host": [
+						"{{apigw-address}}"
+					],
+					"path": [
+						"tsdb-service",
+						"v2.1",
+						"generic"
+					],
+					"query": [
+						{
+							"key": "orgId",
+							"value": "o16931955822231564"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Asset Latest Data",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Function to get SHA-256 hash using CryptoJS\r",
+							"function getSHA256(str) {\r",
+							"    return CryptoJS.SHA256(str).toString(CryptoJS.enc.Hex);\r",
+							"}\r",
+							"\r",
+							"// Main logic to prepare request\r",
+							"const accssToken = pm.environment.get('accessToken');\r",
+							"const appSecret = pm.environment.get('appSecret');\r",
+							"const timestamp = Date.now();\r",
+							"pm.environment.set('timestamp', timestamp);\r",
+							"\r",
+							"const url = pm.request.url.toString();\r",
+							"const requestBody = pm.request.body.raw;\r",
+							"console.log(\"requestBody:\" + requestBody);\r",
+							"console.log(\"requestRaw:\" + pm.request.body.raw);\r",
+							"// Extract query parameters manually\r",
+							"const queryString = url.split('?')[1] || '';\r",
+							"const paramsArray = queryString.split('&');\r",
+							"const params = [];\r",
+							"\r",
+							"paramsArray.forEach(param => {\r",
+							"    const [key, value] = param.split('=');\r",
+							"    if (key) {\r",
+							"        params.push({ key, value });\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"// Sort parameters by key\r",
+							"params.sort((a, b) => a.key.localeCompare(b.key));\r",
+							"\r",
+							"let paramsData = '';\r",
+							"params.forEach(param => {\r",
+							"    paramsData += param.key + (param.value || '');\r",
+							"});\r",
+							"paramsData += requestBody;\r",
+							"\r",
+							"const signData = accssToken + paramsData + timestamp + appSecret;\r",
+							"const apimSign = getSHA256(signData);\r",
+							"\r",
+							"// Set the calculated signature in an environment variable\r",
+							"pm.environment.set('signature', apimSign);\r",
+							"console.log(apimSign);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "apim-accesstoken",
+						"value": "{{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "apim-signature",
+						"value": "{{signature}}",
+						"type": "text"
+					},
+					{
+						"key": "apim-timestamp",
+						"value": "{{timestamp}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"assetIds\": \"UQmqocvc,U8kZ848Y\",\r\n    \"pointIds\": \"AHU_raw_return_air_co2, AHU_raw_sp_supply_air_temp, AHU_alert_faulty_sat\",\r\n    \"ifWithLocalTime\": true,\r\n    \"timeWindow\": 10,\r\n    \"itemFormat\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{apigw-address}}/tsdb-service/v2.1/latest?orgId=o16931955822231564",
+					"protocol": "https",
+					"host": [
+						"{{apigw-address}}"
+					],
+					"path": [
+						"tsdb-service",
+						"v2.1",
+						"latest"
+					],
+					"query": [
+						{
+							"key": "orgId",
+							"value": "o16931955822231564"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Asset Raw Data by Time Range",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Function to get SHA-256 hash using CryptoJS\r",
+							"function getSHA256(str) {\r",
+							"    return CryptoJS.SHA256(str).toString(CryptoJS.enc.Hex);\r",
+							"}\r",
+							"\r",
+							"// Main logic to prepare request\r",
+							"const accssToken = pm.environment.get('accessToken');\r",
+							"const appSecret = pm.environment.get('appSecret');\r",
+							"const timestamp = Date.now();\r",
+							"pm.environment.set('timestamp', timestamp);\r",
+							"\r",
+							"const url = pm.request.url.toString();\r",
+							"const requestBody = pm.request.body.raw;\r",
+							"console.log(\"requestBody:\" + requestBody);\r",
+							"console.log(\"requestRaw:\" + pm.request.body.raw);\r",
+							"// Extract query parameters manually\r",
+							"const queryString = url.split('?')[1] || '';\r",
+							"const paramsArray = queryString.split('&');\r",
+							"const params = [];\r",
+							"\r",
+							"paramsArray.forEach(param => {\r",
+							"    const [key, value] = param.split('=');\r",
+							"    if (key) {\r",
+							"        params.push({ key, value });\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"// Sort parameters by key\r",
+							"params.sort((a, b) => a.key.localeCompare(b.key));\r",
+							"\r",
+							"let paramsData = '';\r",
+							"params.forEach(param => {\r",
+							"    paramsData += param.key + (param.value || '');\r",
+							"});\r",
+							"paramsData += requestBody;\r",
+							"\r",
+							"const signData = accssToken + paramsData + timestamp + appSecret;\r",
+							"const apimSign = getSHA256(signData);\r",
+							"\r",
+							"// Set the calculated signature in an environment variable\r",
+							"pm.environment.set('signature', apimSign);\r",
+							"console.log(apimSign);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "apim-accesstoken",
+						"value": "{{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "apim-signature",
+						"value": "{{signature}}",
+						"type": "text"
+					},
+					{
+						"key": "apim-timestamp",
+						"value": "{{timestamp}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"assetIds\": \"UQmqocvc\",\r\n    \"pointIds\": \"AHU_raw_return_air_co2\",\r\n    \"startTime\": \"2024-09-29 00:00:00\",\r\n    \"endTime\": \"2024-09-30 00:00:00\",\r\n    \"boundaryType\": \"inside\",\r\n    \"withQuality\": true,\r\n    \"localTimeAccuracy\": true,\r\n    \"localTimeFormat\": 0,\r\n    \"itemFormat\": 1,\r\n    \"type\":\"ai\",\r\n    \"interval\":3600\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{apigw-address}}/tsdb-service/v2.1/raw?orgId=o16931955822231564",
+					"protocol": "https",
+					"host": [
+						"{{apigw-address}}"
+					],
+					"path": [
+						"tsdb-service",
+						"v2.1",
+						"raw"
+					],
+					"query": [
+						{
+							"key": "orgId",
+							"value": "o16931955822231564"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Asset Unformatted Data",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Function to get SHA-256 hash using CryptoJS\r",
+							"function getSHA256(str) {\r",
+							"    return CryptoJS.SHA256(str).toString(CryptoJS.enc.Hex);\r",
+							"}\r",
+							"\r",
+							"// Main logic to prepare request\r",
+							"const accssToken = pm.environment.get('accessToken');\r",
+							"const appSecret = pm.environment.get('appSecret');\r",
+							"const timestamp = Date.now();\r",
+							"pm.environment.set('timestamp', timestamp);\r",
+							"\r",
+							"const url = pm.request.url.toString();\r",
+							"const requestBody = pm.request.body.raw;\r",
+							"console.log(\"requestBody:\" + requestBody);\r",
+							"console.log(\"requestRaw:\" + pm.request.body.raw);\r",
+							"// Extract query parameters manually\r",
+							"const queryString = url.split('?')[1] || '';\r",
+							"const paramsArray = queryString.split('&');\r",
+							"const params = [];\r",
+							"\r",
+							"paramsArray.forEach(param => {\r",
+							"    const [key, value] = param.split('=');\r",
+							"    if (key) {\r",
+							"        params.push({ key, value });\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"// Sort parameters by key\r",
+							"params.sort((a, b) => a.key.localeCompare(b.key));\r",
+							"\r",
+							"let paramsData = '';\r",
+							"params.forEach(param => {\r",
+							"    paramsData += param.key + (param.value || '');\r",
+							"});\r",
+							"paramsData += requestBody;\r",
+							"\r",
+							"const signData = accssToken + paramsData + timestamp + appSecret;\r",
+							"const apimSign = getSHA256(signData);\r",
+							"\r",
+							"// Set the calculated signature in an environment variable\r",
+							"pm.environment.set('signature', apimSign);\r",
+							"console.log(apimSign);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "apim-accesstoken",
+						"value": "{{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "apim-signature",
+						"value": "{{signature}}",
+						"type": "text"
+					},
+					{
+						"key": "apim-timestamp",
+						"value": "{{timestamp}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"assetIds\": \"UQmqocvc\",\r\n    \"pointIds\": \"AHU_raw_return_air_co2\",\r\n    \"startTime\": \"2024-10-01 00:00:00\",\r\n    \"endTime\": \"2024-10-02 00:00:00\",\r\n    \"pageSize\": 10,\r\n    \"localTimeAccuracy\": true,\r\n    \"localTimeFormat\": 1,\r\n    \"itemFormat\": 0,\r\n    \"orderBy\": \"timestamp asc\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{apigw-address}}/tsdb-service/v2.1/unformatted?orgId=o16931955822231564",
+					"protocol": "https",
+					"host": [
+						"{{apigw-address}}"
+					],
+					"path": [
+						"tsdb-service",
+						"v2.1",
+						"unformatted"
+					],
+					"query": [
+						{
+							"key": "orgId",
+							"value": "o16931955822231564"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Last Changed Data",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Function to get SHA-256 hash using CryptoJS\r",
+							"function getSHA256(str) {\r",
+							"    return CryptoJS.SHA256(str).toString(CryptoJS.enc.Hex);\r",
+							"}\r",
+							"\r",
+							"// Main logic to prepare request\r",
+							"const accssToken = pm.environment.get('accessToken');\r",
+							"const appSecret = pm.environment.get('appSecret');\r",
+							"const timestamp = Date.now();\r",
+							"pm.environment.set('timestamp', timestamp);\r",
+							"\r",
+							"const url = pm.request.url.toString();\r",
+							"const requestBody = pm.request.body.raw;\r",
+							"console.log(\"requestBody:\" + requestBody);\r",
+							"console.log(\"requestRaw:\" + pm.request.body.raw);\r",
+							"// Extract query parameters manually\r",
+							"const queryString = url.split('?')[1] || '';\r",
+							"const paramsArray = queryString.split('&');\r",
+							"const params = [];\r",
+							"\r",
+							"paramsArray.forEach(param => {\r",
+							"    const [key, value] = param.split('=');\r",
+							"    if (key) {\r",
+							"        params.push({ key, value });\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"// Sort parameters by key\r",
+							"params.sort((a, b) => a.key.localeCompare(b.key));\r",
+							"\r",
+							"let paramsData = '';\r",
+							"params.forEach(param => {\r",
+							"    paramsData += param.key + (param.value || '');\r",
+							"});\r",
+							"paramsData += requestBody;\r",
+							"\r",
+							"const signData = accssToken + paramsData + timestamp + appSecret;\r",
+							"const apimSign = getSHA256(signData);\r",
+							"\r",
+							"// Set the calculated signature in an environment variable\r",
+							"pm.environment.set('signature', apimSign);\r",
+							"console.log(apimSign);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "apim-accesstoken",
+						"value": "{{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "apim-signature",
+						"value": "{{signature}}",
+						"type": "text"
+					},
+					{
+						"key": "apim-timestamp",
+						"value": "{{timestamp}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"assetIds\": \"UQmqocvc\",\r\n    \"pointIds\": \"AHU_raw_return_air_co2\",\r\n    \"ifWithLocalTime\": true,\r\n    \"localTimeAccuracy\": true,\r\n    \"localTimeFormat\": 0,\r\n    \"itemFormat\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{apigw-address}}/tsdb-service/v2.1/data/last-changed?orgId=o16931955822231564",
+					"protocol": "https",
+					"host": [
+						"{{apigw-address}}"
+					],
+					"path": [
+						"tsdb-service",
+						"v2.1",
+						"data",
+						"last-changed"
+					],
+					"query": [
+						{
+							"key": "orgId",
+							"value": "o16931955822231564"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check Dead Data",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Function to get SHA-256 hash using CryptoJS\r",
+							"function getSHA256(str) {\r",
+							"    return CryptoJS.SHA256(str).toString(CryptoJS.enc.Hex);\r",
+							"}\r",
+							"\r",
+							"// Main logic to prepare request\r",
+							"const accssToken = pm.environment.get('accessToken');\r",
+							"const appSecret = pm.environment.get('appSecret');\r",
+							"const timestamp = Date.now();\r",
+							"pm.environment.set('timestamp', timestamp);\r",
+							"\r",
+							"const url = pm.request.url.toString();\r",
+							"const requestBody = pm.request.body.raw;\r",
+							"console.log(\"requestBody:\" + requestBody);\r",
+							"console.log(\"requestRaw:\" + pm.request.body.raw);\r",
+							"// Extract query parameters manually\r",
+							"const queryString = url.split('?')[1] || '';\r",
+							"const paramsArray = queryString.split('&');\r",
+							"const params = [];\r",
+							"\r",
+							"paramsArray.forEach(param => {\r",
+							"    const [key, value] = param.split('=');\r",
+							"    if (key) {\r",
+							"        params.push({ key, value });\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"// Sort parameters by key\r",
+							"params.sort((a, b) => a.key.localeCompare(b.key));\r",
+							"\r",
+							"let paramsData = '';\r",
+							"params.forEach(param => {\r",
+							"    paramsData += param.key + (param.value || '');\r",
+							"});\r",
+							"paramsData += requestBody;\r",
+							"\r",
+							"const signData = accssToken + paramsData + timestamp + appSecret;\r",
+							"const apimSign = getSHA256(signData);\r",
+							"\r",
+							"// Set the calculated signature in an environment variable\r",
+							"pm.environment.set('signature', apimSign);\r",
+							"console.log(apimSign);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "apim-accesstoken",
+						"value": "{{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "apim-signature",
+						"value": "{{signature}}",
+						"type": "text"
+					},
+					{
+						"key": "apim-timestamp",
+						"value": "{{timestamp}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"payload\": [\r\n        {\r\n            \"assetId\": \"UQmqocvc\",\r\n            \"pointId\": \"AHU_raw_return_air_co2\",\r\n            \"interval\": 864000000\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{apigw-address}}/tsdb-service/v2.1/data/latest/check-dead?orgId=o16931955822231564",
+					"protocol": "https",
+					"host": [
+						"{{apigw-address}}"
+					],
+					"path": [
+						"tsdb-service",
+						"v2.1",
+						"data",
+						"latest",
+						"check-dead"
+					],
+					"query": [
+						{
+							"key": "orgId",
+							"value": "o16931955822231564"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Asset Unified Raw Data",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Function to get SHA-256 hash using CryptoJS\r",
+							"function getSHA256(str) {\r",
+							"    return CryptoJS.SHA256(str).toString(CryptoJS.enc.Hex);\r",
+							"}\r",
+							"\r",
+							"// Main logic to prepare request\r",
+							"const accssToken = pm.environment.get('accessToken');\r",
+							"const appSecret = pm.environment.get('appSecret');\r",
+							"const timestamp = Date.now();\r",
+							"pm.environment.set('timestamp', timestamp);\r",
+							"\r",
+							"const url = pm.request.url.toString();\r",
+							"const requestBody = pm.request.body.raw;\r",
+							"console.log(\"requestBody:\" + requestBody);\r",
+							"console.log(\"requestRaw:\" + pm.request.body.raw);\r",
+							"// Extract query parameters manually\r",
+							"const queryString = url.split('?')[1] || '';\r",
+							"const paramsArray = queryString.split('&');\r",
+							"const params = [];\r",
+							"\r",
+							"paramsArray.forEach(param => {\r",
+							"    const [key, value] = param.split('=');\r",
+							"    if (key) {\r",
+							"        params.push({ key, value });\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"// Sort parameters by key\r",
+							"params.sort((a, b) => a.key.localeCompare(b.key));\r",
+							"\r",
+							"let paramsData = '';\r",
+							"params.forEach(param => {\r",
+							"    paramsData += param.key + (param.value || '');\r",
+							"});\r",
+							"paramsData += requestBody;\r",
+							"\r",
+							"const signData = accssToken + paramsData + timestamp + appSecret;\r",
+							"const apimSign = getSHA256(signData);\r",
+							"\r",
+							"// Set the calculated signature in an environment variable\r",
+							"pm.environment.set('signature', apimSign);\r",
+							"console.log(apimSign);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "apim-accesstoken",
+						"value": "{{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "apim-signature",
+						"value": "{{signature}}",
+						"type": "text"
+					},
+					{
+						"key": "apim-timestamp",
+						"value": "{{timestamp}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"assetIds\": \"UQmqocvc\",\r\n    \"pointIds\": \"AHU_raw_return_air_co2\",\r\n    \"startTime\": \"2024-09-29 00:00:00\",\r\n    \"endTime\": \"2024-09-30 00:00:00\",\r\n    \"localTimeAccuracy\": true,\r\n    \"localTimeFormat\": 0,\r\n    \"itemFormat\": 0,\r\n    \"boundaryType\":\"ai_normalized \",\r\n    \"orderBy\": \"timestamp asc\",\r\n    \"interpolation\":\"after\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{apigw-address}}/tsdb-service/v2.1/unified-raw?orgId=o16931955822231564",
+					"protocol": "https",
+					"host": [
+						"{{apigw-address}}"
+					],
+					"path": [
+						"tsdb-service",
+						"v2.1",
+						"unified-raw"
+					],
+					"query": [
+						{
+							"key": "orgId",
+							"value": "o16931955822231564"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
